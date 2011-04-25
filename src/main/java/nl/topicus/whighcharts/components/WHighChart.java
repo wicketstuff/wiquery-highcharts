@@ -1,13 +1,11 @@
 package nl.topicus.whighcharts.components;
 
 import java.io.IOException;
-import java.util.Collection;
 
-import nl.topicus.whighcharts.data.Series;
+import nl.topicus.whighcharts.data.SeriesEntry;
 import nl.topicus.whighcharts.options.WHighChartOptions;
 
 import org.apache.wicket.markup.html.WebMarkupContainer;
-import org.apache.wicket.model.IModel;
 import org.codehaus.jackson.JsonGenerationException;
 import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
@@ -16,28 +14,22 @@ import org.odlabs.wiquery.core.commons.IWiQueryPlugin;
 import org.odlabs.wiquery.core.commons.WiQueryResourceManager;
 import org.odlabs.wiquery.core.javascript.JsStatement;
 
-public class WHighChart extends WebMarkupContainer implements IWiQueryPlugin
+public class WHighChart<K, V, E extends SeriesEntry<K, V>> extends WebMarkupContainer implements
+		IWiQueryPlugin
 {
 	private static final long serialVersionUID = 1L;
 
-	private WHighChartOptions options = new WHighChartOptions(this);
+	private WHighChartOptions<K, V, E> options = new WHighChartOptions<K, V, E>(this);
 
-	public WHighChart(String id,
-			IModel< ? extends Collection< ? extends Series< ? , ? , ? >>> model)
+	public WHighChart(String id)
 	{
-		super(id, model);
+		super(id);
 		setOutputMarkupId(true);
 	}
 
-	public WHighChartOptions getOptions()
+	public WHighChartOptions<K, V, E> getOptions()
 	{
 		return options;
-	}
-
-	@SuppressWarnings("unchecked")
-	private Collection< ? extends Series< ? , ? , ? >> getModelObject()
-	{
-		return (Collection< ? extends Series< ? , ? , ? >>) getDefaultModelObject();
 	}
 
 	@Override
@@ -70,7 +62,7 @@ public class WHighChart extends WebMarkupContainer implements IWiQueryPlugin
 		}
 
 		JsStatement jsStatement =
-			new JsStatement().append("var " + getMarkupId() + " = = new Highcharts.Chart( "
+			new JsStatement().append("var " + getMarkupId() + " = new Highcharts.Chart( "
 				+ optionsStr + " );\n");
 
 		return jsStatement;

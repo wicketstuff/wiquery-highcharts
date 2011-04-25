@@ -532,7 +532,7 @@ public class WHighChartChartOptions
 		return renderTo;
 	}
 
-	public WHighChartChartOptions setRenderTo(String renderTo)
+	WHighChartChartOptions setRenderTo(String renderTo)
 	{
 		this.renderTo = renderTo;
 		return this;

@@ -1,4 +1,4 @@
-package nl.topicus.wjit.web;
+package nl.topicus.whighcharts.web;
 
 import nl.topicus.whighcharts.web.pages.HomePage;
 
@@ -26,7 +26,7 @@ public class WicketApplication extends WebApplication
 
 		getMarkupSettings().setStripWicketTags(true);
 		getSharedResources().putClassAlias(Application.class, "application");
-		getResourceSettings().setResourcePollFrequency(Duration.ONE_SECOND);
+		getResourceSettings().setResourcePollFrequency(Duration.ONE_MINUTE);
 
 		getRequestLoggerSettings().setRequestLoggerEnabled(true);
 		getRequestLoggerSettings().setRequestsWindowSize(200);
@@ -36,10 +36,5 @@ public class WicketApplication extends WebApplication
 	public static WicketApplication get()
 	{
 		return (WicketApplication) WebApplication.get();
-	}
-
-	public boolean isDevelopment()
-	{
-		return Application.DEVELOPMENT.equals(getConfigurationType());
 	}
 }

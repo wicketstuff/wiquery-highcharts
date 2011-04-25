@@ -1,4 +1,4 @@
-package nl.topicus.wjit;
+package nl.topicus.whighcharts;
 
 import org.mortbay.jetty.Connector;
 import org.mortbay.jetty.Server;

@@ -1,4 +1,4 @@
-package nl.topicus.wjit.web.pages;
+package nl.topicus.whighcharts.web.pages;
 
 import org.apache.wicket.markup.html.WebPage;
 

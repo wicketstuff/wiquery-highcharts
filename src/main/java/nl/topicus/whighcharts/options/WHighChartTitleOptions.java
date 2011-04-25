@@ -9,5 +9,16 @@ import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
 @JsonSerialize(include = Inclusion.NON_NULL)
 public class WHighChartTitleOptions
 {
+	private String text;
 
+	public String getText()
+	{
+		return text;
+	}
+
+	public WHighChartTitleOptions setText(String text)
+	{
+		this.text = text;
+		return this;
+	}
 }

@@ -1,8 +1,12 @@
 package nl.topicus.whighcharts.options;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import nl.topicus.whighcharts.components.WHighChart;
+import nl.topicus.whighcharts.data.Series;
+import nl.topicus.whighcharts.data.SeriesEntry;
 
 import org.codehaus.jackson.annotate.JsonAutoDetect;
 import org.codehaus.jackson.annotate.JsonAutoDetect.Visibility;
@@ -12,7 +16,7 @@ import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
 
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 @JsonSerialize(include = Inclusion.NON_NULL)
-public class WHighChartOptions implements Serializable
+public class WHighChartOptions<K, V, E extends SeriesEntry<K, V>> implements Serializable
 {
 	private static final long serialVersionUID = 1L;
 
@@ -20,7 +24,7 @@ public class WHighChartOptions implements Serializable
 	 * Reference to the main chart object, not to be serialized into an option;
 	 */
 	@JsonIgnore
-	private WHighChart wHighChart;
+	private WHighChart<K, V, E> wHighChart;
 
 	private WHighChartChartOptions chart;
 
@@ -46,15 +50,15 @@ public class WHighChartOptions implements Serializable
 
 	private WHighChartTooltipOptions tooltip;
 
-	private WHighChartSeriesOptions series;
+	private List<Series<K, V, E>> series;
 
 	private WHighChartSubtitleOptions subtitle;
 
 	private WHighChartSymbolsOptions symbols;
 
-	private WHighChartXAxisOptions xAxis;
+	private WHighChartAxisOptions xAxis;
 
-	private WHighChartYAxisOptions yAxis;
+	private WHighChartAxisOptions yAxis;
 
 	/**
 	 * Exporting module
@@ -64,7 +68,7 @@ public class WHighChartOptions implements Serializable
 
 	private WHighChartNavigationOptions navigation;
 
-	public WHighChartOptions(WHighChart wHighChart)
+	public WHighChartOptions(WHighChart<K, V, E> wHighChart)
 	{
 		getChart().setRenderTo(wHighChart.getMarkupId());
 	}
@@ -133,11 +137,17 @@ public class WHighChartOptions implements Serializable
 		return point;
 	}
 
-	public WHighChartSeriesOptions getSeries()
+	public List<Series<K, V, E>> getSeries()
 	{
 		if (series == null)
-			series = new WHighChartSeriesOptions();
+			series = new ArrayList<Series<K, V, E>>();
 		return series;
+	}
+
+	public WHighChartOptions<K, V, E> addSeries(Series<K, V, E> serie)
+	{
+		getSeries().add(serie);
+		return this;
 	}
 
 	public WHighChartSubtitleOptions getSubtitle()
@@ -166,134 +176,128 @@ public class WHighChartOptions implements Serializable
 		return tooltip;
 	}
 
-	public WHighChart getwHighChart()
+	public WHighChart<K, V, E> getwHighChart()
 	{
 		return wHighChart;
 	}
 
-	public WHighChartXAxisOptions getxAxis()
+	public WHighChartAxisOptions getxAxis()
 	{
 		if (xAxis == null)
-			xAxis = new WHighChartXAxisOptions();
+			xAxis = new WHighChartAxisOptions();
 		return xAxis;
 	}
 
-	public WHighChartYAxisOptions getyAxis()
+	public WHighChartAxisOptions getyAxis()
 	{
 		if (yAxis == null)
-			yAxis = new WHighChartYAxisOptions();
+			yAxis = new WHighChartAxisOptions();
 		return yAxis;
 	}
 
-	public WHighChartOptions setChart(WHighChartChartOptions chart)
+	public WHighChartOptions<K, V, E> setChart(WHighChartChartOptions chart)
 	{
 		this.chart = chart;
 		return this;
 	}
 
-	public WHighChartOptions setColors(WHighChartColorsOptions colors)
+	public WHighChartOptions<K, V, E> setColors(WHighChartColorsOptions colors)
 	{
 		this.colors = colors;
 		return this;
 	}
 
-	public WHighChartOptions setCredits(WHighChartCreditsOptions credits)
+	public WHighChartOptions<K, V, E> setCredits(WHighChartCreditsOptions credits)
 	{
 		this.credits = credits;
 		return this;
 	}
 
-	public WHighChartOptions setExporting(WHighChartExportingOptions exporting)
+	public WHighChartOptions<K, V, E> setExporting(WHighChartExportingOptions exporting)
 	{
 		this.exporting = exporting;
 		return this;
 	}
 
-	public WHighChartOptions setGlobal(WHighChartGlobalOptions global)
+	public WHighChartOptions<K, V, E> setGlobal(WHighChartGlobalOptions global)
 	{
 		this.global = global;
 		return this;
 	}
 
-	public WHighChartOptions setLabels(WHighChartLabelsOptions labels)
+	public WHighChartOptions<K, V, E> setLabels(WHighChartLabelsOptions labels)
 	{
 		this.labels = labels;
 		return this;
 	}
 
-	public WHighChartOptions setLang(WHighChartLangOptions lang)
+	public WHighChartOptions<K, V, E> setLang(WHighChartLangOptions lang)
 	{
 		this.lang = lang;
 		return this;
 	}
 
-	public WHighChartOptions setLegend(WHighChartLegendOptions legend)
+	public WHighChartOptions<K, V, E> setLegend(WHighChartLegendOptions legend)
 	{
 		this.legend = legend;
 		return this;
 	}
 
-	public WHighChartOptions setLoading(WHighChartLoadingOptions loading)
+	public WHighChartOptions<K, V, E> setLoading(WHighChartLoadingOptions loading)
 	{
 		this.loading = loading;
 		return this;
 	}
 
-	public WHighChartOptions setNavigation(WHighChartNavigationOptions navigation)
+	public WHighChartOptions<K, V, E> setNavigation(WHighChartNavigationOptions navigation)
 	{
 		this.navigation = navigation;
 		return this;
 	}
 
-	public WHighChartOptions setPlotOptions(WHighChartPlotOptions plotOptions)
+	public WHighChartOptions<K, V, E> setPlotOptions(WHighChartPlotOptions plotOptions)
 	{
 		this.plotOptions = plotOptions;
 		return this;
 	}
 
-	public WHighChartOptions setPoint(WHighChartPointOptions point)
+	public WHighChartOptions<K, V, E> setPoint(WHighChartPointOptions point)
 	{
 		this.point = point;
 		return this;
 	}
 
-	public WHighChartOptions setSeries(WHighChartSeriesOptions series)
-	{
-		this.series = series;
-		return this;
-	}
-
-	public WHighChartOptions setSubtitle(WHighChartSubtitleOptions subtitle)
+	public WHighChartOptions<K, V, E> setSubtitle(WHighChartSubtitleOptions subtitle)
 	{
 		this.subtitle = subtitle;
 		return this;
 	}
 
-	public WHighChartOptions setSymbols(WHighChartSymbolsOptions symbols)
+	public WHighChartOptions<K, V, E> setSymbols(WHighChartSymbolsOptions symbols)
 	{
 		this.symbols = symbols;
 		return this;
 	}
 
-	public WHighChartOptions setTitle(WHighChartTitleOptions title)
+	public WHighChartOptions<K, V, E> setTitle(WHighChartTitleOptions title)
 	{
 		this.title = title;
 		return this;
 	}
 
-	public WHighChartOptions setTooltip(WHighChartTooltipOptions tooltip)
+	public WHighChartOptions<K, V, E> setTooltip(WHighChartTooltipOptions tooltip)
 	{
 		this.tooltip = tooltip;
 		return this;
 	}
 
-	public WHighChartOptions setxAxis(WHighChartXAxisOptions xAxis)
+	public WHighChartOptions<K, V, E> setxAxis(WHighChartAxisOptions xAxis)
 	{
 		this.xAxis = xAxis;
 		return this;
 	}
 
-	public WHighChartOptions setyAxis(WHighChartYAxisOptions yAxis)
+	public WHighChartOptions<K, V, E> setyAxis(WHighChartAxisOptions yAxis)
 	{
 		this.yAxis = yAxis;
 		return this;

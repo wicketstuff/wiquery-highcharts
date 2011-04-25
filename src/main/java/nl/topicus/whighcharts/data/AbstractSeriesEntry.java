@@ -1,10 +1,15 @@
 package nl.topicus.whighcharts.data;
 
 import java.util.Arrays;
-import java.util.List;
 
+import org.codehaus.jackson.annotate.JsonAutoDetect;
+import org.codehaus.jackson.annotate.JsonAutoDetect.Visibility;
 import org.codehaus.jackson.annotate.JsonValue;
+import org.codehaus.jackson.map.annotate.JsonSerialize;
+import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
 
+@JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
+@JsonSerialize(include = Inclusion.NON_NULL)
 public class AbstractSeriesEntry<K, V> implements SeriesEntry<K, V>
 {
 	private K key;
@@ -30,7 +35,7 @@ public class AbstractSeriesEntry<K, V> implements SeriesEntry<K, V>
 	}
 
 	@JsonValue
-	public List<Object> values()
+	public Object values()
 	{
 		return Arrays.asList(getKey(), getValue());
 	}

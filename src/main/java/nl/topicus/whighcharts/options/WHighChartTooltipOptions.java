@@ -9,5 +9,16 @@ import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
 @JsonSerialize(include = Inclusion.NON_NULL)
 public class WHighChartTooltipOptions
 {
+	private String formatter;
+
+	public String getFormatter()
+	{
+		return formatter;
+	}
+
+	public void setFormatter(String formatter)
+	{
+		this.formatter = formatter;
+	}
 
 }

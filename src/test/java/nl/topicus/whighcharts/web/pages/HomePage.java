@@ -1,7 +1,9 @@
-package nl.topicus.wjit.web.pages;
+package nl.topicus.whighcharts.web.pages;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import nl.topicus.whighcharts.web.pages.examples.AreaBasicPage;
 
 import org.apache.wicket.Page;
 import org.apache.wicket.markup.html.basic.Label;
@@ -21,6 +23,7 @@ public class HomePage extends BasePage
 		/*
 		 * Examples
 		 */
+		pages.add(AreaBasicPage.class);
 
 		ListView<Class< ? extends Page>> links =
 			new ListView<Class< ? extends Page>>("links", new ListModel<Class< ? extends Page>>(
