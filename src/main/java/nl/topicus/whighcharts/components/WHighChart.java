@@ -2,7 +2,8 @@ package nl.topicus.whighcharts.components;
 
 import java.io.IOException;
 
-import nl.topicus.whighcharts.data.SeriesEntry;
+import nl.topicus.whighcharts.components.modules.WHighChartsExportingJavaScriptResourceReference;
+import nl.topicus.whighcharts.data.ISeriesEntry;
 import nl.topicus.whighcharts.options.WHighChartOptions;
 
 import org.apache.wicket.markup.html.WebMarkupContainer;
@@ -14,12 +15,12 @@ import org.odlabs.wiquery.core.commons.IWiQueryPlugin;
 import org.odlabs.wiquery.core.commons.WiQueryResourceManager;
 import org.odlabs.wiquery.core.javascript.JsStatement;
 
-public class WHighChart<K, V, E extends SeriesEntry<K, V>> extends WebMarkupContainer implements
+public class WHighChart<V, E extends ISeriesEntry<V>> extends WebMarkupContainer implements
 		IWiQueryPlugin
 {
 	private static final long serialVersionUID = 1L;
 
-	private WHighChartOptions<K, V, E> options = new WHighChartOptions<K, V, E>(this);
+	private WHighChartOptions<V, E> options = new WHighChartOptions<V, E>(this);
 
 	public WHighChart(String id)
 	{
@@ -27,7 +28,7 @@ public class WHighChart<K, V, E extends SeriesEntry<K, V>> extends WebMarkupCont
 		setOutputMarkupId(true);
 	}
 
-	public WHighChartOptions<K, V, E> getOptions()
+	public WHighChartOptions<V, E> getOptions()
 	{
 		return options;
 	}
@@ -36,6 +37,11 @@ public class WHighChart<K, V, E extends SeriesEntry<K, V>> extends WebMarkupCont
 	public void contribute(WiQueryResourceManager wiQueryResourceManager)
 	{
 		wiQueryResourceManager.addJavaScriptResource(WHighChartsJavaScriptResourceReference.get());
+
+		if (getOptions().getExporting().getEnabled() != null
+			&& getOptions().getExporting().getEnabled().booleanValue())
+			wiQueryResourceManager
+				.addJavaScriptResource(WHighChartsExportingJavaScriptResourceReference.get());
 	}
 
 	@Override

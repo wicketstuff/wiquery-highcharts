@@ -1,5 +1,7 @@
 package nl.topicus.whighcharts.options;
 
+import java.io.Serializable;
+
 import org.codehaus.jackson.annotate.JsonAutoDetect;
 import org.codehaus.jackson.annotate.JsonAutoDetect.Visibility;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
@@ -7,8 +9,10 @@ import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
 
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 @JsonSerialize(include = Inclusion.NON_NULL)
-public class WHighChartChartEventsOptions
+public class WHighChartChartEventsOptions implements Serializable
 {
+	private static final long serialVersionUID = 1L;
+
 	/**
 	 * Fires when a series is added to the chart after load time, using the addSeries
 	 * method. The this keyword refers to the chart object itself. One parameter, event,

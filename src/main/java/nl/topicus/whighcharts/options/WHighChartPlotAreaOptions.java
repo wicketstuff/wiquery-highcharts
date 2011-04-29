@@ -7,18 +7,21 @@ import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
 
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 @JsonSerialize(include = Inclusion.NON_NULL)
-public class WHighChartPlotAreaOptions
+public class WHighChartPlotAreaOptions extends
+		AbstractWHighChartPlotChartOptions<WHighChartPlotAreaOptions>
 {
-	private Double pointStart;
+	private static final long serialVersionUID = 1L;
+
+	private Number pointStart;
 
 	private WHighChartPlotAreaMarkerOptions marker;
 
-	public Double getPointStart()
+	public Number getPointStart()
 	{
 		return pointStart;
 	}
 
-	public WHighChartPlotAreaOptions setPointStart(Double pointStart)
+	public WHighChartPlotAreaOptions setPointStart(Number pointStart)
 	{
 		this.pointStart = pointStart;
 		return this;
@@ -28,6 +31,7 @@ public class WHighChartPlotAreaOptions
 	{
 		if (marker == null)
 			marker = new WHighChartPlotAreaMarkerOptions();
+
 		return marker;
 	}
 
@@ -36,5 +40,4 @@ public class WHighChartPlotAreaOptions
 		this.marker = marker;
 		return this;
 	}
-
 }

@@ -7,26 +7,48 @@ import org.codehaus.jackson.annotate.JsonAutoDetect.Visibility;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
 import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
 
-/**
- * Global options that don't apply to each chart. These options, like the lang options,
- * must be set using the Highcharts.setOptions method.
- */
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 @JsonSerialize(include = Inclusion.NON_NULL)
-public class WHighChartGlobalOptions implements Serializable
+public class WHighChartAxisPlotBandsOptions implements Serializable
 {
 	private static final long serialVersionUID = 1L;
 
-	private Boolean useUTC;
+	private String color;
 
-	public Boolean getUseUTC()
+	private Number from;
+
+	private Number to;
+
+	public Number getFrom()
 	{
-		return useUTC;
+		return from;
 	}
 
-	public WHighChartGlobalOptions setUseUTC(Boolean useUTC)
+	public WHighChartAxisPlotBandsOptions setFrom(Number from)
 	{
-		this.useUTC = useUTC;
+		this.from = from;
+		return this;
+	}
+
+	public Number getTo()
+	{
+		return to;
+	}
+
+	public WHighChartAxisPlotBandsOptions setTo(Number to)
+	{
+		this.to = to;
+		return this;
+	}
+
+	public String getColor()
+	{
+		return color;
+	}
+
+	public WHighChartAxisPlotBandsOptions setColor(String color)
+	{
+		this.color = color;
 		return this;
 	}
 }

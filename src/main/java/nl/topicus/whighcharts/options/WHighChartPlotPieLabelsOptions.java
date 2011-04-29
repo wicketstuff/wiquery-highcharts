@@ -7,26 +7,25 @@ import org.codehaus.jackson.annotate.JsonAutoDetect.Visibility;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
 import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
 
-/**
- * Global options that don't apply to each chart. These options, like the lang options,
- * must be set using the Highcharts.setOptions method.
- */
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 @JsonSerialize(include = Inclusion.NON_NULL)
-public class WHighChartGlobalOptions implements Serializable
+public class WHighChartPlotPieLabelsOptions implements Serializable
 {
 	private static final long serialVersionUID = 1L;
 
-	private Boolean useUTC;
+	/**
+	 * Enable or disable the data labels. Defaults to true.
+	 */
+	private Boolean enabled;
 
-	public Boolean getUseUTC()
+	public Boolean getEnabled()
 	{
-		return useUTC;
+		return enabled;
 	}
 
-	public WHighChartGlobalOptions setUseUTC(Boolean useUTC)
+	public WHighChartPlotPieLabelsOptions setEnabled(Boolean enabled)
 	{
-		this.useUTC = useUTC;
+		this.enabled = enabled;
 		return this;
 	}
 }

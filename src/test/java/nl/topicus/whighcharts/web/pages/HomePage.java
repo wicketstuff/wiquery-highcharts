@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import nl.topicus.whighcharts.web.pages.examples.AreaBasicPage;
+import nl.topicus.whighcharts.web.pages.examples.AreaInvertedPage;
+import nl.topicus.whighcharts.web.pages.examples.AreaMissingPage;
+import nl.topicus.whighcharts.web.pages.examples.AreaNegativePage;
+import nl.topicus.whighcharts.web.pages.examples.AreasplinePage;
 
 import org.apache.wicket.Page;
 import org.apache.wicket.markup.html.basic.Label;
@@ -24,6 +28,10 @@ public class HomePage extends BasePage
 		 * Examples
 		 */
 		pages.add(AreaBasicPage.class);
+		pages.add(AreaInvertedPage.class);
+		pages.add(AreaMissingPage.class);
+		pages.add(AreaNegativePage.class);
+		pages.add(AreasplinePage.class);
 
 		ListView<Class< ? extends Page>> links =
 			new ListView<Class< ? extends Page>>("links", new ListModel<Class< ? extends Page>>(

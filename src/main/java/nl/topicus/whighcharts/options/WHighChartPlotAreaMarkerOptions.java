@@ -1,5 +1,7 @@
 package nl.topicus.whighcharts.options;
 
+import java.io.Serializable;
+
 import org.codehaus.jackson.annotate.JsonAutoDetect;
 import org.codehaus.jackson.annotate.JsonAutoDetect.Visibility;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
@@ -7,15 +9,17 @@ import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
 
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 @JsonSerialize(include = Inclusion.NON_NULL)
-public class WHighChartPlotAreaMarkerOptions
+public class WHighChartPlotAreaMarkerOptions implements Serializable
 {
+	private static final long serialVersionUID = 1L;
+
 	private Boolean enabled;
 
-	private WHighChartPlotAreaMarkerSymbol symbol;
+	private WHighChartPlotAreaMarkerSymbolType symbol;
 
-	private Double radius;
+	private Number radius;
 
-	private Object states;
+	private WHighChartMarkerStatesOptions states;
 
 	public Boolean getEnabled()
 	{
@@ -28,36 +32,33 @@ public class WHighChartPlotAreaMarkerOptions
 		return this;
 	}
 
-	public WHighChartPlotAreaMarkerSymbol getSymbol()
+	public WHighChartPlotAreaMarkerSymbolType getSymbol()
 	{
 		return symbol;
 	}
 
-	public WHighChartPlotAreaMarkerOptions setSymbol(WHighChartPlotAreaMarkerSymbol symbol)
+	public WHighChartPlotAreaMarkerOptions setSymbol(WHighChartPlotAreaMarkerSymbolType symbol)
 	{
 		this.symbol = symbol;
 		return this;
 	}
 
-	public Double getRadius()
+	public Number getRadius()
 	{
 		return radius;
 	}
 
-	public WHighChartPlotAreaMarkerOptions setRadius(Double radius)
+	public WHighChartPlotAreaMarkerOptions setRadius(Number radius)
 	{
 		this.radius = radius;
 		return this;
 	}
 
-	public Object getStates()
+	public WHighChartMarkerStatesOptions getStates()
 	{
-		return states;
-	}
+		if (states == null)
+			states = new WHighChartMarkerStatesOptions();
 
-	public WHighChartPlotAreaMarkerOptions setStates(Object states)
-	{
-		this.states = states;
-		return this;
+		return states;
 	}
 }

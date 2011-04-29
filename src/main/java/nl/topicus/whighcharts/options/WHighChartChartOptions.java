@@ -1,5 +1,6 @@
 package nl.topicus.whighcharts.options;
 
+import java.io.Serializable;
 import java.util.Arrays;
 
 import org.codehaus.jackson.annotate.JsonAutoDetect;
@@ -7,10 +8,15 @@ import org.codehaus.jackson.annotate.JsonAutoDetect.Visibility;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
 import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
 
+/**
+ * Options regarding the chart area and plot area as well as general chart options.
+ */
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 @JsonSerialize(include = Inclusion.NON_NULL)
-public class WHighChartChartOptions
+public class WHighChartChartOptions implements Serializable
 {
+	private static final long serialVersionUID = 1L;
+
 	/**
 	 * When using multiple axis, the ticks of two or more opposite axes will automatically
 	 * be aligned by adding ticks to the axis or axes with the least ticks. This can be
@@ -53,13 +59,13 @@ public class WHighChartChartOptions
 	/**
 	 * The corner radius of the outer chart border. Defaults to 5.
 	 */
-	private Double borderRadius;
+	private Number borderRadius;
 
 	/**
 	 * The pixel width of the outer chart border. The border is painted using vector
 	 * graphic techniques to allow rounded corners. Defaults to 0.
 	 */
-	private Double borderWidth;
+	private Number borderWidth;
 
 	/**
 	 * A CSS class name to apply to the charts container div, allowing unique CSS styling
@@ -76,7 +82,7 @@ public class WHighChartChartOptions
 	 * An explicit height for the chart. By default the height is calculated from the
 	 * offset height of the containing element. Defaults to null.
 	 */
-	private Double height;
+	private Number height;
 
 	/**
 	 * If true, the axes will scale to the remaining visible series once one series is
@@ -103,35 +109,35 @@ public class WHighChartChartOptions
 	 * calculated from the offset of axis labels, axis title, title, subtitle and legend
 	 * in addition to the spacingTop, spacingRight, spacingBottom and spacingLeft options.
 	 */
-	private Double[] margin;
+	private Number[] margin;
 
 	/**
 	 * The margin between the top outer edge of the chart and the plot area. Use this to
 	 * set a fixed pixel value for the margin as opposed to the default dynamic margin.
 	 * See also spacingTop. Defaults to null.
 	 */
-	private Double marginTop;
+	private Number marginTop;
 
 	/**
 	 * The margin between the right outer edge of the chart and the plot area. Use this to
 	 * set a fixed pixel value for the margin as opposed to the default dynamic margin.
 	 * See also spacingRight. Defaults to 50.
 	 */
-	private Double marginRight;
+	private Number marginRight;
 
 	/**
 	 * The margin between the bottom outer edge of the chart and the plot area. Use this
 	 * to set a fixed pixel value for the margin as opposed to the default dynamic margin.
 	 * See also spacingBottom. Defaults to 70.
 	 */
-	private Double marginBottom;
+	private Number marginBottom;
 
 	/**
 	 * The margin between the left outer edge of the chart and the plot area. Use this to
 	 * set a fixed pixel value for the margin as opposed to the default dynamic margin.
 	 * See also spacingLeft. Defaults to 80.
 	 */
-	private Double marginLeft;
+	private Number marginLeft;
 
 	/**
 	 * The background color or gradient for the plot area. Defaults to null.
@@ -153,7 +159,7 @@ public class WHighChartChartOptions
 	/**
 	 * The pixel width of the plot area border. Defaults to 0.
 	 */
-	private Double plotBorderWidth;
+	private Number plotBorderWidth;
 
 	/**
 	 * Whether to apply a drop shadow to the plot area. Requires that plotBackgroundColor
@@ -191,25 +197,25 @@ public class WHighChartChartOptions
 	 * The space between the top edge of the chart and the content (plot area, axis title
 	 * and labels, title, subtitle or legend in top position). Defaults to 10.
 	 */
-	private Double spacingTop;
+	private Number spacingTop;
 
 	/**
 	 * The space between the right edge of the chart and the content (plot area, axis
 	 * title and labels, title, subtitle or legend in top position). Defaults to 10.
 	 */
-	private Double spacingRight;
+	private Number spacingRight;
 
 	/**
 	 * The space between the bottom edge of the chart and the content (plot area, axis
 	 * title and labels, title, subtitle or legend in top position). Defaults to 15.
 	 */
-	private Double spacingBottom;
+	private Number spacingBottom;
 
 	/**
 	 * The space between the left edge of the chart and the content (plot area, axis title
 	 * and labels, title, subtitle or legend in top position). Defaults to 10.
 	 */
-	private Double spacingLeft;
+	private Number spacingLeft;
 
 	/**
 	 * Additional CSS styles to apply inline to the container div. Note that since the
@@ -235,7 +241,7 @@ public class WHighChartChartOptions
 	 * An explicit width for the chart. By default the width is calculated from the offset
 	 * width of the containing element. Defaults to null.
 	 */
-	private Double width;
+	private Number width;
 
 	/**
 	 * Decides in what dimentions the user can zoom by dragging the mouse. Can be one of
@@ -287,23 +293,23 @@ public class WHighChartChartOptions
 		return this;
 	}
 
-	public Double getBorderRadius()
+	public Number getBorderRadius()
 	{
 		return borderRadius;
 	}
 
-	public WHighChartChartOptions setBorderRadius(Double borderRadius)
+	public WHighChartChartOptions setBorderRadius(Number borderRadius)
 	{
 		this.borderRadius = borderRadius;
 		return this;
 	}
 
-	public Double getBorderWidth()
+	public Number getBorderWidth()
 	{
 		return borderWidth;
 	}
 
-	public WHighChartChartOptions setBorderWidth(Double borderWidth)
+	public WHighChartChartOptions setBorderWidth(Number borderWidth)
 	{
 		this.borderWidth = borderWidth;
 		return this;
@@ -331,12 +337,12 @@ public class WHighChartChartOptions
 		return this;
 	}
 
-	public Double getHeight()
+	public Number getHeight()
 	{
 		return height;
 	}
 
-	public WHighChartChartOptions setHeight(Double height)
+	public WHighChartChartOptions setHeight(Number height)
 	{
 		this.height = height;
 		return this;
@@ -364,17 +370,17 @@ public class WHighChartChartOptions
 		return this;
 	}
 
-	public Double[] getMargin()
+	public Number[] getMargin()
 	{
 		return margin;
 	}
 
-	public Double getMarginTop()
+	public Number getMarginTop()
 	{
 		return marginTop;
 	}
 
-	public WHighChartChartOptions setMarginTop(Double marginTop)
+	public WHighChartChartOptions setMarginTop(Number marginTop)
 	{
 		this.marginTop = marginTop;
 
@@ -382,7 +388,7 @@ public class WHighChartChartOptions
 			margin[0] = marginTop;
 		else if (marginTop != null && (margin == null || margin.length == 0))
 		{
-			margin = new Double[4];
+			margin = new Number[4];
 			margin[0] = marginTop;
 			margin[1] = marginRight;
 			margin[2] = marginBottom;
@@ -392,12 +398,12 @@ public class WHighChartChartOptions
 		return this;
 	}
 
-	public Double getMarginRight()
+	public Number getMarginRight()
 	{
 		return marginRight;
 	}
 
-	public WHighChartChartOptions setMarginRight(Double marginRight)
+	public WHighChartChartOptions setMarginRight(Number marginRight)
 	{
 		this.marginRight = marginRight;
 
@@ -405,7 +411,7 @@ public class WHighChartChartOptions
 			margin[1] = marginRight;
 		else if (marginTop != null && (margin == null || margin.length < 2))
 		{
-			margin = margin == null ? new Double[4] : Arrays.copyOf(margin, 4);
+			margin = margin == null ? new Number[4] : Arrays.copyOf(margin, 4);
 			margin[0] = marginTop;
 			margin[1] = marginRight;
 			margin[2] = marginBottom;
@@ -415,12 +421,12 @@ public class WHighChartChartOptions
 		return this;
 	}
 
-	public Double getMarginBottom()
+	public Number getMarginBottom()
 	{
 		return marginBottom;
 	}
 
-	public WHighChartChartOptions setMarginBottom(Double marginBottom)
+	public WHighChartChartOptions setMarginBottom(Number marginBottom)
 	{
 		this.marginBottom = marginBottom;
 
@@ -428,7 +434,7 @@ public class WHighChartChartOptions
 			margin[1] = marginRight;
 		else if (marginTop != null && (margin == null || margin.length < 3))
 		{
-			margin = margin == null ? new Double[4] : Arrays.copyOf(margin, 4);
+			margin = margin == null ? new Number[4] : Arrays.copyOf(margin, 4);
 			margin[0] = marginTop;
 			margin[1] = marginRight;
 			margin[2] = marginBottom;
@@ -438,12 +444,12 @@ public class WHighChartChartOptions
 		return this;
 	}
 
-	public Double getMarginLeft()
+	public Number getMarginLeft()
 	{
 		return marginLeft;
 	}
 
-	public WHighChartChartOptions setMarginLeft(Double marginLeft)
+	public WHighChartChartOptions setMarginLeft(Number marginLeft)
 	{
 		this.marginLeft = marginLeft;
 
@@ -451,7 +457,7 @@ public class WHighChartChartOptions
 			margin[1] = marginRight;
 		else if (marginTop != null && (margin == null || margin.length < 4))
 		{
-			margin = margin == null ? new Double[4] : Arrays.copyOf(margin, 4);
+			margin = margin == null ? new Number[4] : Arrays.copyOf(margin, 4);
 			margin[0] = marginTop;
 			margin[1] = marginRight;
 			margin[2] = marginBottom;
@@ -494,12 +500,12 @@ public class WHighChartChartOptions
 		return this;
 	}
 
-	public Double getPlotBorderWidth()
+	public Number getPlotBorderWidth()
 	{
 		return plotBorderWidth;
 	}
 
-	public WHighChartChartOptions setPlotBorderWidth(Double plotBorderWidth)
+	public WHighChartChartOptions setPlotBorderWidth(Number plotBorderWidth)
 	{
 		this.plotBorderWidth = plotBorderWidth;
 		return this;
@@ -560,45 +566,45 @@ public class WHighChartChartOptions
 		return this;
 	}
 
-	public Double getSpacingTop()
+	public Number getSpacingTop()
 	{
 		return spacingTop;
 	}
 
-	public WHighChartChartOptions setSpacingTop(Double spacingTop)
+	public WHighChartChartOptions setSpacingTop(Number spacingTop)
 	{
 		this.spacingTop = spacingTop;
 		return this;
 	}
 
-	public Double getSpacingRight()
+	public Number getSpacingRight()
 	{
 		return spacingRight;
 	}
 
-	public WHighChartChartOptions setSpacingRight(Double spacingRight)
+	public WHighChartChartOptions setSpacingRight(Number spacingRight)
 	{
 		this.spacingRight = spacingRight;
 		return this;
 	}
 
-	public Double getSpacingBottom()
+	public Number getSpacingBottom()
 	{
 		return spacingBottom;
 	}
 
-	public WHighChartChartOptions setSpacingBottom(Double spacingBottom)
+	public WHighChartChartOptions setSpacingBottom(Number spacingBottom)
 	{
 		this.spacingBottom = spacingBottom;
 		return this;
 	}
 
-	public Double getSpacingLeft()
+	public Number getSpacingLeft()
 	{
 		return spacingLeft;
 	}
 
-	public WHighChartChartOptions setSpacingLeft(Double spacingLeft)
+	public WHighChartChartOptions setSpacingLeft(Number spacingLeft)
 	{
 		this.spacingLeft = spacingLeft;
 		return this;
@@ -626,12 +632,12 @@ public class WHighChartChartOptions
 		return this;
 	}
 
-	public Double getWidth()
+	public Number getWidth()
 	{
 		return width;
 	}
 
-	public WHighChartChartOptions setWidth(Double width)
+	public WHighChartChartOptions setWidth(Number width)
 	{
 		this.width = width;
 		return this;
