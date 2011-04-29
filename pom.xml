@@ -5,7 +5,7 @@
 	<artifactId>whighcharts</artifactId>
 	<packaging>jar</packaging>
 	<version>0.1-SNAPSHOT</version>
-	<name>wJit</name>
+	<name>wHighCharts</name>
 	<description>WiQuery-HighCharts bindings</description>
 	<properties>
 		<wicket.version>1.4.15</wicket.version>
