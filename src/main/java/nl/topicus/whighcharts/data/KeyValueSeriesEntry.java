@@ -6,6 +6,8 @@ import org.codehaus.jackson.annotate.JsonValue;
 
 public class KeyValueSeriesEntry<K, V> implements ISeriesEntry<V>
 {
+	private static final long serialVersionUID = 1L;
+
 	private K key;
 
 	private V value;

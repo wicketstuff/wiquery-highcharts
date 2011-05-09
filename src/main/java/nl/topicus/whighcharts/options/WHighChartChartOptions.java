@@ -328,6 +328,9 @@ public class WHighChartChartOptions implements Serializable
 
 	public WHighChartChartEventsOptions getEvents()
 	{
+		if (events == null)
+			events = new WHighChartChartEventsOptions();
+
 		return events;
 	}
 

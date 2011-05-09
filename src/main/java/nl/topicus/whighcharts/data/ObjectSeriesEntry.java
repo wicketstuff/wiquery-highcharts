@@ -9,6 +9,8 @@ import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
 @JsonSerialize(include = Inclusion.NON_NULL)
 public class ObjectSeriesEntry implements ISeriesEntry<Number>
 {
+	private static final long serialVersionUID = 1L;
+
 	/**
 	 * Individual color for the point. Defaults to null.
 	 */

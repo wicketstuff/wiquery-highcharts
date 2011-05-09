@@ -14,6 +14,8 @@ import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
 @JsonSerialize(include = Inclusion.NON_NULL)
 public class AbstractSeries<V, E extends ISeriesEntry<V>> implements ISeries<V, E>
 {
+	private static final long serialVersionUID = 1L;
+
 	/**
 	 * An array of data points for the series. The points can be given in three ways: A
 	 * list of numerical values. In this case, the numberical values will be interpreted

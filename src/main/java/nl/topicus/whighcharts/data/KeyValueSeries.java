@@ -9,6 +9,8 @@ import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
 @JsonSerialize(include = Inclusion.NON_NULL)
 public class KeyValueSeries<K, V> extends AbstractSeries<V, KeyValueSeriesEntry<K, V>>
 {
+	private static final long serialVersionUID = 1L;
+
 	public KeyValueSeries<K, V> addEntry(K key, V value)
 	{
 		addEntry(new KeyValueSeriesEntry<K, V>(key, value));

@@ -3,6 +3,7 @@ package nl.topicus.whighcharts.web.pages;
 import java.util.ArrayList;
 import java.util.List;
 
+import nl.topicus.whighcharts.web.pages.examples.AjaxBasicPage;
 import nl.topicus.whighcharts.web.pages.examples.AreaBasicPage;
 import nl.topicus.whighcharts.web.pages.examples.AreaInvertedPage;
 import nl.topicus.whighcharts.web.pages.examples.AreaMissingPage;
@@ -32,6 +33,7 @@ public class HomePage extends BasePage
 		pages.add(AreaMissingPage.class);
 		pages.add(AreaNegativePage.class);
 		pages.add(AreasplinePage.class);
+		pages.add(AjaxBasicPage.class);
 
 		ListView<Class< ? extends Page>> links =
 			new ListView<Class< ? extends Page>>("links", new ListModel<Class< ? extends Page>>(

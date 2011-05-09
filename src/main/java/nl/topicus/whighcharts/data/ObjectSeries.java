@@ -9,6 +9,8 @@ import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
 @JsonSerialize(include = Inclusion.NON_NULL)
 public abstract class ObjectSeries extends AbstractSeries<Number, ObjectSeriesEntry>
 {
+	private static final long serialVersionUID = 1L;
+
 	@Override
 	@SuppressWarnings("unchecked")
 	public ObjectSeries addEntry(ObjectSeriesEntry entry)
