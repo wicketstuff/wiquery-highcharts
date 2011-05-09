@@ -1,11 +1,17 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+	<parent>
+    	<groupId>org.sonatype.oss</groupId>
+    	<artifactId>oss-parent</artifactId>
+    	<version>7</version>
+  	</parent>
+	
 	<groupId>nl.topicus</groupId>
 	<artifactId>whighcharts</artifactId>
 	<packaging>jar</packaging>
 	<version>0.1-SNAPSHOT</version>
-	<name>wHighCharts</name>
+	<name>WHighCharts</name>
 	<description>WiQuery-HighCharts bindings</description>
 	<properties>
 		<wicket.version>1.4.15</wicket.version>
@@ -15,18 +21,22 @@
 		<wiquery.version>1.2-SNAPSHOT</wiquery.version>
 	</properties>
 
-	<distributionManagement>
-		<repository>
-			<id>topicus-repo</id>
-			<url>dav:http://repo-onderwijs.topicus.local/artifactory/libs-releases-local</url>
-			<uniqueVersion>false</uniqueVersion>
-		</repository>
-		<snapshotRepository>
-			<id>topicus-repo</id>
-			<url>dav:http://repo-onderwijs.topicus.local/artifactory/libs-snapshots-local</url>
-			<uniqueVersion>false</uniqueVersion>
-		</snapshotRepository>
-	</distributionManagement>
+	<url>https://github.com/hielkehoeve/wiquery-highcharts/wiki</url>
+	<scm>
+		<url>git@github.com:hielkehoeve/wiquery-highcharts.git</url>
+		<connection>scm:git:git@github.com:hielkehoeve/wiquery-highcharts.git</connection>
+		<developerConnection>scm:git:git@github.com:hielkehoeve/wiquery-highcharts.git</developerConnection>
+	</scm>
+	
+	<developers>
+		<developer>
+			<id>hielkehoeve</id>
+			<name>Hielke Hoeve</name>
+			<url>http://nl.linkedin.com/in/hielkehoeve</url>
+			<email>hielke.hoeve@gmail.com</email>
+			<timezone>GMT+1</timezone>
+		</developer>
+	</developers>
 
 	<licenses>
 		<license>
@@ -184,6 +194,19 @@
 				<groupId>org.mortbay.jetty</groupId>
 				<artifactId>maven-jetty-plugin</artifactId>
 				<version>${jetty.version}</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-gpg-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>sign-artifacts</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>sign</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
