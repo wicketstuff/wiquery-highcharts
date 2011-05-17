@@ -22,23 +22,6 @@
 		<wiquery.version>1.2-SNAPSHOT</wiquery.version>
 	</properties>
 
-	<url>https://github.com/hielkehoeve/wiquery-highcharts/wiki</url>
-	<scm>
-		<url>git@github.com:hielkehoeve/wiquery-highcharts.git</url>
-		<connection>scm:git:git@github.com:hielkehoeve/wiquery-highcharts.git</connection>
-		<developerConnection>scm:git:git@github.com:hielkehoeve/wiquery-highcharts.git</developerConnection>
-	</scm>
-	
-	<developers>
-		<developer>
-			<id>hielkehoeve</id>
-			<name>Hielke Hoeve</name>
-			<url>http://nl.linkedin.com/in/hielkehoeve</url>
-			<email>hielke.hoeve@gmail.com</email>
-			<timezone>GMT+1</timezone>
-		</developer>
-	</developers>
-
 	<licenses>
 		<license>
 			<name>The Apache Software License, Version 2.0</name>
@@ -49,29 +32,14 @@
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
-				<groupId>commons-logging</groupId>
-				<artifactId>commons-logging</artifactId>
-				<version>99.0-does-not-exist</version>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-jcl</artifactId>
+				<version>1.5.6</version>
 			</dependency>
 			<dependency>
 				<groupId>org.slf4j</groupId>
 				<artifactId>slf4j-api</artifactId>
-				<version>${slf4j.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.slf4j</groupId>
-				<artifactId>slf4j-log4j12</artifactId>
-				<version>${slf4j.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.slf4j</groupId>
-				<artifactId>jcl-over-slf4j</artifactId>
-				<version>${slf4j.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>log4j</groupId>
-				<artifactId>log4j</artifactId>
-				<version>1.2.16</version>
+				<version>1.5.6</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
@@ -100,16 +68,14 @@
 		<!-- LOGGING DEPENDENCIES - LOG4J -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-log4j12</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>jcl-over-slf4j</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-		</dependency>
+				<artifactId>slf4j-jcl</artifactId>
+				<version>1.5.6</version>
+			</dependency>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+				<version>1.5.6</version>
+			</dependency>
 
 		<!-- JUNIT DEPENDENCY FOR TESTING -->
 		<dependency>
