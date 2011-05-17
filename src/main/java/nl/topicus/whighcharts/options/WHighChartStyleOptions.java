@@ -2,8 +2,6 @@ package nl.topicus.whighcharts.options;
 
 import java.io.Serializable;
 
-import nl.topicus.whighcharts.options.jackson.StringNoQuoteSerializer;
-
 import org.codehaus.jackson.annotate.JsonAutoDetect;
 import org.codehaus.jackson.annotate.JsonAutoDetect.Visibility;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
@@ -11,34 +9,33 @@ import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
 
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 @JsonSerialize(include = Inclusion.NON_NULL)
-public class WHighChartAxisLabelsOptions implements Serializable
+public class WHighChartStyleOptions implements Serializable
 {
 	private static final long serialVersionUID = 1L;
 
-	@JsonSerialize(using = StringNoQuoteSerializer.class)
-	private String formatter;
+	private String color;
+	
+	private String fontSize;
 
-	private boolean enabled;
-
-	public String getFormatter()
+	public WHighChartStyleOptions setColor(String color)
 	{
-		return formatter;
-	}
-
-	public WHighChartAxisLabelsOptions setFormatter(String formatter)
-	{
-		this.formatter = formatter;
+		this.color = color;
 		return this;
 	}
 
-	public WHighChartAxisLabelsOptions setEnabled(boolean enabled)
+	public String getColor()
 	{
-		this.enabled = enabled;
+		return color;
+	}
+
+	public WHighChartStyleOptions setFontSize(String fontSize)
+	{
+		this.fontSize = fontSize;
 		return this;
 	}
 
-	public boolean getEnabled()
+	public String getFontSize()
 	{
-		return enabled;
+		return fontSize;
 	}
 }

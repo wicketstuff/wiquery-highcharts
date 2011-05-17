@@ -30,6 +30,14 @@ public class WHighChartAxisOptions implements Serializable
 	 */
 	List<WHighChartAxisPlotBandsOptions> plotBands;
 
+	private Number gridLineWidth;
+
+	List<WHighChartAxisPlotLinesOptions> plotLines;
+
+	private Number offset;
+
+	private Number max;
+
 	public WHighChartAxisLabelsOptions getLabels()
 	{
 		if (labels == null)
@@ -106,5 +114,59 @@ public class WHighChartAxisOptions implements Serializable
 	{
 		getPlotBands().add(plotBand);
 		return this;
+	}
+
+	public WHighChartAxisOptions setGridLineWidth(Number gridLineWidth)
+	{
+		this.gridLineWidth = gridLineWidth;
+		return this;
+
+	}
+
+	public Number getGridLineWidth()
+	{
+		return gridLineWidth;
+	}
+
+	public List<WHighChartAxisPlotLinesOptions> getPlotLines()
+	{
+		if (plotLines == null)
+			plotLines = new ArrayList<WHighChartAxisPlotLinesOptions>();
+
+		return plotLines;
+	}
+
+	public WHighChartAxisOptions setPlotLines(List<WHighChartAxisPlotLinesOptions> plotLines)
+	{
+		this.plotLines = plotLines;
+		return this;
+	}
+
+	public WHighChartAxisOptions addPlotLine(WHighChartAxisPlotLinesOptions plotLine)
+	{
+		getPlotLines().add(plotLine);
+		return this;
+	}
+
+	public WHighChartAxisOptions setOffset(Number offset)
+	{
+		this.offset = offset;
+		return this;
+	}
+
+	public Number getOffset()
+	{
+		return offset;
+	}
+
+	public WHighChartAxisOptions setMax(Number max)
+	{
+		this.max = max;
+		return this;
+	}
+
+	public Number getMax()
+	{
+		return max;
 	}
 }
