@@ -3,8 +3,8 @@ package nl.topicus.whighcharts.components;
 import java.io.IOException;
 
 import nl.topicus.whighcharts.components.modules.WHighChartsExportingJavaScriptResourceReference;
-import nl.topicus.whighcharts.data.ISeriesEntry;
 import nl.topicus.whighcharts.options.WHighChartOptions;
+import nl.topicus.whighcharts.options.series.ISeriesEntry;
 
 import org.apache.wicket.Application;
 import org.apache.wicket.markup.html.WebMarkupContainer;
