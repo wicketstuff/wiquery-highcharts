@@ -3,8 +3,8 @@ package nl.topicus.whighcharts.web.pages.examples;
 import nl.topicus.whighcharts.components.WHighChart;
 import nl.topicus.whighcharts.data.ValueSeries;
 import nl.topicus.whighcharts.data.ValueSeriesEntry;
-import nl.topicus.whighcharts.options.WHighChartChartEventsBehavior;
 import nl.topicus.whighcharts.options.WHighChartChartOptionsType;
+import nl.topicus.whighcharts.options.WHighChartFunctionCallback;
 import nl.topicus.whighcharts.options.WHighChartPlotAreaMarkerSymbolType;
 import nl.topicus.whighcharts.web.pages.BasePage;
 
@@ -43,7 +43,11 @@ public class AjaxBasicPage extends BasePage
 			.getStates().getHover().setEnabled(true);
 
 		chart.getOptions().getChart().getEvents()
-			.setClick(new WHighChartChartEventsBehavior(chart));
+			.setClick(new WHighChartFunctionCallback(getPage()));
+		chart.getOptions().getPoint().getEvents()
+			.setClick(new WHighChartFunctionCallback(getPage()));
+		chart.getOptions().getPlotOptions().getSeries().getPoint().getEvents()
+			.setClick(new WHighChartFunctionCallback(getPage()));
 
 		chart.getOptions().addSeries(
 			new ValueSeries<Integer>(null, null, null, null, null, 6, 11, 32, 110, 235, 369, 640,

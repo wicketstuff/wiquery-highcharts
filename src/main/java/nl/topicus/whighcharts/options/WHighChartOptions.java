@@ -173,7 +173,14 @@ public class WHighChartOptions<V, E extends ISeriesEntry<V>> implements Serializ
 	{
 		if (series == null)
 			series = new ArrayList<ISeries<V, E>>();
+
 		return series;
+	}
+
+	public WHighChartOptions<V, E> setSeries(List<ISeries<V, E>> series)
+	{
+		this.series = series;
+		return this;
 	}
 
 	public WHighChartOptions<V, E> addSeries(ISeries<V, E> serie)

@@ -21,7 +21,7 @@ public class WHighChartChartEventsOptions implements Serializable
 	 * event.options you can access the series options that was passed to the addSeries
 	 * method. Returning false prevents the series from being added.
 	 */
-	private Object addSeries;
+	private WHighChartFunction addSeries;
 
 	/**
 	 * Fires when clicking on the plot background. The this keyword refers to the chart
@@ -43,7 +43,7 @@ public class WHighChartChartEventsOptions implements Serializable
 	 * }
 	 * </pre>
 	 */
-	private Object click;
+	private WHighChartFunction click;
 
 	/**
 	 * Fires when the chart is finished loading. The this keyword refers to the chart
@@ -54,7 +54,7 @@ public class WHighChartChartEventsOptions implements Serializable
 	 * From version 2.0.4, there is also a second parameter to Highcharts.Chart where a
 	 * callback function can be passed to be executed on chart.load.
 	 */
-	private Object load;
+	private WHighChartFunction load;
 
 	/**
 	 * Fires when the chart is redrawn, either after a call to chart.redraw() or after an
@@ -63,7 +63,7 @@ public class WHighChartChartEventsOptions implements Serializable
 	 * function. This contains common event information based on jQuery or MooTools
 	 * depending on which library is used as the base for Highcharts.
 	 */
-	private Object redraw;
+	private WHighChartFunction redraw;
 
 	/**
 	 * Fires when an area of the chart has been selected. Selection is enabled by setting
@@ -90,14 +90,14 @@ public class WHighChartChartEventsOptions implements Serializable
 	 * }
 	 * </pre>
 	 */
-	private Object selection;
+	private WHighChartFunction selection;
 
-	public Object getAddSeries()
+	public WHighChartFunction getAddSeries()
 	{
 		return addSeries;
 	}
 
-	public WHighChartChartEventsOptions setAddSeries(Object addSeries)
+	public WHighChartChartEventsOptions setAddSeries(WHighChartFunction addSeries)
 	{
 		this.addSeries = addSeries;
 		return this;
@@ -108,7 +108,7 @@ public class WHighChartChartEventsOptions implements Serializable
 		return click;
 	}
 
-	public WHighChartChartEventsOptions setClick(Object click)
+	public WHighChartChartEventsOptions setClick(WHighChartFunction click)
 	{
 		this.click = click;
 		return this;
@@ -119,7 +119,7 @@ public class WHighChartChartEventsOptions implements Serializable
 		return load;
 	}
 
-	public WHighChartChartEventsOptions setLoad(Object load)
+	public WHighChartChartEventsOptions setLoad(WHighChartFunction load)
 	{
 		this.load = load;
 		return this;
@@ -130,7 +130,7 @@ public class WHighChartChartEventsOptions implements Serializable
 		return redraw;
 	}
 
-	public WHighChartChartEventsOptions setRedraw(Object redraw)
+	public WHighChartChartEventsOptions setRedraw(WHighChartFunction redraw)
 	{
 		this.redraw = redraw;
 		return this;
@@ -141,7 +141,7 @@ public class WHighChartChartEventsOptions implements Serializable
 		return selection;
 	}
 
-	public WHighChartChartEventsOptions setSelection(Object selection)
+	public WHighChartChartEventsOptions setSelection(WHighChartFunction selection)
 	{
 		this.selection = selection;
 		return this;

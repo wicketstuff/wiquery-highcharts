@@ -21,7 +21,7 @@ public class WHighChartPointOptions implements Serializable
 	/**
 	 * Individual events for the point. Defaults to null.
 	 */
-	private String events;
+	private WHighChartPointEventsOptions events;
 
 	/**
 	 * An id for the point. This can be used after render time to get a pointer to the
@@ -67,12 +67,15 @@ public class WHighChartPointOptions implements Serializable
 		return this;
 	}
 
-	public String getEvents()
+	public WHighChartPointEventsOptions getEvents()
 	{
+		if (events == null)
+			events = new WHighChartPointEventsOptions();
+
 		return events;
 	}
 
-	public WHighChartPointOptions setEvents(String events)
+	public WHighChartPointOptions setEvents(WHighChartPointEventsOptions events)
 	{
 		this.events = events;
 		return this;

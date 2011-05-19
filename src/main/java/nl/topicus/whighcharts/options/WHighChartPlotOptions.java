@@ -26,7 +26,7 @@ public class WHighChartPlotOptions implements Serializable
 
 	private WHighChartPlotPieOptions pie;
 
-	private AbstractWHighChartPlotChartOptions series;
+	private WHighChartPlotSeriesOptions series;
 
 	private AbstractWHighChartPlotChartOptions scatter;
 
@@ -116,15 +116,15 @@ public class WHighChartPlotOptions implements Serializable
 		return this;
 	}
 
-	public AbstractWHighChartPlotChartOptions getSeries()
+	public WHighChartPlotSeriesOptions getSeries()
 	{
 		if (series == null)
-			series = new AbstractWHighChartPlotChartOptions();
+			series = new WHighChartPlotSeriesOptions();
 
 		return series;
 	}
 
-	public WHighChartPlotOptions setSeries(AbstractWHighChartPlotChartOptions series)
+	public WHighChartPlotOptions setSeries(WHighChartPlotSeriesOptions series)
 	{
 		this.series = series;
 		return this;
@@ -157,5 +157,4 @@ public class WHighChartPlotOptions implements Serializable
 		this.spline = spline;
 		return this;
 	}
-
 }

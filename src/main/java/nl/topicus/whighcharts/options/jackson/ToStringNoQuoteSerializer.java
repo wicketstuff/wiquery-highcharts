@@ -9,18 +9,18 @@ import org.codehaus.jackson.JsonNode;
 import org.codehaus.jackson.map.SerializerProvider;
 import org.codehaus.jackson.map.ser.SerializerBase;
 
-public class StringNoQuoteSerializer extends SerializerBase<String>
+public class ToStringNoQuoteSerializer extends SerializerBase<Object>
 {
-	public StringNoQuoteSerializer()
+	public ToStringNoQuoteSerializer()
 	{
-		super(String.class);
+		super(Object.class);
 	}
 
 	@Override
-	public void serialize(String value, JsonGenerator jgen, SerializerProvider provider)
+	public void serialize(Object value, JsonGenerator jgen, SerializerProvider provider)
 			throws IOException, JsonGenerationException
 	{
-		jgen.writeRawValue(value);
+		jgen.writeRawValue(value.toString());
 	}
 
 	@Override
