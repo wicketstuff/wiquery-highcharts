@@ -6,8 +6,23 @@ import java.util.Arrays;
 import java.util.List;
 
 import nl.topicus.whighcharts.components.WHighChart;
-import nl.topicus.whighcharts.data.ISeries;
-import nl.topicus.whighcharts.data.ISeriesEntry;
+import nl.topicus.whighcharts.options.axis.WHighChartAxisOptions;
+import nl.topicus.whighcharts.options.chart.WHighChartChartOptions;
+import nl.topicus.whighcharts.options.credits.WHighChartCreditsOptions;
+import nl.topicus.whighcharts.options.exporting.WHighChartExportingOptions;
+import nl.topicus.whighcharts.options.global.WHighChartGlobalOptions;
+import nl.topicus.whighcharts.options.labels.WHighChartLabelsOptions;
+import nl.topicus.whighcharts.options.lang.WHighChartLangOptions;
+import nl.topicus.whighcharts.options.legend.WHighChartLegendOptions;
+import nl.topicus.whighcharts.options.loading.WHighChartLoadingOptions;
+import nl.topicus.whighcharts.options.navigation.WHighChartNavigationOptions;
+import nl.topicus.whighcharts.options.plotoptions.WHighChartPlotOptions;
+import nl.topicus.whighcharts.options.point.WHighChartPointOptions;
+import nl.topicus.whighcharts.options.series.ISeries;
+import nl.topicus.whighcharts.options.series.ISeriesEntry;
+import nl.topicus.whighcharts.options.symbols.WHighChartSymbolsOptionsType;
+import nl.topicus.whighcharts.options.title.WHighChartTitleOptions;
+import nl.topicus.whighcharts.options.tooltip.WHighChartTooltipOptions;
 
 import org.codehaus.jackson.annotate.JsonAutoDetect;
 import org.codehaus.jackson.annotate.JsonAutoDetect.Visibility;
@@ -173,7 +188,14 @@ public class WHighChartOptions<V, E extends ISeriesEntry<V>> implements Serializ
 	{
 		if (series == null)
 			series = new ArrayList<ISeries<V, E>>();
+
 		return series;
+	}
+
+	public WHighChartOptions<V, E> setSeries(List<ISeries<V, E>> series)
+	{
+		this.series = series;
+		return this;
 	}
 
 	public WHighChartOptions<V, E> addSeries(ISeries<V, E> serie)

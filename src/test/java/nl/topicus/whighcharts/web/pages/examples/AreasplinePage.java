@@ -1,13 +1,13 @@
 package nl.topicus.whighcharts.web.pages.examples;
 
 import nl.topicus.whighcharts.components.WHighChart;
-import nl.topicus.whighcharts.data.ValueSeries;
-import nl.topicus.whighcharts.data.ValueSeriesEntry;
-import nl.topicus.whighcharts.options.WHighChartAxisPlotBandsOptions;
-import nl.topicus.whighcharts.options.WHighChartChartOptionsType;
 import nl.topicus.whighcharts.options.WHighChartHorizontalAlignmentType;
-import nl.topicus.whighcharts.options.WHighChartLegendLayoutType;
 import nl.topicus.whighcharts.options.WHighChartVerticalAlignmentType;
+import nl.topicus.whighcharts.options.axis.WHighChartAxisPlotBandsOptions;
+import nl.topicus.whighcharts.options.chart.WHighChartChartOptionsType;
+import nl.topicus.whighcharts.options.legend.WHighChartLegendLayoutType;
+import nl.topicus.whighcharts.options.series.ValueSeries;
+import nl.topicus.whighcharts.options.series.ValueSeriesEntry;
 import nl.topicus.whighcharts.web.pages.BasePage;
 
 public class AreasplinePage extends BasePage

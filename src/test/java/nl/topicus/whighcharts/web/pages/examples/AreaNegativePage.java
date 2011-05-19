@@ -1,9 +1,9 @@
 package nl.topicus.whighcharts.web.pages.examples;
 
 import nl.topicus.whighcharts.components.WHighChart;
-import nl.topicus.whighcharts.data.ValueSeries;
-import nl.topicus.whighcharts.data.ValueSeriesEntry;
-import nl.topicus.whighcharts.options.WHighChartChartOptionsType;
+import nl.topicus.whighcharts.options.chart.WHighChartChartOptionsType;
+import nl.topicus.whighcharts.options.series.ValueSeries;
+import nl.topicus.whighcharts.options.series.ValueSeriesEntry;
 import nl.topicus.whighcharts.web.pages.BasePage;
 
 public class AreaNegativePage extends BasePage
