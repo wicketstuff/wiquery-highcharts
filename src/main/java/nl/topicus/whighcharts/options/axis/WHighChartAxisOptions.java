@@ -40,6 +40,8 @@ public class WHighChartAxisOptions implements Serializable
 
 	private Number max;
 
+	private Number tickInterval;
+
 	public WHighChartAxisLabelsOptions getLabels()
 	{
 		if (labels == null)
@@ -170,5 +172,16 @@ public class WHighChartAxisOptions implements Serializable
 	public Number getMax()
 	{
 		return max;
+	}
+
+	public Number getTickInterval()
+	{
+		return tickInterval;
+	}
+
+	public WHighChartAxisOptions setTickInterval(Number tickInterval)
+	{
+		this.tickInterval = tickInterval;
+		return this;
 	}
 }
