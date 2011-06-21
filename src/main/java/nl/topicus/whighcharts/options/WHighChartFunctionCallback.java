@@ -43,11 +43,11 @@ public class WHighChartFunctionCallback extends AbstractDefaultAjaxBehavior impl
 	{
 		Map<String, String[]> map = RequestCycle.get().getRequest().getParameterMap();
 		WHighChartFunctionEvent event = new WHighChartFunctionEvent(map);
-		onEvent(event);
+		onEvent(event, target);
 	}
 
 	@SuppressWarnings("unused")
-	public void onEvent(WHighChartFunctionEvent event)
+	public void onEvent(WHighChartFunctionEvent event, AjaxRequestTarget target)
 	{
 
 	}

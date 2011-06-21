@@ -9,14 +9,24 @@ public interface WHighChartFunction extends Serializable
 	{
 		public WHighChartFunctionEvent(Map<String, String[]> map)
 		{
-			xAxis = new WHighChartFunctionEventAxis(map, "event.xAxis");
-			yAxis = new WHighChartFunctionEventAxis(map, "event.yAxis");
+			name = getValue(map, "this.name");
+			visible = getValue(map, "this.visible");
+			category = getValue(map, "this.category");
+			x = getValue(map, "this.x");
+			y = getValue(map, "this.y");
+			type = getValue(map, "event.type");
+
+			altKey = getValue(map, "event.altKey");
+			ctrlKey = getValue(map, "event.ctrlKey");
+			shiftKey = getValue(map, "event.shiftKey");
+			checked = getValue(map, "event.checked");
 
 			chartX = getValue(map, "event.chartX");
 			chartY = getValue(map, "event.chartY");
 
-			clientX = getValue(map, "event.clientX");
-			clientY = getValue(map, "event.clientY");
+			xAxis = new WHighChartFunctionEventAxis(map, "event.xAxis[0]");
+			yAxis = new WHighChartFunctionEventAxis(map, "event.yAxis[0]");
+
 		}
 
 		private String getValue(Map<String, String[]> map, String key)
@@ -31,26 +41,82 @@ public interface WHighChartFunction extends Serializable
 
 		private static final long serialVersionUID = 1L;
 
-		private WHighChartFunctionEventAxis xAxis;
+		private String altKey;
 
-		private WHighChartFunctionEventAxis yAxis;
+		private String name;
+
+		private String visible;
+
+		private String category;
+
+		private String x;
+
+		private String y;
+
+		private String type;
+
+		private String ctrlKey;
+
+		private String shiftKey;
+
+		private String checked;
 
 		private String chartX;
 
 		private String chartY;
 
-		private String clientX;
+		private WHighChartFunctionEventAxis xAxis;
 
-		private String clientY;
+		private WHighChartFunctionEventAxis yAxis;
 
-		public WHighChartFunctionEventAxis getxAxis()
+		public String getAltKey()
 		{
-			return xAxis;
+			return altKey;
 		}
 
-		public WHighChartFunctionEventAxis getyAxis()
+		public String getName()
 		{
-			return yAxis;
+			return name;
+		}
+
+		public String getVisible()
+		{
+			return visible;
+		}
+
+		public String getCategory()
+		{
+			return category;
+		}
+
+		public String getX()
+		{
+			return x;
+		}
+
+		public String getY()
+		{
+			return y;
+		}
+
+		public String getType()
+		{
+			return type;
+		}
+
+		public String getCtrlKey()
+		{
+			return ctrlKey;
+		}
+
+		public String getShiftKey()
+		{
+			return shiftKey;
+		}
+
+		public String getChecked()
+		{
+			return checked;
 		}
 
 		public String getChartX()
@@ -63,14 +129,14 @@ public interface WHighChartFunction extends Serializable
 			return chartY;
 		}
 
-		public String getClientX()
+		public WHighChartFunctionEventAxis getxAxis()
 		{
-			return clientX;
+			return xAxis;
 		}
 
-		public String getClientY()
+		public WHighChartFunctionEventAxis getyAxis()
 		{
-			return clientY;
+			return yAxis;
 		}
 	}
 
