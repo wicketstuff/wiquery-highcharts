@@ -9,9 +9,9 @@ public interface WHighChartFunction extends Serializable
 	{
 		public WHighChartFunctionEvent(Map<String, String[]> map)
 		{
-			name = getValue(map, "this.name");
+			name = getValue(map, "event.currentTarget.name");
 			visible = getValue(map, "this.visible");
-			category = getValue(map, "this.category");
+			category = getValue(map, "event.point.category");
 			x = getValue(map, "this.x");
 			y = getValue(map, "this.y");
 			type = getValue(map, "event.type");
