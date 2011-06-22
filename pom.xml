@@ -2,29 +2,19 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.sonatype.oss</groupId>
+		<artifactId>oss-parent</artifactId>
+		<version>7</version>
+	</parent>
 
 	<groupId>nl.topicus</groupId>
 	<artifactId>whighcharts</artifactId>
 	<packaging>jar</packaging>
-	<version>0.2-jgz-SNAPSHOT</version>
+	<version>0.1-SNAPSHOT</version>
 	<name>WHighCharts</name>
 	<description>WiQuery-HighCharts bindings</description>
-	
-	<distributionManagement>
-		<repository>
-			<id>deployment.webdav</id>
-			<name>Internal Release Repository</name>
-			<url>dav:http://svn.topicuszorg.nl/maven2/</url>
-			<uniqueVersion>false</uniqueVersion>
-		</repository>
-		<snapshotRepository>
-			<id>deployment.webdav</id>
-			<name>Internal Snapshot Repository</name>
-			<url>dav:http://svn.topicuszorg.nl/maven2/</url>
-			<uniqueVersion>false</uniqueVersion>
-		</snapshotRepository>
-	</distributionManagement>
-	
+
 	<properties>
 		<wicket.version>1.4.15</wicket.version>
 		<jetty.version>6.1.25</jetty.version>
@@ -32,6 +22,24 @@
 		<jackson.version>1.6.1</jackson.version>
 		<wiquery.version>1.2-SNAPSHOT</wiquery.version>
 	</properties>
+
+
+	<url>https://github.com/hielkehoeve/wiquery-highcharts/wiki</url>
+	<scm>
+		<url>git@github.com:hielkehoeve/wiquery-highcharts.git</url>
+		<connection>scm:git:git@github.com:hielkehoeve/wiquery-highcharts.git</connection>
+		<developerConnection>scm:git:git@github.com:hielkehoeve/wiquery-highcharts.git</developerConnection>
+	</scm>
+
+	<developers>
+		<developer>
+			<id>hielkehoeve</id>
+			<name>Hielke Hoeve</name>
+			<url>http://nl.linkedin.com/in/hielkehoeve</url>
+			<email>hielke.hoeve@gmail.com</email>
+			<timezone>GMT+1</timezone>
+		</developer>
+	</developers>
 
 	<licenses>
 		<license>
@@ -44,13 +52,28 @@
 		<dependencies>
 			<dependency>
 				<groupId>org.slf4j</groupId>
-				<artifactId>slf4j-jcl</artifactId>
-				<version>1.5.6</version>
+				<artifactId>slf4j-api</artifactId>
+				<version>${slf4j.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.slf4j</groupId>
-				<artifactId>slf4j-api</artifactId>
-				<version>1.5.6</version>
+				<artifactId>jcl-over-slf4j</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-log4j12</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>jcl-over-slf4j</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>log4j</groupId>
+				<artifactId>log4j</artifactId>
+				<version>1.2.16</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
@@ -79,14 +102,16 @@
 		<!-- LOGGING DEPENDENCIES - LOG4J -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
-				<artifactId>slf4j-jcl</artifactId>
-				<version>1.5.6</version>
-			</dependency>
-			<dependency>
-				<groupId>org.slf4j</groupId>
-				<artifactId>slf4j-api</artifactId>
-				<version>1.5.6</version>
-			</dependency>
+			<artifactId>slf4j-log4j12</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+		</dependency>
 
 		<!-- JUNIT DEPENDENCY FOR TESTING -->
 		<dependency>
@@ -203,19 +228,20 @@
 				<artifactId>maven-jetty-plugin</artifactId>
 				<version>${jetty.version}</version>
 			</plugin>
-<!-- 			<plugin> -->
-<!-- 				<groupId>org.apache.maven.plugins</groupId> -->
-<!-- 				<artifactId>maven-gpg-plugin</artifactId> -->
-<!-- 				<executions> -->
-<!-- 					<execution> -->
-<!-- 						<id>sign-artifacts</id> -->
-<!-- 						<phase>verify</phase> -->
-<!-- 						<goals> -->
-<!-- 							<goal>sign</goal> -->
-<!-- 						</goals> -->
-<!-- 					</execution> -->
-<!-- 				</executions> -->
-<!-- 			</plugin> -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-gpg-plugin</artifactId>
+				<version>1.3</version>
+				<executions>
+					<execution>
+						<id>sign-artifacts</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>sign</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 </project>
