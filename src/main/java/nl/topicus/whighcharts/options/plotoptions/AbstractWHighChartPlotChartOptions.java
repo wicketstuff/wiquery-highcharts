@@ -2,6 +2,7 @@ package nl.topicus.whighcharts.options.plotoptions;
 
 import java.io.Serializable;
 
+import nl.topicus.whighcharts.options.chart.WHighChartChartEventsOptions;
 
 import org.codehaus.jackson.annotate.JsonAutoDetect;
 import org.codehaus.jackson.annotate.JsonAutoDetect.Visibility;
@@ -22,6 +23,11 @@ public class AbstractWHighChartPlotChartOptions<T extends AbstractWHighChartPlot
 	 * Dot Dash LongDash DashDot LongDashDot LongDashDotDot Defaults to null.
 	 */
 	private WHighChartPlotDashStyleType dashStyle;
+
+	/**
+	 * Event listeners for chart events.
+	 */
+	private WHighChartChartEventsOptions events;
 
 	/**
 	 * Fill opacity for the area. Defaults to .75.
@@ -50,5 +56,19 @@ public class AbstractWHighChartPlotChartOptions<T extends AbstractWHighChartPlot
 	{
 		this.fillOpacity = fillOpacity;
 		return (T) this;
+	}
+
+	public WHighChartChartEventsOptions getEvents()
+	{
+		if (events == null)
+			events = new WHighChartChartEventsOptions();
+
+		return events;
+	}
+
+	public AbstractWHighChartPlotChartOptions< ? > setEvents(WHighChartChartEventsOptions events)
+	{
+		this.events = events;
+		return this;
 	}
 }
