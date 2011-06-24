@@ -12,6 +12,7 @@ public interface WHighChartFunction extends Serializable
 			name = getValue(map, "event.currentTarget.name");
 			visible = getValue(map, "this.visible");
 			category = getValue(map, "event.point.category");
+			config = getValue(map, "event.point.config");
 			x = getValue(map, "this.x");
 			y = getValue(map, "this.y");
 			type = getValue(map, "event.type");
@@ -48,6 +49,8 @@ public interface WHighChartFunction extends Serializable
 		private String visible;
 
 		private String category;
+
+		private String config;
 
 		private String x;
 
@@ -87,6 +90,11 @@ public interface WHighChartFunction extends Serializable
 		public String getCategory()
 		{
 			return category;
+		}
+
+		public String getConfig()
+		{
+			return config;
 		}
 
 		public String getX()
