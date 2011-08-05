@@ -7,6 +7,7 @@ import nl.topicus.whighcharts.options.WHighChartOptions;
 import nl.topicus.whighcharts.options.series.ISeriesEntry;
 
 import org.apache.wicket.Application;
+import org.apache.wicket.RuntimeConfigurationType;
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.codehaus.jackson.JsonGenerationException;
 import org.codehaus.jackson.JsonGenerator;
@@ -57,7 +58,8 @@ public class WHighChart<V, E extends ISeriesEntry<V>> extends WebMarkupContainer
 		mapper.configure(JsonGenerator.Feature.QUOTE_FIELD_NAMES, false);
 
 		if (Application.exists()
-			&& Application.DEVELOPMENT.equals(Application.get().getConfigurationType()))
+			&& RuntimeConfigurationType.DEVELOPMENT
+				.equals(Application.get().getConfigurationType()))
 			mapper.configure(SerializationConfig.Feature.INDENT_OUTPUT, true);
 
 		String optionsStr = "{}";

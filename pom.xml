@@ -11,16 +11,16 @@
 	<groupId>nl.topicus</groupId>
 	<artifactId>whighcharts</artifactId>
 	<packaging>jar</packaging>
-	<version>0.1-SNAPSHOT</version>
+	<version>1.5-SNAPSHOT</version>
 	<name>WHighCharts</name>
 	<description>WiQuery-HighCharts bindings</description>
 
 	<properties>
-		<wicket.version>1.4.15</wicket.version>
+		<wicket.version>1.5-RC5.1</wicket.version>
 		<jetty.version>6.1.25</jetty.version>
 		<slf4j.version>1.6.1</slf4j.version>
 		<jackson.version>1.6.1</jackson.version>
-		<wiquery.version>1.2-SNAPSHOT</wiquery.version>
+		<wiquery.version>1.5-M3</wiquery.version>
 	</properties>
 
 
@@ -76,12 +76,12 @@
 		<!-- WICKET DEPENDENCIES -->
 		<dependency>
 			<groupId>org.apache.wicket</groupId>
-			<artifactId>wicket</artifactId>
+			<artifactId>wicket-core</artifactId>
 			<version>${wicket.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.odlabs.wiquery</groupId>
-			<artifactId>wiquery</artifactId>
+			<artifactId>wiquery-jquery-ui</artifactId>
 			<version>${wiquery.version}</version>
 		</dependency>
 		<dependency>
