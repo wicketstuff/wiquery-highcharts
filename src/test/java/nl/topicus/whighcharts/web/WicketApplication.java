@@ -6,6 +6,7 @@ import org.apache.wicket.RuntimeConfigurationType;
 import org.apache.wicket.protocol.http.WebApplication;
 import org.apache.wicket.util.time.Duration;
 import org.odlabs.wiquery.core.commons.YUIJavaScriptCompressor;
+import org.odlabs.wiquery.core.commons.YUIStyleSheetCompressor;
 
 /**
  * Application object for your web application. If you want to run this application
@@ -33,7 +34,10 @@ public class WicketApplication extends WebApplication
 		getRequestLoggerSettings().setRecordSessionSize(true);
 
 		if (RuntimeConfigurationType.DEPLOYMENT.equals(getConfigurationType()))
+		{
 			getResourceSettings().setJavaScriptCompressor(new YUIJavaScriptCompressor());
+			getResourceSettings().setCssCompressor(new YUIStyleSheetCompressor());
+		}
 	}
 
 	public static WicketApplication get()
