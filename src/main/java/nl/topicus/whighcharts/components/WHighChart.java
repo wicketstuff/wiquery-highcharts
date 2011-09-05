@@ -1,22 +1,25 @@
 package nl.topicus.whighcharts.components;
 
 import java.io.IOException;
+import java.util.Collection;
 
 import nl.topicus.whighcharts.components.modules.WHighChartsExportingJavaScriptResourceReference;
 import nl.topicus.whighcharts.options.WHighChartOptions;
+import nl.topicus.whighcharts.options.series.ISeries;
 import nl.topicus.whighcharts.options.series.ISeriesEntry;
 
 import org.apache.wicket.Application;
 import org.apache.wicket.RuntimeConfigurationType;
+import org.apache.wicket.markup.html.IHeaderResponse;
 import org.apache.wicket.markup.html.WebMarkupContainer;
+import org.apache.wicket.model.IModel;
 import org.codehaus.jackson.JsonGenerationException;
 import org.codehaus.jackson.JsonGenerator;
 import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.map.SerializationConfig;
 import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
-import org.odlabs.wiquery.core.commons.IWiQueryPlugin;
-import org.odlabs.wiquery.core.commons.WiQueryResourceManager;
+import org.odlabs.wiquery.core.IWiQueryPlugin;
 import org.odlabs.wiquery.core.javascript.JsStatement;
 
 public class WHighChart<V, E extends ISeriesEntry<V>> extends WebMarkupContainer implements
@@ -28,7 +31,12 @@ public class WHighChart<V, E extends ISeriesEntry<V>> extends WebMarkupContainer
 
 	public WHighChart(String id)
 	{
-		super(id);
+		this(id, null);
+	}
+
+	public WHighChart(String id, IModel< ? extends Collection< ? extends ISeries<V, E>>> model)
+	{
+		super(id, model);
 		setOutputMarkupId(true);
 	}
 
@@ -38,16 +46,15 @@ public class WHighChart<V, E extends ISeriesEntry<V>> extends WebMarkupContainer
 	}
 
 	@Override
-	public void contribute(WiQueryResourceManager wiQueryResourceManager)
+	public void renderHead(IHeaderResponse response)
 	{
-		wiQueryResourceManager.addJavaScriptResource(WHighChartsJavaScriptResourceReference.get());
-		wiQueryResourceManager.addJavaScriptResource(WHighChartsExtraJavaScriptResourceReference
-			.get());
+		response.renderJavaScriptReference(WHighChartsJavaScriptResourceReference.get());
+		response.renderJavaScriptReference(WHighChartsExtraJavaScriptResourceReference.get());
 
 		if (getOptions().getExporting().getEnabled() != null
 			&& getOptions().getExporting().getEnabled().booleanValue())
-			wiQueryResourceManager
-				.addJavaScriptResource(WHighChartsExportingJavaScriptResourceReference.get());
+			response.renderJavaScriptReference(WHighChartsExportingJavaScriptResourceReference
+				.get());
 	}
 
 	@Override
@@ -65,6 +72,12 @@ public class WHighChart<V, E extends ISeriesEntry<V>> extends WebMarkupContainer
 		String optionsStr = "{}";
 		try
 		{
+			if (getModel() != null)
+			{
+				getOptions().getSeries().clear();
+				getOptions().getSeries().addAll(getModel().getObject());
+			}
+
 			optionsStr = mapper.writeValueAsString(options);
 		}
 		catch (JsonGenerationException e)
@@ -85,5 +98,11 @@ public class WHighChart<V, E extends ISeriesEntry<V>> extends WebMarkupContainer
 				+ optionsStr + " );\n");
 
 		return jsStatement;
+	}
+
+	@SuppressWarnings("unchecked")
+	public IModel< ? extends Collection< ? extends ISeries<V, E>>> getModel()
+	{
+		return (IModel< ? extends Collection< ? extends ISeries<V, E>>>) getDefaultModel();
 	}
 }

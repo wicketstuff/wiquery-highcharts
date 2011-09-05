@@ -40,11 +40,8 @@ public class AreaMissingPage extends BasePage
 		chart.getOptions().getyAxis().getTitle().setText("Y-Axis");
 		chart.getOptions().getyAxis().getLabels().setFormatter("function() { return this.value; }");
 
-		chart
-			.getOptions()
-			.getTooltip()
-			.setFormatter(
-				"function() { return '<b>'+ this.series.name +'</b><br/>'+this.x +': '+ this.y; }");
+		chart.getOptions().getTooltip()
+			.setFormatter("return '<b>'+ this.series.name +'</b><br/>'+this.x +': '+ this.y;");
 
 		chart.getOptions().getPlotOptions().getArea().setFillOpacity(0.5d);
 

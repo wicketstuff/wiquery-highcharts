@@ -41,8 +41,7 @@ public class AreasplinePage extends BasePage
 
 		chart.getOptions().getyAxis().getTitle().setText("Fruit units");
 
-		chart.getOptions().getTooltip()
-			.setFormatter("function() { return ''+ this.x +': '+ this.y +' units'; }");
+		chart.getOptions().getTooltip().setFormatter("return ''+ this.x +': '+ this.y +' units';");
 
 		chart.getOptions().getCredits().setEnabled(false);
 

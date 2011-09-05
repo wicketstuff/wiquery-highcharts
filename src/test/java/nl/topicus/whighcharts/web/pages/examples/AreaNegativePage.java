@@ -22,7 +22,7 @@ public class AreaNegativePage extends BasePage
 			.setCategories("Apples", "Oranges", "Pears", "Grapes", "Bananas");
 
 		chart.getOptions().getTooltip()
-			.setFormatter("function() { return ''+ this.series.name +': '+ this.y +''; }");
+			.setFormatter("return ''+ this.series.name +': '+ this.y +'';");
 
 		chart.getOptions().getCredits().setEnabled(false);
 

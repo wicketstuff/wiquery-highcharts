@@ -35,7 +35,7 @@ public class AreaBasicPage extends BasePage
 			.getOptions()
 			.getTooltip()
 			.setFormatter(
-				"function() { return this.series.name +' produced <b>'+ Highcharts.numberFormat(this.y, 0) +'</b><br/>warheads in '+ this.x; }");
+				"return this.series.name +' produced <b>'+ Highcharts.numberFormat(this.y, 0) +'</b><br/>warheads in '+ this.x;");
 
 		chart.getOptions().getPlotOptions().getArea().setPointStart(1940).getMarker()
 			.setEnabled(false).setSymbol(WHighChartPlotAreaMarkerSymbolType.circle).setRadius(2)

@@ -3,6 +3,7 @@ package nl.topicus.whighcharts.options.point;
 import java.io.Serializable;
 
 import nl.topicus.whighcharts.options.WHighChartFunction;
+import nl.topicus.whighcharts.options.WHighChartFunctionString;
 
 import org.codehaus.jackson.annotate.JsonAutoDetect;
 import org.codehaus.jackson.annotate.JsonAutoDetect.Visibility;
@@ -43,6 +44,11 @@ public class WHighChartPointEventsOptions implements Serializable
 		return this;
 	}
 
+	public WHighChartPointEventsOptions setClick(String formatter)
+	{
+		return setClick(new WHighChartFunctionString(formatter));
+	}
+
 	public WHighChartFunction getSelect()
 	{
 		return select;
@@ -52,5 +58,10 @@ public class WHighChartPointEventsOptions implements Serializable
 	{
 		this.select = select;
 		return this;
+	}
+
+	public WHighChartPointEventsOptions setSelect(String formatter)
+	{
+		return setSelect(new WHighChartFunctionString(formatter));
 	}
 }

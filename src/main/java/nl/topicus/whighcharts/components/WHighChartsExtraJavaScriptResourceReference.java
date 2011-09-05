@@ -1,6 +1,7 @@
 package nl.topicus.whighcharts.components;
 
-import org.odlabs.wiquery.core.commons.WiQueryJavaScriptResourceReference;
+import org.apache.wicket.resource.dependencies.AbstractResourceDependentResourceReference;
+import org.odlabs.wiquery.core.resources.WiQueryJavaScriptResourceReference;
 
 public class WHighChartsExtraJavaScriptResourceReference extends WiQueryJavaScriptResourceReference
 {
@@ -17,5 +18,15 @@ public class WHighChartsExtraJavaScriptResourceReference extends WiQueryJavaScri
 	public static WHighChartsExtraJavaScriptResourceReference get()
 	{
 		return INSTANCE;
+	}
+
+	@Override
+	public AbstractResourceDependentResourceReference[] getDependentResourceReferences()
+	{
+		AbstractResourceDependentResourceReference[] list =
+			new AbstractResourceDependentResourceReference[1];
+		list[0] = WHighChartsJavaScriptResourceReference.get();
+
+		return list;
 	}
 }

@@ -2,7 +2,6 @@ package nl.topicus.whighcharts.options.plotoptions;
 
 import java.io.Serializable;
 
-
 import org.codehaus.jackson.annotate.JsonAutoDetect;
 import org.codehaus.jackson.annotate.JsonAutoDetect.Visibility;
 import org.codehaus.jackson.map.annotate.JsonSerialize;

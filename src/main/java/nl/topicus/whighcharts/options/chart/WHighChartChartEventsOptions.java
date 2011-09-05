@@ -3,6 +3,7 @@ package nl.topicus.whighcharts.options.chart;
 import java.io.Serializable;
 
 import nl.topicus.whighcharts.options.WHighChartFunction;
+import nl.topicus.whighcharts.options.WHighChartFunctionString;
 
 import org.codehaus.jackson.annotate.JsonAutoDetect;
 import org.codehaus.jackson.annotate.JsonAutoDetect.Visibility;
@@ -105,7 +106,12 @@ public class WHighChartChartEventsOptions implements Serializable
 		return this;
 	}
 
-	public Object getClick()
+	public WHighChartChartEventsOptions setAddSeries(String formatter)
+	{
+		return setAddSeries(new WHighChartFunctionString(formatter));
+	}
+
+	public WHighChartFunction getClick()
 	{
 		return click;
 	}
@@ -116,7 +122,12 @@ public class WHighChartChartEventsOptions implements Serializable
 		return this;
 	}
 
-	public Object getLoad()
+	public WHighChartChartEventsOptions setClick(String formatter)
+	{
+		return setClick(new WHighChartFunctionString(formatter));
+	}
+
+	public WHighChartFunction getLoad()
 	{
 		return load;
 	}
@@ -127,7 +138,12 @@ public class WHighChartChartEventsOptions implements Serializable
 		return this;
 	}
 
-	public Object getRedraw()
+	public WHighChartChartEventsOptions setLoad(String formatter)
+	{
+		return setLoad(new WHighChartFunctionString(formatter));
+	}
+
+	public WHighChartFunction getRedraw()
 	{
 		return redraw;
 	}
@@ -136,6 +152,11 @@ public class WHighChartChartEventsOptions implements Serializable
 	{
 		this.redraw = redraw;
 		return this;
+	}
+
+	public WHighChartChartEventsOptions setRedraw(String formatter)
+	{
+		return setRedraw(new WHighChartFunctionString(formatter));
 	}
 
 	public Object getSelection()
@@ -147,5 +168,10 @@ public class WHighChartChartEventsOptions implements Serializable
 	{
 		this.selection = selection;
 		return this;
+	}
+
+	public WHighChartChartEventsOptions setSelection(String formatter)
+	{
+		return setSelection(new WHighChartFunctionString(formatter));
 	}
 }
