@@ -11,14 +11,14 @@
 	<groupId>nl.topicus</groupId>
 	<artifactId>whighcharts</artifactId>
 	<packaging>jar</packaging>
-	<version>1.5-SNAPSHOT</version>
+	<version>1.5-RC1</version>
 	<name>WHighCharts</name>
 	<description>WiQuery-HighCharts bindings</description>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<wicket.version>1.5-SNAPSHOT</wicket.version>
-		<wiquery.version>1.5-SNAPSHOT</wiquery.version>
+		<wicket.version>1.5-RC7</wicket.version>
+		<wiquery.version>1.5-RC1.1</wiquery.version>
 		<jackson.version>[1.8,1.8.10]</jackson.version>
 		<slf4j.version>[1.6,1.6.10]</slf4j.version>
 		<rhino.version>1.7R2</rhino.version>
