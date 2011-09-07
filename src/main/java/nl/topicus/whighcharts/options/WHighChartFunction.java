@@ -1,15 +1,13 @@
 package nl.topicus.whighcharts.options;
 
 import java.io.Serializable;
-
-import org.apache.wicket.request.IRequestParameters;
-import org.apache.wicket.util.string.StringValue;
+import java.util.Map;
 
 public interface WHighChartFunction extends Serializable
 {
 	public static class WHighChartFunctionEvent implements Serializable
 	{
-		public WHighChartFunctionEvent(IRequestParameters map)
+		public WHighChartFunctionEvent(Map<String, String[]> map)
 		{
 			name = getValue(map, "event.currentTarget.name");
 			visible = getValue(map, "this.visible");
@@ -32,13 +30,13 @@ public interface WHighChartFunction extends Serializable
 
 		}
 
-		private String getValue(IRequestParameters map, String key)
+		private String getValue(Map<String, String[]> map, String key)
 		{
-			StringValue values = map.getParameterValue(key);
-			if (values == null)
+			String[] values = map.get(key);
+			if (values == null || values[0] == null)
 				return null;
 
-			String value = values.toString();
+			String value = values[0];
 			if (value != null && value.trim().length() > 0 && !value.trim().startsWith("undefined"))
 				return value;
 
@@ -171,7 +169,7 @@ public interface WHighChartFunction extends Serializable
 			this.max = max;
 		}
 
-		public WHighChartFunctionEventAxis(IRequestParameters map, String string)
+		public WHighChartFunctionEventAxis(Map<String, String[]> map, String string)
 		{
 			value = getValue(map, string + ".value");
 			min = getValue(map, string + ".min");
@@ -179,13 +177,13 @@ public interface WHighChartFunction extends Serializable
 		}
 
 		@SuppressWarnings("hiding")
-		private String getValue(IRequestParameters map, String key)
+		private String getValue(Map<String, String[]> map, String key)
 		{
-			StringValue values = map.getParameterValue(key);
-			if (values == null)
+			String[] values = map.get(key);
+			if (values == null || values[0] == null)
 				return null;
 
-			String value = values.toString();
+			String value = values[0];
 			if (value != null && value.trim().length() > 0 && !value.trim().startsWith("undefined"))
 				return value;
 

@@ -11,15 +11,15 @@
 	<groupId>nl.topicus</groupId>
 	<artifactId>whighcharts</artifactId>
 	<packaging>jar</packaging>
-	<version>1.5-SNAPSHOT</version>
+	<version>0.1-SNAPSHOT</version>
 	<name>WHighCharts</name>
 	<description>WiQuery-HighCharts bindings</description>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<wicket.version>1.5-SNAPSHOT</wicket.version>
-		<wiquery.version>1.5-SNAPSHOT</wiquery.version>
-		<jackson.version>[1.8,1.8.10]</jackson.version>
+		<wicket.version>1.4.18</wicket.version>
+		<wiquery.version>1.2.4</wiquery.version>
+		<jackson.version>1.6.1</jackson.version>
 		<slf4j.version>[1.6,1.6.10]</slf4j.version>
 		<rhino.version>1.7R2</rhino.version>
 		<junit.version>4.9</junit.version>
@@ -33,8 +33,6 @@
 		<maven-gpg-plugin.version>1.3</maven-gpg-plugin.version>
 		<maven-javadoc-plugin.version>2.8</maven-javadoc-plugin.version>
 		<maven-source-plugin.version>2.1.2</maven-source-plugin.version>
-
-		<wagon-svn-extension.version>1.9</wagon-svn-extension.version>
 	</properties>
 
 	<url>https://github.com/hielkehoeve/wiquery-highcharts/wiki</url>
@@ -85,12 +83,12 @@
 		<!-- WICKET DEPENDENCIES -->
 		<dependency>
 			<groupId>org.apache.wicket</groupId>
-			<artifactId>wicket-core</artifactId>
+			<artifactId>wicket</artifactId>
 			<version>${wicket.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.odlabs.wiquery</groupId>
-			<artifactId>wiquery-jquery-ui</artifactId>
+			<artifactId>wiquery</artifactId>
 			<version>${wiquery.version}</version>
 		</dependency>
 		
