@@ -17,6 +17,8 @@ public class WHighChartPlotSeriesOptions implements Serializable
 
 	private WHighChartPointOptions point;
 
+	private Boolean step;
+
 	public WHighChartPointOptions getPoint()
 	{
 		if (point == null)
@@ -27,6 +29,19 @@ public class WHighChartPlotSeriesOptions implements Serializable
 	public WHighChartPlotSeriesOptions setPoint(WHighChartPointOptions point)
 	{
 		this.point = point;
+		return this;
+	}
+
+	public boolean isStep()
+	{
+		if (step == null)
+			step = Boolean.FALSE;
+		return step;
+	}
+
+	public WHighChartPlotSeriesOptions setStep(Boolean step)
+	{
+		this.step = step;
 		return this;
 	}
 }

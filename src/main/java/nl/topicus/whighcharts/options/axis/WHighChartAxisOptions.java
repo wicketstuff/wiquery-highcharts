@@ -18,6 +18,12 @@ public class WHighChartAxisOptions implements Serializable
 {
 	private static final long serialVersionUID = 1L;
 
+	public enum AxisType
+	{
+		linear,
+		datetime;
+	}
+
 	private WHighChartAxisLabelsOptions labels;
 
 	private WHighChartTitleOptions title;
@@ -25,6 +31,10 @@ public class WHighChartAxisOptions implements Serializable
 	private List<String> categories;
 
 	private Number min;
+
+	private AxisType type;
+
+	private WHighChartAxisDateTimeLabelFormats dateTimeLabelFormats;
 
 	/**
 	 * An array of configuration objects for plot bands colouring parts of the plot area
@@ -182,6 +192,31 @@ public class WHighChartAxisOptions implements Serializable
 	public WHighChartAxisOptions setTickInterval(Number tickInterval)
 	{
 		this.tickInterval = tickInterval;
+		return this;
+	}
+
+	public AxisType getType()
+	{
+		return type;
+	}
+
+	public WHighChartAxisOptions setType(AxisType type)
+	{
+		this.type = type;
+		return this;
+	}
+
+	public WHighChartAxisDateTimeLabelFormats getDateTimeLabelFormats()
+	{
+		if (dateTimeLabelFormats == null)
+			dateTimeLabelFormats = new WHighChartAxisDateTimeLabelFormats();
+		return dateTimeLabelFormats;
+	}
+
+	public WHighChartAxisOptions setDateTimeLabelFormats(
+			WHighChartAxisDateTimeLabelFormats dateTimeLabelFormats)
+	{
+		this.dateTimeLabelFormats = dateTimeLabelFormats;
 		return this;
 	}
 }
