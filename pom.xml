@@ -11,15 +11,15 @@
 	<groupId>nl.topicus</groupId>
 	<artifactId>whighcharts</artifactId>
 	<packaging>jar</packaging>
-	<version>0.1-SNAPSHOT</version>
+	<version>1.5-SNAPSHOT</version>
 	<name>WHighCharts</name>
 	<description>WiQuery-HighCharts bindings</description>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<wicket.version>1.4.18</wicket.version>
-		<wiquery.version>1.2.4</wiquery.version>
-		<jackson.version>1.6.1</jackson.version>
+		<wicket.version>1.5-SNAPSHOT</wicket.version>
+		<wiquery.version>1.5-SNAPSHOT</wiquery.version>
+		<jackson.version>[1.8,1.8.10]</jackson.version>
 		<slf4j.version>[1.6,1.6.10]</slf4j.version>
 		<rhino.version>1.7R2</rhino.version>
 		<junit.version>4.9</junit.version>
@@ -83,15 +83,15 @@
 		<!-- WICKET DEPENDENCIES -->
 		<dependency>
 			<groupId>org.apache.wicket</groupId>
-			<artifactId>wicket</artifactId>
+			<artifactId>wicket-core</artifactId>
 			<version>${wicket.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.odlabs.wiquery</groupId>
-			<artifactId>wiquery</artifactId>
+			<artifactId>wiquery-jquery-ui</artifactId>
 			<version>${wiquery.version}</version>
 		</dependency>
-		
+
 		<!-- LOGGING DEPENDENCIES - LOG4J -->
 		<dependency>
 			<groupId>org.slf4j</groupId>

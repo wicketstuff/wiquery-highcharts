@@ -1,6 +1,6 @@
 package nl.topicus.whighcharts.components.modules;
 
-import org.odlabs.wiquery.core.commons.WiQueryJavaScriptResourceReference;
+import org.odlabs.wiquery.core.resources.WiQueryJavaScriptResourceReference;
 
 public class WHighChartsExportingJavaScriptResourceReference extends
 		WiQueryJavaScriptResourceReference

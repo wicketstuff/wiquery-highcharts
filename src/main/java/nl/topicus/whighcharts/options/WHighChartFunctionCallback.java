@@ -1,13 +1,12 @@
 package nl.topicus.whighcharts.options;
 
-import java.util.Map;
-
 import nl.topicus.whighcharts.options.jackson.ToStringNoQuoteSerializer;
 
 import org.apache.wicket.Component;
-import org.apache.wicket.RequestCycle;
 import org.apache.wicket.ajax.AbstractDefaultAjaxBehavior;
 import org.apache.wicket.ajax.AjaxRequestTarget;
+import org.apache.wicket.request.IRequestParameters;
+import org.apache.wicket.request.cycle.RequestCycle;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
 
 @JsonSerialize(using = ToStringNoQuoteSerializer.class)
@@ -41,7 +40,7 @@ public class WHighChartFunctionCallback extends AbstractDefaultAjaxBehavior impl
 	@Override
 	protected void respond(AjaxRequestTarget target)
 	{
-		Map<String, String[]> map = RequestCycle.get().getRequest().getParameterMap();
+		IRequestParameters map = RequestCycle.get().getRequest().getRequestParameters();
 		WHighChartFunctionEvent event = new WHighChartFunctionEvent(map);
 		onEvent(event, target);
 	}

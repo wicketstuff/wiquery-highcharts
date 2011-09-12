@@ -9,6 +9,8 @@ import nl.topicus.whighcharts.options.series.ISeries;
 import nl.topicus.whighcharts.options.series.ISeriesEntry;
 
 import org.apache.wicket.Application;
+import org.apache.wicket.RuntimeConfigurationType;
+import org.apache.wicket.markup.html.IHeaderResponse;
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.model.IModel;
 import org.codehaus.jackson.JsonGenerationException;
@@ -17,8 +19,7 @@ import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.map.SerializationConfig;
 import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
-import org.odlabs.wiquery.core.commons.IWiQueryPlugin;
-import org.odlabs.wiquery.core.commons.WiQueryResourceManager;
+import org.odlabs.wiquery.core.IWiQueryPlugin;
 import org.odlabs.wiquery.core.javascript.JsStatement;
 
 public class WHighChart<V, E extends ISeriesEntry<V>> extends WebMarkupContainer implements
@@ -45,16 +46,15 @@ public class WHighChart<V, E extends ISeriesEntry<V>> extends WebMarkupContainer
 	}
 
 	@Override
-	public void contribute(WiQueryResourceManager wiQueryResourceManager)
+	public void renderHead(IHeaderResponse response)
 	{
-		wiQueryResourceManager.addJavaScriptResource(WHighChartsJavaScriptResourceReference.get());
-		wiQueryResourceManager.addJavaScriptResource(WHighChartsExtraJavaScriptResourceReference
-			.get());
+		response.renderJavaScriptReference(WHighChartsJavaScriptResourceReference.get());
+		response.renderJavaScriptReference(WHighChartsExtraJavaScriptResourceReference.get());
 
 		if (getOptions().getExporting().getEnabled() != null
 			&& getOptions().getExporting().getEnabled().booleanValue())
-			wiQueryResourceManager
-				.addJavaScriptResource(WHighChartsExportingJavaScriptResourceReference.get());
+			response.renderJavaScriptReference(WHighChartsExportingJavaScriptResourceReference
+				.get());
 	}
 
 	@Override
@@ -65,7 +65,8 @@ public class WHighChart<V, E extends ISeriesEntry<V>> extends WebMarkupContainer
 		mapper.configure(JsonGenerator.Feature.QUOTE_FIELD_NAMES, false);
 
 		if (Application.exists()
-			&& Application.DEVELOPMENT.equals(Application.get().getConfigurationType()))
+			&& RuntimeConfigurationType.DEVELOPMENT
+				.equals(Application.get().getConfigurationType()))
 			mapper.configure(SerializationConfig.Feature.INDENT_OUTPUT, true);
 
 		String optionsStr = "{}";
