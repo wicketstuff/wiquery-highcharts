@@ -64,6 +64,11 @@ public class AbstractSeries<V, E extends ISeriesEntry<V>> implements ISeries<V, 
 	 */
 	private Number yAxis;
 
+	/**
+	 * An (aparently) undocumenten area of highcharts.
+	 */
+	private WHighChartSeriesDataLabelsOptions dataLabels;
+
 	@Override
 	public List<E> getData()
 	{
@@ -143,4 +148,21 @@ public class AbstractSeries<V, E extends ISeriesEntry<V>> implements ISeries<V, 
 		this.yAxis = yAxis;
 		return (T) this;
 	}
+
+	public WHighChartSeriesDataLabelsOptions getDataLabels()
+	{
+		if (dataLabels == null)
+			dataLabels = new WHighChartSeriesDataLabelsOptions();
+
+		return dataLabels;
+	}
+
+	@SuppressWarnings("unchecked")
+	public <T extends AbstractSeries<V, E>> T setDataLabels(
+			WHighChartSeriesDataLabelsOptions dataLabels)
+	{
+		this.dataLabels = dataLabels;
+		return (T) this;
+	}
+
 }

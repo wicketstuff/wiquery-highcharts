@@ -642,6 +642,24 @@ public class WHighChartChartOptions implements Serializable
 		return this;
 	}
 
+	/**
+	 * @deprecated use {@link #getType()}.
+	 */
+	@Deprecated
+	public WHighChartChartOptionsType getDefaultSeriesType()
+	{
+		return getType();
+	}
+
+	/**
+	 * @deprecated use {@link #setType(WHighChartChartOptionsType)}.
+	 */
+	@Deprecated
+	public WHighChartChartOptions setDefaultSeriesType(WHighChartChartOptionsType type)
+	{
+		return setType(type);
+	}
+
 	public Number getWidth()
 	{
 		return width;

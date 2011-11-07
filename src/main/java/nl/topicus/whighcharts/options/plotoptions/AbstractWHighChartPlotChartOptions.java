@@ -2,6 +2,7 @@ package nl.topicus.whighcharts.options.plotoptions;
 
 import java.io.Serializable;
 
+import nl.topicus.whighcharts.options.WHighChartPointerType;
 import nl.topicus.whighcharts.options.chart.WHighChartChartEventsOptions;
 
 import org.codehaus.jackson.annotate.JsonAutoDetect;
@@ -15,6 +16,19 @@ public class AbstractWHighChartPlotChartOptions<T extends AbstractWHighChartPlot
 		implements Serializable
 {
 	private static final long serialVersionUID = 1L;
+
+	/**
+	 * Allow this series' points to be selected by clicking on the markers, bars or pie
+	 * slices. Defaults to false.
+	 */
+	private Boolean allowPointSelect;
+
+	/**
+	 * You can set the cursor to "pointer" if you have click events attached to the
+	 * series, to signal to the user that the points and lines can be clicked. Defaults to
+	 * ''.
+	 */
+	private WHighChartPointerType cursor;
 
 	/**
 	 * A name for the dash style to use for the graph. Applies only to series type having
@@ -33,6 +47,36 @@ public class AbstractWHighChartPlotChartOptions<T extends AbstractWHighChartPlot
 	 * Fill opacity for the area. Defaults to .75.
 	 */
 	private Number fillOpacity;
+
+	private WHighChartPlotAreaMarkerOptions marker;
+
+	private WHighChartPlotChartPointOptions point;
+
+	private Number pointStart;
+
+	public Boolean getAllowPointSelect()
+	{
+		return allowPointSelect;
+	}
+
+	@SuppressWarnings("unchecked")
+	public T setAllowPointSelect(Boolean allowPointSelect)
+	{
+		this.allowPointSelect = allowPointSelect;
+		return (T) this;
+	}
+
+	public WHighChartPointerType getCursor()
+	{
+		return cursor;
+	}
+
+	@SuppressWarnings("unchecked")
+	public T setCursor(WHighChartPointerType cursor)
+	{
+		this.cursor = cursor;
+		return (T) this;
+	}
 
 	public WHighChartPlotDashStyleType getDashStyle()
 	{
@@ -66,9 +110,52 @@ public class AbstractWHighChartPlotChartOptions<T extends AbstractWHighChartPlot
 		return events;
 	}
 
-	public AbstractWHighChartPlotChartOptions< ? > setEvents(WHighChartChartEventsOptions events)
+	@SuppressWarnings("unchecked")
+	public T setEvents(WHighChartChartEventsOptions events)
 	{
 		this.events = events;
-		return this;
+		return (T) this;
+	}
+
+	public WHighChartPlotAreaMarkerOptions getMarker()
+	{
+		if (marker == null)
+			marker = new WHighChartPlotAreaMarkerOptions();
+
+		return marker;
+	}
+
+	@SuppressWarnings("unchecked")
+	public T setMarker(WHighChartPlotAreaMarkerOptions marker)
+	{
+		this.marker = marker;
+		return (T) this;
+	}
+
+	public WHighChartPlotChartPointOptions getPoint()
+	{
+		if (point == null)
+			point = new WHighChartPlotChartPointOptions();
+
+		return point;
+	}
+
+	@SuppressWarnings("unchecked")
+	public T setPoint(WHighChartPlotChartPointOptions point)
+	{
+		this.point = point;
+		return (T) this;
+	}
+
+	public Number getPointStart()
+	{
+		return pointStart;
+	}
+
+	@SuppressWarnings("unchecked")
+	public T setPointStart(Number pointStart)
+	{
+		this.pointStart = pointStart;
+		return (T) this;
 	}
 }

@@ -20,7 +20,7 @@ public class WHighChartPlotOptions implements Serializable
 
 	private AbstractWHighChartPlotChartOptions bar;
 
-	private AbstractWHighChartPlotChartOptions column;
+	private WHighChartPlotColumnOptions column;
 
 	private AbstractWHighChartPlotChartOptions line;
 
@@ -74,15 +74,15 @@ public class WHighChartPlotOptions implements Serializable
 		return this;
 	}
 
-	public AbstractWHighChartPlotChartOptions getColumn()
+	public WHighChartPlotColumnOptions getColumn()
 	{
 		if (column == null)
-			column = new AbstractWHighChartPlotChartOptions();
+			column = new WHighChartPlotColumnOptions();
 
 		return column;
 	}
 
-	public WHighChartPlotOptions setColumn(AbstractWHighChartPlotChartOptions column)
+	public WHighChartPlotOptions setColumn(WHighChartPlotColumnOptions column)
 	{
 		this.column = column;
 		return this;

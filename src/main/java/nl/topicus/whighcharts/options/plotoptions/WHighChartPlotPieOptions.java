@@ -60,17 +60,6 @@ public class WHighChartPlotPieOptions extends
 	 */
 	private Boolean showInLegend;
 
-	public Boolean getAllowPointSelect()
-	{
-		return allowPointSelect;
-	}
-
-	public WHighChartPlotPieOptions setAllowPointSelect(Boolean allowPointSelect)
-	{
-		this.allowPointSelect = allowPointSelect;
-		return this;
-	}
-
 	public Boolean getAnimation()
 	{
 		return animation;
@@ -90,17 +79,6 @@ public class WHighChartPlotPieOptions extends
 	public WHighChartPlotPieOptions setColor(String color)
 	{
 		this.color = color;
-		return this;
-	}
-
-	public WHighChartPointerType getCursor()
-	{
-		return cursor;
-	}
-
-	public WHighChartPlotPieOptions setCursor(WHighChartPointerType cursor)
-	{
-		this.cursor = cursor;
 		return this;
 	}
 

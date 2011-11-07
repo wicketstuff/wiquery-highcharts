@@ -45,6 +45,11 @@ public class WHighChartPlotPieLabelsOptions implements Serializable
 		return this;
 	}
 
+	public WHighChartPlotPieLabelsOptions setFormatter(String formatter)
+	{
+		return setFormatter(new WHighChartFunctionString(formatter));
+	}
+
 	public WHighChartPlotPieLabelsOptions setSelection(String formatter)
 	{
 		return setFormatter(new WHighChartFunctionString(formatter));
