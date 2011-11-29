@@ -5,11 +5,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import nl.topicus.whighcharts.options.jackson.WicketListModelToStringSerializer;
 import nl.topicus.whighcharts.options.title.WHighChartTitleOptions;
 
-import org.apache.wicket.model.IModel;
-import org.apache.wicket.model.util.ListModel;
 import org.codehaus.jackson.annotate.JsonAutoDetect;
 import org.codehaus.jackson.annotate.JsonAutoDetect.Visibility;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
@@ -31,8 +28,12 @@ public class WHighChartAxisOptions implements Serializable
 
 	private WHighChartTitleOptions title;
 
-	@JsonSerialize(using = WicketListModelToStringSerializer.class)
-	private IModel<List<String>> categories;
+	/**
+	 * If categories are present for the xAxis, names are used instead of numbers for that
+	 * axis. WHighChart note: When no categories are set here, WHighChart will check if
+	 * its model implements {@link IWHighChartAxisCategoriesProvider}.
+	 */
+	private List<String> categories;
 
 	private Number min;
 
@@ -86,26 +87,23 @@ public class WHighChartAxisOptions implements Serializable
 		return this;
 	}
 
-	public IModel<List<String>> getCategories()
+	/**
+	 *
+	 */
+	public List<String> getCategories()
 	{
 		return categories;
 	}
 
-	public WHighChartAxisOptions setCategories(IModel<List<String>> categories)
+	public WHighChartAxisOptions setCategories(List<String> categories)
 	{
 		this.categories = categories;
 		return this;
 	}
 
-	public WHighChartAxisOptions setCategories(List<String> categories)
-	{
-		this.categories = new ListModel<String>(categories);
-		return this;
-	}
-
 	public WHighChartAxisOptions setCategories(String... values)
 	{
-		categories = new ListModel<String>(Arrays.asList(values));
+		categories = Arrays.asList(values);
 		return this;
 	}
 

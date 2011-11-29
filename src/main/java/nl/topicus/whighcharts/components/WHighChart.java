@@ -5,6 +5,7 @@ import java.util.Collection;
 
 import nl.topicus.whighcharts.components.modules.WHighChartsExportingJavaScriptResourceReference;
 import nl.topicus.whighcharts.options.WHighChartOptions;
+import nl.topicus.whighcharts.options.axis.IWHighChartAxisCategoriesProvider;
 import nl.topicus.whighcharts.options.series.ISeries;
 import nl.topicus.whighcharts.options.series.ISeriesEntry;
 
@@ -76,6 +77,26 @@ public class WHighChart<V, E extends ISeriesEntry<V>> extends WebMarkupContainer
 			{
 				getOptions().getSeries().clear();
 				getOptions().getSeries().addAll(getModel().getObject());
+
+				if (getModel() instanceof IWHighChartAxisCategoriesProvider)
+				{
+					IWHighChartAxisCategoriesProvider categoriesProvider =
+						(IWHighChartAxisCategoriesProvider) getModel();
+
+					if (getOptions().getxAxis().getCategories() == null
+						|| getOptions().getxAxis().getCategories().isEmpty())
+					{
+						getOptions().getxAxis().setCategories(
+							categoriesProvider.getxAxisCategories());
+					}
+
+					if (getOptions().getyAxis().getCategories() == null
+						|| getOptions().getyAxis().getCategories().isEmpty())
+					{
+						getOptions().getyAxis().setCategories(
+							categoriesProvider.getyAxisCategories());
+					}
+				}
 			}
 
 			optionsStr = mapper.writeValueAsString(options);
