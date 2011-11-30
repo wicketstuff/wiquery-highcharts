@@ -55,9 +55,9 @@ public class WHighChart<V, E extends ISeriesEntry<V>> extends WebMarkupContainer
 			&& getOptions().getExporting().getEnabled().booleanValue())
 			response.renderJavaScriptReference(WHighChartsExportingJavaScriptResourceReference
 				.get());
+		response.renderOnDomReadyJavaScript(statement().render().toString());
 	}
 
-	@Override
 	public JsStatement statement()
 	{
 		ObjectMapper mapper = new ObjectMapper();
