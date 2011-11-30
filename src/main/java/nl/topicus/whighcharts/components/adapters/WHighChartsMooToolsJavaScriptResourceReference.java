@@ -1,9 +1,9 @@
 package nl.topicus.whighcharts.components.adapters;
 
-import org.odlabs.wiquery.core.resources.WiQueryJavaScriptResourceReference;
+import org.apache.wicket.resource.MinifiedDetectingJavaScriptResourceReference;
 
 public class WHighChartsMooToolsJavaScriptResourceReference extends
-		WiQueryJavaScriptResourceReference
+		MinifiedDetectingJavaScriptResourceReference
 {
 	private static final long serialVersionUID = -4771815414204892357L;
 
