@@ -19,11 +19,9 @@ import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.map.SerializationConfig;
 import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
-import org.odlabs.wiquery.core.IWiQueryPlugin;
 import org.odlabs.wiquery.core.javascript.JsStatement;
 
-public class WHighChart<V, E extends ISeriesEntry<V>> extends WebMarkupContainer implements
-		IWiQueryPlugin
+public class WHighChart<V, E extends ISeriesEntry<V>> extends WebMarkupContainer
 {
 	private static final long serialVersionUID = 1L;
 
