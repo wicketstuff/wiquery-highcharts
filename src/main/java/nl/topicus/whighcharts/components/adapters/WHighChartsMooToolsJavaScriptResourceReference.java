@@ -1,9 +1,9 @@
 package nl.topicus.whighcharts.components.adapters;
 
-import org.apache.wicket.resource.MinifiedDetectingJavaScriptResourceReference;
+import org.apache.wicket.resource.MinifiedAwareJavaScriptResourceReference;
 
 public class WHighChartsMooToolsJavaScriptResourceReference extends
-		MinifiedDetectingJavaScriptResourceReference
+		MinifiedAwareJavaScriptResourceReference
 {
 	private static final long serialVersionUID = -4771815414204892357L;
 
