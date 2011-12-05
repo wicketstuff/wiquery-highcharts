@@ -1,9 +1,9 @@
 package nl.topicus.whighcharts.components.themes;
 
-import org.apache.wicket.resource.MinifiedDetectingJavaScriptResourceReference;
+import org.apache.wicket.resource.MinifiedAwareJavaScriptResourceReference;
 
 public class WHighChartsExportingJavaScriptResourceReference extends
-		MinifiedDetectingJavaScriptResourceReference
+		MinifiedAwareJavaScriptResourceReference
 {
 	private static final long serialVersionUID = -4771815414204892357L;
 
