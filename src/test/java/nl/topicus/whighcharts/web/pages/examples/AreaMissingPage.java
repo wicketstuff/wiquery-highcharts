@@ -38,7 +38,7 @@ public class AreaMissingPage extends BasePage
 				"Strawberries", "Raspberries");
 
 		chart.getOptions().getyAxis().getTitle().setText("Y-Axis");
-		chart.getOptions().getyAxis().getLabels().setFormatter("function() { return this.value; }");
+		chart.getOptions().getyAxis().getLabels().setFormatter("return this.value;");
 
 		chart.getOptions().getTooltip()
 			.setFormatter("return '<b>'+ this.series.name +'</b><br/>'+this.x +': '+ this.y;");

@@ -36,7 +36,7 @@ public class AreaInvertedPage extends BasePage
 				"Sunday");
 
 		chart.getOptions().getyAxis().getTitle().setText("Number of units");
-		chart.getOptions().getyAxis().getLabels().setFormatter("function() { return this.value; }");
+		chart.getOptions().getyAxis().getLabels().setFormatter("return this.value;");
 		chart.getOptions().getyAxis().setMin(0);
 
 		chart.getOptions().getTooltip().setFormatter("return ''+ this.x +': '+ this.y;");

@@ -26,10 +26,9 @@ public class AreaBasicPage extends BasePage
 				"Source: <a href='http://thebulletin.metapress.com/content/c4120650912x74k7/fulltext.pdf'>"
 					+ "thebulletin.metapress.com</a>");
 
-		chart.getOptions().getxAxis().getLabels().setFormatter("function() { return this.value; }");
+		chart.getOptions().getxAxis().getLabels().setFormatter("return this.value;");
 		chart.getOptions().getyAxis().getTitle().setText("Nuclear weapon states");
-		chart.getOptions().getyAxis().getLabels()
-			.setFormatter("function() { return this.value / 1000 +'k'; }");
+		chart.getOptions().getyAxis().getLabels().setFormatter("return this.value / 1000 +'k';");
 
 		chart
 			.getOptions()
