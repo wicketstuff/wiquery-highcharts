@@ -4,7 +4,9 @@ import java.io.Serializable;
 import java.util.Arrays;
 
 import nl.topicus.whighcharts.components.WHighChart;
+import nl.topicus.whighcharts.options.jackson.ComponentMarkupIdSerializer;
 
+import org.apache.wicket.Component;
 import org.codehaus.jackson.annotate.JsonAutoDetect;
 import org.codehaus.jackson.annotate.JsonAutoDetect.Visibility;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
@@ -180,7 +182,8 @@ public class WHighChartChartOptions implements Serializable
 	 * by that id is used. The HTML element can also be passed by direct reference.
 	 * Defaults to null.
 	 */
-	private String renderTo;
+	@JsonSerialize(using = ComponentMarkupIdSerializer.class)
+	private Component renderTo;
 
 	/**
 	 * Whether to apply a drop shadow to the outer chart area. Requires that
@@ -538,7 +541,7 @@ public class WHighChartChartOptions implements Serializable
 		return this;
 	}
 
-	public String getRenderTo()
+	public Component getRenderTo()
 	{
 		return renderTo;
 	}
@@ -548,9 +551,9 @@ public class WHighChartChartOptions implements Serializable
 	 *           wHighCharts.
 	 * @return WHighChartChartOptions
 	 */
-	public WHighChartChartOptions setRenderTo(String markupId)
+	public WHighChartChartOptions setRenderTo(Component component)
 	{
-		this.renderTo = markupId;
+		this.renderTo = component;
 		return this;
 	}
 

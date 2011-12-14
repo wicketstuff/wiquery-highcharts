@@ -26,7 +26,6 @@ import nl.topicus.whighcharts.options.tooltip.WHighChartTooltipOptions;
 
 import org.codehaus.jackson.annotate.JsonAutoDetect;
 import org.codehaus.jackson.annotate.JsonAutoDetect.Visibility;
-import org.codehaus.jackson.annotate.JsonIgnore;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
 import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
 
@@ -35,12 +34,6 @@ import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
 public class WHighChartOptions<V, E extends ISeriesEntry<V>> implements Serializable
 {
 	private static final long serialVersionUID = 1L;
-
-	/**
-	 * Reference to the main chart object, not to be serialized into an option;
-	 */
-	@JsonIgnore
-	private WHighChart<V, E> wHighChart;
 
 	private WHighChartChartOptions chart;
 
@@ -86,7 +79,7 @@ public class WHighChartOptions<V, E extends ISeriesEntry<V>> implements Serializ
 
 	public WHighChartOptions(WHighChart<V, E> wHighChart)
 	{
-		getChart().setRenderTo(wHighChart.getMarkupId());
+		getChart().setRenderTo(wHighChart);
 	}
 
 	public WHighChartChartOptions getChart()
@@ -233,11 +226,6 @@ public class WHighChartOptions<V, E extends ISeriesEntry<V>> implements Serializ
 			symbols = new ArrayList<WHighChartSymbolsOptionsType>();
 
 		return symbols;
-	}
-
-	public WHighChart<V, E> getwHighChart()
-	{
-		return wHighChart;
 	}
 
 	public WHighChartAxisOptions getxAxis()

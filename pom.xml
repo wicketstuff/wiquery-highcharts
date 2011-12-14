@@ -19,11 +19,8 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<wicket.version>1.5-SNAPSHOT</wicket.version>
 		<wiquery.version>1.5-SNAPSHOT</wiquery.version>
-		<jackson.version>[1.8,1.8.10]</jackson.version>
 		<slf4j.version>[1.6,1.6.10]</slf4j.version>
-		<rhino.version>1.7R2</rhino.version>
 		<junit.version>4.9</junit.version>
-		<servlet-api.version>2.5</servlet-api.version>
 		<jetty.version>6.1.26</jetty.version>
 
 		<maven-buildnumber-plugin.version>1.0</maven-buildnumber-plugin.version>
@@ -215,6 +212,7 @@
 				<artifactId>maven-jetty-plugin</artifactId>
 				<version>${jetty.version}</version>
 			</plugin>
+			<!-- 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-gpg-plugin</artifactId>
@@ -229,6 +227,7 @@
 					</execution>
 				</executions>
 			</plugin>
+			 -->
 		</plugins>
 	</build>
 </project>
