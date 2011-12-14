@@ -13,6 +13,8 @@ import org.apache.wicket.RuntimeConfigurationType;
 import org.apache.wicket.markup.html.IHeaderResponse;
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.model.IModel;
+import org.apache.wicket.resource.header.JavaScriptHeaderItem;
+import org.apache.wicket.resource.header.OnDomReadyHeaderItem;
 import org.codehaus.jackson.JsonGenerationException;
 import org.codehaus.jackson.JsonGenerator;
 import org.codehaus.jackson.map.JsonMappingException;
@@ -46,14 +48,16 @@ public class WHighChart<V, E extends ISeriesEntry<V>> extends WebMarkupContainer
 	@Override
 	public void renderHead(IHeaderResponse response)
 	{
-		response.renderJavaScriptReference(WHighChartsJavaScriptResourceReference.get());
-		response.renderJavaScriptReference(WHighChartsExtraJavaScriptResourceReference.get());
+		response.render(JavaScriptHeaderItem.forReference(WHighChartsJavaScriptResourceReference
+			.get()));
+		response.render(JavaScriptHeaderItem
+			.forReference(WHighChartsExtraJavaScriptResourceReference.get()));
 
 		if (getOptions().getExporting().getEnabled() != null
 			&& getOptions().getExporting().getEnabled().booleanValue())
-			response.renderJavaScriptReference(WHighChartsExportingJavaScriptResourceReference
-				.get());
-		response.renderOnDomReadyJavaScript(statement().render().toString());
+			response.render(JavaScriptHeaderItem
+				.forReference(WHighChartsExportingJavaScriptResourceReference.get()));
+		response.render(OnDomReadyHeaderItem.forScript(statement().render().toString()));
 	}
 
 	public JsStatement statement()
