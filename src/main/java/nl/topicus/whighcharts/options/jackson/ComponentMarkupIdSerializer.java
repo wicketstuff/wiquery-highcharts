@@ -21,7 +21,7 @@ public class ComponentMarkupIdSerializer extends SerializerBase<Component>
 	public void serialize(Component value, JsonGenerator jgen, SerializerProvider provider)
 			throws IOException, JsonGenerationException
 	{
-		jgen.writeRawValue(value.getMarkupId());
+		jgen.writeString(value.getMarkupId());
 	}
 
 	@Override
