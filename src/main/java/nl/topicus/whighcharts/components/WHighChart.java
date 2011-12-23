@@ -11,11 +11,11 @@ import nl.topicus.whighcharts.options.series.ISeriesEntry;
 
 import org.apache.wicket.Application;
 import org.apache.wicket.RuntimeConfigurationType;
-import org.apache.wicket.markup.html.IHeaderResponse;
+import org.apache.wicket.markup.head.IHeaderResponse;
+import org.apache.wicket.markup.head.JavaScriptHeaderItem;
+import org.apache.wicket.markup.head.OnDomReadyHeaderItem;
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.model.IModel;
-import org.apache.wicket.resource.header.JavaScriptHeaderItem;
-import org.apache.wicket.resource.header.OnDomReadyHeaderItem;
 import org.codehaus.jackson.JsonGenerationException;
 import org.codehaus.jackson.JsonGenerator;
 import org.codehaus.jackson.map.JsonMappingException;
