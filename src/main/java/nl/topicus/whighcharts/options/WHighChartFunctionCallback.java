@@ -5,6 +5,7 @@ import nl.topicus.whighcharts.options.jackson.ToStringNoQuoteSerializer;
 import org.apache.wicket.Component;
 import org.apache.wicket.ajax.AbstractDefaultAjaxBehavior;
 import org.apache.wicket.ajax.AjaxRequestTarget;
+import org.apache.wicket.ajax.attributes.AjaxRequestAttributes;
 import org.apache.wicket.request.IRequestParameters;
 import org.apache.wicket.request.cycle.RequestCycle;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
@@ -23,18 +24,15 @@ public class WHighChartFunctionCallback extends AbstractDefaultAjaxBehavior impl
 	@Override
 	public String toString()
 	{
+		AjaxRequestAttributes attributes = getAttributes();
 		StringBuilder builder = new StringBuilder();
 		builder.append("function(event){\n ");
-		builder.append(getCallbackScript());
-		builder.append("\n }");
+		builder.append("var attrs = ");
+		builder.append(renderAjaxAttributes(getComponent(), attributes));
+		builder.append("wHighChartsSerializeEvent(attrs, event);");
+		builder.append("Wicket.Ajax.ajax(attrs);");
+		builder.append("\n}");
 		return builder.toString();
-	}
-
-	@Override
-	protected CharSequence getCallbackScript()
-	{
-		return generateCallbackScript("wicketAjaxGet('" + getCallbackUrl()
-			+ "&' + wHighChartsSerializeEvent(event)");
 	}
 
 	@Override

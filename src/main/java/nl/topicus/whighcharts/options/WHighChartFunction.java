@@ -27,8 +27,8 @@ public interface WHighChartFunction extends Serializable
 			chartX = getValue(map, "event.chartX");
 			chartY = getValue(map, "event.chartY");
 
-			xAxis = new WHighChartFunctionEventAxis(map, "event.xAxis[0]");
-			yAxis = new WHighChartFunctionEventAxis(map, "event.yAxis[0]");
+			xAxis = new WHighChartFunctionEventAxis(map, "event.xAxis0");
+			yAxis = new WHighChartFunctionEventAxis(map, "event.yAxis0");
 
 		}
 
