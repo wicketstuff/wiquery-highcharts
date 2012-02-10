@@ -34,9 +34,9 @@
 
 	<url>https://github.com/hielkehoeve/wiquery-highcharts/wiki</url>
 	<scm>
-		<url>git@github.com:hielkehoeve/wiquery-highcharts.git</url>
-		<connection>scm:git:git@github.com:hielkehoeve/wiquery-highcharts.git</connection>
-		<developerConnection>scm:git:git@github.com:hielkehoeve/wiquery-highcharts.git</developerConnection>
+		<url>git://github.com/zigterman/wiquery-highcharts.git</url>
+		<connection>scm:git:git://github.com/zigterman/wiquery-highcharts.git</connection>
+		<developerConnection>scm:git:git://github.com/zigterman/wiquery-highcharts.git</developerConnection>
 	</scm>
 
 	<developers>
