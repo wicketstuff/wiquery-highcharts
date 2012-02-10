@@ -26,6 +26,21 @@
 		<maven-javadoc-plugin.version>2.8</maven-javadoc-plugin.version>
 		<maven-source-plugin.version>2.1.2</maven-source-plugin.version>
 	</properties>
+	
+	<distributionManagement>
+		<repository>
+			<id>deployment.external</id>
+			<name>external Release Repository</name>
+			<url>http://vaatwasser:8081/nexus/content/repositories/external-releases/</url>
+			<uniqueVersion>false</uniqueVersion>
+		</repository>
+		<snapshotRepository>
+			<id>deployment.external</id>
+			<name>external snapshot Repository</name>
+			<url>http://vaatwasser:8081/nexus/content/repositories/external-snapshot//</url>
+			<uniqueVersion>false</uniqueVersion>
+		</snapshotRepository>
+	</distributionManagement>
 
 	<url>https://github.com/hielkehoeve/wiquery-highcharts/wiki</url>
 	<scm>
