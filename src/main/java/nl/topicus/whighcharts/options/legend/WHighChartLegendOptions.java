@@ -4,107 +4,173 @@ import java.io.Serializable;
 
 import nl.topicus.whighcharts.options.WHighChartHorizontalAlignmentType;
 import nl.topicus.whighcharts.options.WHighChartVerticalAlignmentType;
+import nl.topicus.whighcharts.options.jackson.StyleSerializer;
 
 import org.codehaus.jackson.annotate.JsonAutoDetect;
 import org.codehaus.jackson.annotate.JsonAutoDetect.Visibility;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
 import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
 
+/**
+ * The legend is a box containing a symbol and name for each series item or point item in
+ * the chart.
+ */
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 @JsonSerialize(include = Inclusion.NON_NULL)
 public class WHighChartLegendOptions implements Serializable
 {
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * The horizontal alignment of the legend box within the chart area.
+	 * 
+	 * Defaults to "center".
+	 */
 	private WHighChartHorizontalAlignmentType align;
 
+	/**
+	 * The background color of the legend, filling the rounded corner border.
+	 * 
+	 * Defaults to null.
+	 */
 	private String backgroundColor;
 
 	/**
-	 * The color of the drawn border around the legend. Defaults to #909090.
+	 * The color of the drawn border around the legend.
+	 * 
+	 * Defaults to #909090.
 	 */
 	private String borderColor;
 
 	/**
-	 * The border corner radius of the legend. Defaults to 5.
+	 * The border corner radius of the legend.
+	 * 
+	 * Defaults to 5.
 	 */
 	private Number borderRadius;
 
 	/**
-	 * The width of the drawn border around the legend. Defaults to 1.
+	 * The width of the drawn border around the legend.
+	 * 
+	 * Defaults to 1.
 	 */
 	private Number borderWidth;
 
 	/**
-	 * Enable or disable the legend. Defaults to true.
+	 * Enable or disable the legend.
+	 * 
+	 * Defaults to true.
 	 */
 	private Boolean enabled;
 
 	/**
 	 * When the legend is floating, the plot area ignores it and is allowed to be placed
-	 * below it. Defaults to false.
+	 * below it.
+	 * 
+	 * Defaults to false.
 	 */
 	private Boolean floating;
 
 	/**
 	 * CSS styles for each legend item when the corresponding series or point is hidden.
-	 * Properties are inherited from style unless overridden here. Defaults to:
-	 * itemHiddenStyle: { color: '#CCC' }
+	 * Properties are inherited from style unless overridden here.
+	 * 
+	 * Defaults to:
+	 * 
+	 * <pre>
+	 * itemHiddenStyle: {
+	 * 		color: '#CCC'
+	 * }
+	 * </pre>
 	 */
 	private String itemHiddenStyle;
 
 	/**
 	 * CSS styles for each legend item in hover mode. Properties are inherited from style
-	 * unless overridden here. Defaults to: itemHoverStyle: { color: '#000' }
+	 * unless overridden here.
+	 * 
+	 * Defaults to:
+	 * 
+	 * <pre>
+	 * itemHoverStyle: {
+	 * 		color: '#000'
+	 * }
+	 * </pre>
 	 */
 	private String itemHoverStyle;
 
 	/**
-	 * CSS styles for each legend item. Defaults to: itemStyle: { cursor: 'pointer',
-	 * color: '#3E576F' }
+	 * CSS styles for each legend item.
+	 * 
+	 * Defaults to:
+	 * 
+	 * <pre>
+	 * itemStyle: {
+	 * 		cursor: 'pointer',
+	 * 		color: '#3E576F'
+	 * }
+	 * </pre>
 	 */
 	private String itemStyle;
 
 	/**
 	 * The width for each legend item. This is useful in a horizontal layout with many
-	 * items when you want the items to align vertically. Defaults to null.
+	 * items when you want the items to align vertically.
+	 * 
+	 * Defaults to null.
 	 */
 	private Number itemWidth;
 
 	/**
-	 * The layout of the legend items. Can be one of "horizontal" or "vertical". Defaults
-	 * to "horizontal".
+	 * The layout of the legend items. Can be one of "horizontal" or "vertical".
+	 * 
+	 * Defaults to "horizontal".
 	 */
 	private WHighChartLegendLayoutType layout;
 
 	/**
 	 * Callback function to format each of the series' labels. The this keyword refers to
-	 * the series object, or the point object in case of pie charts. Defaults to:
-	 * labelFormatter: function() { return this.name }
+	 * the series object, or the point object in case of pie charts.
+	 * 
+	 * Defaults to:
+	 * 
+	 * <pre>
+	 * labelFormatter: function() {
+	 * 		return this.name
+	 * }
+	 * </pe>
 	 */
 	private String labelFormatter;
 
 	/**
-	 * Line height for the legend items. Deprecated as of 2.1. Defaults to 16.
+	 * Line height for the legend items. Deprecated as of 2.1.
+	 * 
+	 * Defaults to 16.
 	 */
+	@Deprecated
 	private Number lineHeight;
 
 	/**
 	 * If the plot area sized is calculated automatically and the legend is not floating,
 	 * the legend margin is the space between the legend and the axis labels or plot area.
+	 * 
 	 * Defaults to 15.
 	 */
 	private Number margin;
 
 	/**
 	 * Whether to reverse the order of the legend items compared to the order of the
-	 * series or points as defined in the configuration object. Defaults to false.
+	 * series or points as defined in the configuration object.
+	 * 
+	 * Defaults to false.
 	 */
 	private Boolean reversed;
 
 	/**
 	 * Whether to apply a drop shadow to the legend. A backgroundColor also needs to be
-	 * applied for this to take effect. Defaults to false.
+	 * applied for this to take effect.
+	 * 
+	 * Defaults to false.
 	 */
 	private Boolean shadow;
 
@@ -115,22 +181,35 @@ public class WHighChartLegendOptions implements Serializable
 	 * compatibility. symbolPadding : Number The pixel padding between the legend item
 	 * symbol and the legend item text. Defaults to 5.
 	 */
+	@JsonSerialize(using = StyleSerializer.class, include = Inclusion.NON_NULL)
 	private String style;
 
 	/**
-	 * The pixel width of the legend item symbol. Defaults to 30.
+	 * The pixel padding between the legend item symbol and the legend item text.
+	 * 
+	 * Defaults to 5.
+	 */
+	private Number symbolPadding;
+
+	/**
+	 * The pixel width of the legend item symbol.
+	 * 
+	 * Defaults to 30.
 	 */
 	private Number symbolWidth;
 
 	/**
 	 * The vertical alignment of the legend box. Can be one of "top", "middle" or
-	 * "bottom". Vertical position can be further determined by the y option. Defaults to
-	 * "bottom".
+	 * "bottom". Vertical position can be further determined by the y option.
+	 * 
+	 * Defaults to "bottom".
 	 */
 	private WHighChartVerticalAlignmentType verticalAlign;
 
 	/**
-	 * The width of the legend box, not including style.padding. Defaults to null.
+	 * The width of the legend box, not including style.padding.
+	 * 
+	 * Defaults to null.
 	 */
 	private Number width;
 
@@ -138,14 +217,18 @@ public class WHighChartLegendOptions implements Serializable
 	 * The x offset of the legend relative to it's horizontal alignment align within
 	 * chart.spacingLeft and chart.spacingRight. Negative x moves it to the left, positive
 	 * x moves it to the right. The default value of 15 together with align: "center" puts
-	 * it in the center of the plot area. Defaults to 15.
+	 * it in the center of the plot area.
+	 * 
+	 * Defaults to 15.
 	 */
 	private Number x;
 
 	/**
 	 * The vertical offset of the legend relative to it's vertical alignment verticalAlign
 	 * within chart.spacingTop and chart.spacingBottom. Negative y moves it up, positive y
-	 * moves it down. Defaults to 0.
+	 * moves it down.
+	 * 
+	 * Defaults to 0.
 	 */
 	private Number y;
 
@@ -344,6 +427,17 @@ public class WHighChartLegendOptions implements Serializable
 	public WHighChartLegendOptions setStyle(String style)
 	{
 		this.style = style;
+		return this;
+	}
+
+	public Number getSymbolPadding()
+	{
+		return symbolPadding;
+	}
+
+	public WHighChartLegendOptions setSymbolPadding(Number symbolPadding)
+	{
+		this.symbolPadding = symbolPadding;
 		return this;
 	}
 

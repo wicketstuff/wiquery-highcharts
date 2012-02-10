@@ -2,6 +2,8 @@ package nl.topicus.whighcharts.options.loading;
 
 import java.io.Serializable;
 
+import nl.topicus.whighcharts.options.jackson.StyleSerializer;
+
 import org.codehaus.jackson.annotate.JsonAutoDetect;
 import org.codehaus.jackson.annotate.JsonAutoDetect.Visibility;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
@@ -33,6 +35,7 @@ public class WHighChartLoadingOptions implements Serializable
 	 * CSS styles for the loading screen that covers the plot area. Defaults to: style: {
 	 * position: 'absolute', backgroundColor: 'white', opacity: 0.5, textAlign: 'center' }
 	 */
+	@JsonSerialize(using = StyleSerializer.class, include = Inclusion.NON_NULL)
 	private String style;
 
 	public Number getHideDuration()

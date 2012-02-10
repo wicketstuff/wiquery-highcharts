@@ -5,6 +5,7 @@ import java.io.Serializable;
 import nl.topicus.whighcharts.options.WHighChartFunction;
 import nl.topicus.whighcharts.options.WHighChartFunctionString;
 import nl.topicus.whighcharts.options.WHighChartHorizontalAlignmentType;
+import nl.topicus.whighcharts.options.jackson.StyleSerializer;
 
 import org.codehaus.jackson.annotate.JsonAutoDetect;
 import org.codehaus.jackson.annotate.JsonAutoDetect.Visibility;
@@ -29,6 +30,7 @@ public class WHighChartSeriesDataLabelsOptions implements Serializable
 
 	private WHighChartFunction formatter;
 
+	@JsonSerialize(using = StyleSerializer.class, include = Inclusion.NON_NULL)
 	private String style;
 
 	public Boolean getEnabled()

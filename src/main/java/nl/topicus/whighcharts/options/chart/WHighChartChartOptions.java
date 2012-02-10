@@ -5,6 +5,7 @@ import java.util.Arrays;
 
 import nl.topicus.whighcharts.components.WHighChart;
 import nl.topicus.whighcharts.options.jackson.ComponentMarkupIdSerializer;
+import nl.topicus.whighcharts.options.jackson.StyleSerializer;
 
 import org.apache.wicket.Component;
 import org.codehaus.jackson.annotate.JsonAutoDetect;
@@ -25,8 +26,9 @@ public class WHighChartChartOptions implements Serializable
 	 * When using multiple axis, the ticks of two or more opposite axes will automatically
 	 * be aligned by adding ticks to the axis or axes with the least ticks. This can be
 	 * prevented by setting alignTicks to false. If the grid lines look messy, it's a good
-	 * idea to hide them for the secondary axis by setting gridLineWidth to 0. Defaults to
-	 * true.
+	 * idea to hide them for the secondary axis by setting gridLineWidth to 0.
+	 * 
+	 * Defaults to true.
 	 */
 	private Boolean alignTicks;
 
@@ -50,30 +52,40 @@ public class WHighChartChartOptions implements Serializable
 	private Boolean animation;
 
 	/**
-	 * The background color or gradient for the outer chart area. Defaults to "#FFFFFF".
+	 * The background color or gradient for the outer chart area.
+	 * 
+	 * Defaults to "#FFFFFF".
 	 */
 	private String backgroundColor;
 
 	/**
 	 * The color of the outer chart border. The border is painted using vector graphic
-	 * techniques to allow rounded corners. Defaults to "#4572A7".
+	 * techniques to allow rounded corners.
+	 * 
+	 * Defaults to "#4572A7".
 	 */
 	private String borderColor;
 
 	/**
-	 * The corner radius of the outer chart border. Defaults to 5.
+	 * The corner radius of the outer chart border.
+	 * 
+	 * Defaults to 5.
 	 */
 	private Number borderRadius;
 
 	/**
 	 * The pixel width of the outer chart border. The border is painted using vector
-	 * graphic techniques to allow rounded corners. Defaults to 0.
+	 * graphic techniques to allow rounded corners.
+	 * 
+	 * Defaults to 0.
 	 */
 	private Number borderWidth;
 
 	/**
 	 * A CSS class name to apply to the charts container div, allowing unique CSS styling
-	 * for each chart. Defaults to "".
+	 * for each chart.
+	 * 
+	 * Defaults to "".
 	 */
 	private String className;
 
@@ -84,7 +96,9 @@ public class WHighChartChartOptions implements Serializable
 
 	/**
 	 * An explicit height for the chart. By default the height is calculated from the
-	 * offset height of the containing element. Defaults to null.
+	 * offset height of the containing element.
+	 * 
+	 * Defaults to null.
 	 */
 	private Number height;
 
@@ -92,7 +106,9 @@ public class WHighChartChartOptions implements Serializable
 	 * If true, the axes will scale to the remaining visible series once one series is
 	 * hidden. If false, hiding and showing a series will not affect the axes or the other
 	 * series. For stacks, once one series within the stack is hidden, the rest of the
-	 * stack will close in around it even if the axis is not affected. Defaults to true.
+	 * stack will close in around it even if the axis is not affected.
+	 * 
+	 * Defaults to true.
 	 */
 	private Boolean ignoreHiddenSeries;
 
@@ -107,79 +123,101 @@ public class WHighChartChartOptions implements Serializable
 	 * The margin between the outer edge of the chart and the plot area. The numbers in
 	 * the array designate top, right, bottom and left respectively. Use the options
 	 * marginTop, marginRight, marginBottom and marginLeft for shorthand setting of one
-	 * option. <br/>
-	 * <br/>
-	 * Since version 2.1, the margin is 0 by default. The actual space is dynamically
-	 * calculated from the offset of axis labels, axis title, title, subtitle and legend
-	 * in addition to the spacingTop, spacingRight, spacingBottom and spacingLeft options.
+	 * option.
+	 * 
+	 * @Since version 2.1, the margin is 0 by default. The actual space is dynamically
+	 *        calculated from the offset of axis labels, axis title, title, subtitle and
+	 *        legend in addition to the spacingTop, spacingRight, spacingBottom and
+	 *        spacingLeft options.
 	 */
 	private Number[] margin;
 
 	/**
 	 * The margin between the top outer edge of the chart and the plot area. Use this to
 	 * set a fixed pixel value for the margin as opposed to the default dynamic margin.
-	 * See also spacingTop. Defaults to null.
+	 * See also spacingTop.
+	 * 
+	 * Defaults to null.
 	 */
 	private Number marginTop;
 
 	/**
 	 * The margin between the right outer edge of the chart and the plot area. Use this to
 	 * set a fixed pixel value for the margin as opposed to the default dynamic margin.
-	 * See also spacingRight. Defaults to 50.
+	 * See also spacingRight.
+	 * 
+	 * Defaults to 50.
 	 */
 	private Number marginRight;
 
 	/**
 	 * The margin between the bottom outer edge of the chart and the plot area. Use this
 	 * to set a fixed pixel value for the margin as opposed to the default dynamic margin.
-	 * See also spacingBottom. Defaults to 70.
+	 * See also spacingBottom.
+	 * 
+	 * Defaults to 70.
 	 */
 	private Number marginBottom;
 
 	/**
 	 * The margin between the left outer edge of the chart and the plot area. Use this to
 	 * set a fixed pixel value for the margin as opposed to the default dynamic margin.
-	 * See also spacingLeft. Defaults to 80.
+	 * See also spacingLeft.
+	 * 
+	 * Defaults to 80.
 	 */
 	private Number marginLeft;
 
 	/**
-	 * The background color or gradient for the plot area. Defaults to null.
+	 * The background color or gradient for the plot area.
+	 * 
+	 * Defaults to null.
 	 */
 	private String plotBackgroundColor;
 
 	/**
 	 * The URL for an image to use as the plot background. To set an image as the
 	 * background for the entire chart, set a CSS background image to the container
-	 * element. Defaults to null.
+	 * element.
+	 * 
+	 * Defaults to null.
 	 */
 	private String plotBackgroundImage;
 
 	/**
-	 * The color of the inner chart or plot area border. Defaults to "#C0C0C0".
+	 * The color of the inner chart or plot area border.
+	 * 
+	 * Defaults to "#C0C0C0".
 	 */
 	private String plotBorderColor;
 
 	/**
-	 * The pixel width of the plot area border. Defaults to 0.
+	 * The pixel width of the plot area border.
+	 * 
+	 * Defaults to 0.
 	 */
 	private Number plotBorderWidth;
 
 	/**
 	 * Whether to apply a drop shadow to the plot area. Requires that plotBackgroundColor
-	 * be set. Defaults to false.
+	 * be set.
+	 * 
+	 * Defaults to false.
 	 */
 	private Boolean plotShadow;
 
 	/**
 	 * Whether to reflow the chart to fit the width of the container div on resizing the
-	 * window. Defaults to true.
+	 * window.
+	 * 
+	 * Defaults to true.
 	 */
 	private Boolean reflow;
 
 	/**
 	 * The HTML element where the chart will be rendered. If it is a string, the element
 	 * by that id is used. The HTML element can also be passed by direct reference.
+	 * 
 	 * Defaults to null.
 	 */
 	@JsonSerialize(using = ComponentMarkupIdSerializer.class)
@@ -187,7 +225,9 @@ public class WHighChartChartOptions implements Serializable
 
 	/**
 	 * Whether to apply a drop shadow to the outer chart area. Requires that
-	 * backgroundColor be set. Defaults to false.
+	 * backgroundColor be set.
+	 * 
+	 * Defaults to false.
 	 */
 	private Boolean shadow;
 
@@ -200,32 +240,42 @@ public class WHighChartChartOptions implements Serializable
 
 	/**
 	 * The space between the top edge of the chart and the content (plot area, axis title
-	 * and labels, title, subtitle or legend in top position). Defaults to 10.
+	 * and labels, title, subtitle or legend in top position).
+	 * 
+	 * Defaults to 10.
 	 */
 	private Number spacingTop;
 
 	/**
 	 * The space between the right edge of the chart and the content (plot area, axis
-	 * title and labels, title, subtitle or legend in top position). Defaults to 10.
+	 * title and labels, title, subtitle or legend in top position).
+	 * 
+	 * Defaults to 10.
 	 */
 	private Number spacingRight;
 
 	/**
 	 * The space between the bottom edge of the chart and the content (plot area, axis
-	 * title and labels, title, subtitle or legend in top position). Defaults to 15.
+	 * title and labels, title, subtitle or legend in top position).
+	 * 
+	 * Defaults to 15.
 	 */
 	private Number spacingBottom;
 
 	/**
 	 * The space between the left edge of the chart and the content (plot area, axis title
-	 * and labels, title, subtitle or legend in top position). Defaults to 10.
+	 * and labels, title, subtitle or legend in top position).
+	 * 
+	 * Defaults to 10.
 	 */
 	private Number spacingLeft;
 
 	/**
 	 * Additional CSS styles to apply inline to the container div. Note that since the
 	 * default font styles are applied in the renderer, it is ignorant of the individual
-	 * chart options and must be set globally. Defaults to:
+	 * chart options and must be set globally.
+	 * 
+	 * Defaults to:
 	 * 
 	 * <pre>
 	 * style: {
@@ -234,23 +284,30 @@ public class WHighChartChartOptions implements Serializable
 	 * }
 	 * </pre>
 	 */
+	@JsonSerialize(using = StyleSerializer.class, include = Inclusion.NON_NULL)
 	private String style;
 
 	/**
 	 * The default series type for the chart. Can be one of line, spline, area,
-	 * areaspline, column, bar, pie and scatter. Defaults to "line".
+	 * areaspline, column, bar, pie and scatter.
+	 * 
+	 * Defaults to "line".
 	 */
 	private WHighChartChartOptionsType type;
 
 	/**
 	 * An explicit width for the chart. By default the width is calculated from the offset
-	 * width of the containing element. Defaults to null.
+	 * width of the containing element.
+	 * 
+	 * Defaults to null.
 	 */
 	private Number width;
 
 	/**
 	 * Decides in what dimentions the user can zoom by dragging the mouse. Can be one of
-	 * x, y or xy. Defaults to "".
+	 * x, y or xy.
+	 * 
+	 * Defaults to "".
 	 */
 	private WHighChartChartOptionsZoomType zoomType;
 

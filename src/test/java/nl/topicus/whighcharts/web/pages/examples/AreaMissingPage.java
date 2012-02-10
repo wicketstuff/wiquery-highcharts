@@ -3,6 +3,7 @@ package nl.topicus.whighcharts.web.pages.examples;
 import nl.topicus.whighcharts.components.WHighChart;
 import nl.topicus.whighcharts.options.WHighChartHorizontalAlignmentType;
 import nl.topicus.whighcharts.options.WHighChartVerticalAlignmentType;
+import nl.topicus.whighcharts.options.axis.WHighChartAxisOptions;
 import nl.topicus.whighcharts.options.chart.WHighChartChartOptionsType;
 import nl.topicus.whighcharts.options.legend.WHighChartLegendLayoutType;
 import nl.topicus.whighcharts.options.series.ValueSeries;
@@ -31,14 +32,15 @@ public class AreaMissingPage extends BasePage
 			.setVerticalAlign(WHighChartVerticalAlignmentType.top).setX(150).setY(100)
 			.setFloating(true).setBorderWidth(1).setBackgroundColor("#FFFFFF");
 
-		chart
-			.getOptions()
-			.getxAxis()
-			.setCategories("Apples", "Pears", "Oranges", "Bananas", "Grapes", "Plums",
-				"Strawberries", "Raspberries");
+		WHighChartAxisOptions xAxis = new WHighChartAxisOptions();
+		xAxis.setCategories("Apples", "Pears", "Oranges", "Bananas", "Grapes", "Plums",
+			"Strawberries", "Raspberries");
+		chart.getOptions().addxAxis(xAxis);
 
-		chart.getOptions().getyAxis().getTitle().setText("Y-Axis");
-		chart.getOptions().getyAxis().getLabels().setFormatter("return this.value;");
+		WHighChartAxisOptions yAxis = new WHighChartAxisOptions();
+		yAxis.getTitle().setText("Y-Axis");
+		yAxis.getLabels().setFormatter("return this.value;");
+		chart.getOptions().addyAxis(yAxis);
 
 		chart.getOptions().getTooltip()
 			.setFormatter("return '<b>'+ this.series.name +'</b><br/>'+this.x +': '+ this.y;");

@@ -2,7 +2,9 @@ package nl.topicus.whighcharts.options.axis;
 
 import java.io.Serializable;
 
+import nl.topicus.whighcharts.options.WHighChartHorizontalAlignmentType;
 import nl.topicus.whighcharts.options.WHighChartStyleOptions;
+import nl.topicus.whighcharts.options.WHighChartVerticalAlignmentType;
 
 import org.codehaus.jackson.annotate.JsonAutoDetect;
 import org.codehaus.jackson.annotate.JsonAutoDetect.Visibility;
@@ -15,47 +17,79 @@ public class WHighChartAxisPlotLinesLabelOptions implements Serializable
 {
 	private static final long serialVersionUID = 1L;
 
-	private String text;
+	/**
+	 * Horizontal alignment of the label. Can be one of "left", "center" or "right".
+	 * 
+	 * Defaults to "center".
+	 */
+	private WHighChartHorizontalAlignmentType align;
 
-	private String align;
+	/**
+	 * Vertical alignment of the label relative to the plot band. Can be one of "top",
+	 * "middle" or "bottom".
+	 * 
+	 * Defaults to "top".
+	 */
+	private WHighChartVerticalAlignmentType verticalAlign;
 
-	private String verticalAlign;
-
-	private String textAlign;
-
+	/**
+	 * Rotation of the text label in degrees Defaults to 0.
+	 */
 	private Number rotation;
 
-	private Number x;
-
-	private Number y;
-
+	/**
+	 * CSS styles for the text label.
+	 */
 	private WHighChartStyleOptions style;
 
-	public String getAlign()
+	/**
+	 * The string text itself. A subset of HTML is supported.
+	 */
+	private String text;
+
+	/**
+	 * The text alignment for the label. While align determines where the texts anchor
+	 * point is placed within the plot band, textAlign determines how the text is aligned
+	 * against its anchor point. Possible values are "left", "center" and "right".
+	 * 
+	 * Defaults to the same as the align option.
+	 */
+	private WHighChartHorizontalAlignmentType textAlign;
+
+	/**
+	 * Horizontal position relative the alignment.
+	 * 
+	 * Default varies by orientation.
+	 */
+	private Number x;
+
+	/**
+	 * Vertical position of the text baseline relative to the alignment.
+	 * 
+	 * Default varies by orientation.
+	 */
+	private Number y;
+
+	public WHighChartHorizontalAlignmentType getAlign()
 	{
 		return align;
 	}
 
-	public WHighChartAxisPlotLinesLabelOptions setAlign(String align)
+	public WHighChartAxisPlotLinesLabelOptions setAlign(WHighChartHorizontalAlignmentType align)
 	{
 		this.align = align;
 		return this;
 	}
 
-	public WHighChartAxisPlotLinesLabelOptions setVerticalAlign(String verticalAlign)
-	{
-		this.verticalAlign = verticalAlign;
-		return this;
-	}
-
-	public String getVerticalAlign()
+	public WHighChartVerticalAlignmentType getVerticalAlign()
 	{
 		return verticalAlign;
 	}
 
-	public WHighChartAxisPlotLinesLabelOptions setRotation(Number rotation)
+	public WHighChartAxisPlotLinesLabelOptions setVerticalAlign(
+			WHighChartVerticalAlignmentType verticalAlign)
 	{
-		this.rotation = rotation;
+		this.verticalAlign = verticalAlign;
 		return this;
 	}
 
@@ -64,48 +98,15 @@ public class WHighChartAxisPlotLinesLabelOptions implements Serializable
 		return rotation;
 	}
 
-	public WHighChartAxisPlotLinesLabelOptions setTextAlign(String textAlign)
+	public WHighChartAxisPlotLinesLabelOptions setRotation(Number rotation)
 	{
-		this.textAlign = textAlign;
+		this.rotation = rotation;
 		return this;
 	}
 
-	public String getTextAlign()
+	public WHighChartStyleOptions getStyle()
 	{
-		return textAlign;
-	}
-
-	public WHighChartAxisPlotLinesLabelOptions setX(Number x)
-	{
-		this.x = x;
-		return this;
-	}
-
-	public Number getX()
-	{
-		return x;
-	}
-
-	public WHighChartAxisPlotLinesLabelOptions setY(Number y)
-	{
-		this.y = y;
-		return this;
-	}
-
-	public Number getY()
-	{
-		return y;
-	}
-
-	public WHighChartAxisPlotLinesLabelOptions setText(String text)
-	{
-		this.text = text;
-		return this;
-	}
-
-	public String getText()
-	{
-		return text;
+		return style;
 	}
 
 	public WHighChartAxisPlotLinesLabelOptions setStyle(WHighChartStyleOptions style)
@@ -114,8 +115,49 @@ public class WHighChartAxisPlotLinesLabelOptions implements Serializable
 		return this;
 	}
 
-	public WHighChartStyleOptions getStyle()
+	public String getText()
 	{
-		return style;
+		return text;
 	}
+
+	public WHighChartAxisPlotLinesLabelOptions setText(String text)
+	{
+		this.text = text;
+		return this;
+	}
+
+	public WHighChartHorizontalAlignmentType getTextAlign()
+	{
+		return textAlign;
+	}
+
+	public WHighChartAxisPlotLinesLabelOptions setTextAlign(
+			WHighChartHorizontalAlignmentType textAlign)
+	{
+		this.textAlign = textAlign;
+		return this;
+	}
+
+	public Number getX()
+	{
+		return x;
+	}
+
+	public WHighChartAxisPlotLinesLabelOptions setX(Number x)
+	{
+		this.x = x;
+		return this;
+	}
+
+	public Number getY()
+	{
+		return y;
+	}
+
+	public WHighChartAxisPlotLinesLabelOptions setY(Number y)
+	{
+		this.y = y;
+		return this;
+	}
+
 }

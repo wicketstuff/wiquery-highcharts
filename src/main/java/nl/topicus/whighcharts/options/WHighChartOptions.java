@@ -17,7 +17,7 @@ import nl.topicus.whighcharts.options.legend.WHighChartLegendOptions;
 import nl.topicus.whighcharts.options.loading.WHighChartLoadingOptions;
 import nl.topicus.whighcharts.options.navigation.WHighChartNavigationOptions;
 import nl.topicus.whighcharts.options.plotoptions.WHighChartPlotOptions;
-import nl.topicus.whighcharts.options.point.WHighChartPointOptions;
+import nl.topicus.whighcharts.options.plotoptions.point.WHighChartPointOptions;
 import nl.topicus.whighcharts.options.series.ISeries;
 import nl.topicus.whighcharts.options.series.ISeriesEntry;
 import nl.topicus.whighcharts.options.symbols.WHighChartSymbolsOptionsType;
@@ -65,9 +65,9 @@ public class WHighChartOptions<V, E extends ISeriesEntry<V>> implements Serializ
 
 	private List<WHighChartSymbolsOptionsType> symbols;
 
-	private WHighChartAxisOptions xAxis;
+	private List<WHighChartAxisOptions> xAxis;
 
-	private WHighChartAxisOptions yAxis;
+	private List<WHighChartAxisOptions> yAxis;
 
 	/**
 	 * Exporting module
@@ -228,17 +228,17 @@ public class WHighChartOptions<V, E extends ISeriesEntry<V>> implements Serializ
 		return symbols;
 	}
 
-	public WHighChartAxisOptions getxAxis()
+	public List<WHighChartAxisOptions> getxAxis()
 	{
 		if (xAxis == null)
-			xAxis = new WHighChartAxisOptions();
+			xAxis = new ArrayList<WHighChartAxisOptions>();
 		return xAxis;
 	}
 
-	public WHighChartAxisOptions getyAxis()
+	public List<WHighChartAxisOptions> getyAxis()
 	{
 		if (yAxis == null)
-			yAxis = new WHighChartAxisOptions();
+			yAxis = new ArrayList<WHighChartAxisOptions>();
 		return yAxis;
 	}
 
@@ -350,15 +350,27 @@ public class WHighChartOptions<V, E extends ISeriesEntry<V>> implements Serializ
 		return this;
 	}
 
-	public WHighChartOptions<V, E> setxAxis(WHighChartAxisOptions xAxis)
+	public WHighChartOptions<V, E> setxAxis(List<WHighChartAxisOptions> xAxis)
 	{
 		this.xAxis = xAxis;
 		return this;
 	}
 
-	public WHighChartOptions<V, E> setyAxis(WHighChartAxisOptions yAxis)
+	public WHighChartOptions<V, E> setyAxis(List<WHighChartAxisOptions> yAxis)
 	{
 		this.yAxis = yAxis;
+		return this;
+	}
+
+	public WHighChartOptions<V, E> addyAxis(WHighChartAxisOptions addyAxis)
+	{
+		getyAxis().add(addyAxis);
+		return this;
+	}
+
+	public WHighChartOptions<V, E> addxAxis(WHighChartAxisOptions addxAxis)
+	{
+		getxAxis().add(addxAxis);
 		return this;
 	}
 }

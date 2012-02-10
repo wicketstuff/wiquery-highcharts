@@ -9,28 +9,27 @@ import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
 
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 @JsonSerialize(include = Inclusion.NON_NULL)
-@SuppressWarnings("rawtypes")
 public class WHighChartPlotOptions implements Serializable
 {
 	private static final long serialVersionUID = 1L;
 
 	private WHighChartPlotAreaOptions area;
 
-	private AbstractWHighChartPlotChartOptions areaspline;
+	private WHighChartPlotAreaSplineOptions areaspline;
 
-	private AbstractWHighChartPlotChartOptions bar;
+	private WHighChartPlotBarOptions bar;
 
 	private WHighChartPlotColumnOptions column;
 
-	private AbstractWHighChartPlotChartOptions line;
+	private WHighChartPlotLineOptions line;
 
 	private WHighChartPlotPieOptions pie;
 
 	private WHighChartPlotSeriesOptions series;
 
-	private AbstractWHighChartPlotChartOptions scatter;
+	private WHighChartPlotScatterOptions scatter;
 
-	private AbstractWHighChartPlotChartOptions spline;
+	private WHighChartPlotSplineOptions spline;
 
 	public WHighChartPlotAreaOptions getArea()
 	{
@@ -46,29 +45,29 @@ public class WHighChartPlotOptions implements Serializable
 		return this;
 	}
 
-	public AbstractWHighChartPlotChartOptions getAreaspline()
+	public WHighChartPlotAreaSplineOptions getAreaspline()
 	{
 		if (areaspline == null)
-			areaspline = new AbstractWHighChartPlotChartOptions();
+			areaspline = new WHighChartPlotAreaSplineOptions();
 
 		return areaspline;
 	}
 
-	public WHighChartPlotOptions setAreaspline(AbstractWHighChartPlotChartOptions areaspline)
+	public WHighChartPlotOptions setAreaspline(WHighChartPlotAreaSplineOptions areaspline)
 	{
 		this.areaspline = areaspline;
 		return this;
 	}
 
-	public AbstractWHighChartPlotChartOptions getBar()
+	public WHighChartPlotBarOptions getBar()
 	{
 		if (bar == null)
-			bar = new AbstractWHighChartPlotChartOptions();
+			bar = new WHighChartPlotBarOptions();
 
 		return bar;
 	}
 
-	public WHighChartPlotOptions setBar(AbstractWHighChartPlotChartOptions bar)
+	public WHighChartPlotOptions setBar(WHighChartPlotBarOptions bar)
 	{
 		this.bar = bar;
 		return this;
@@ -88,15 +87,15 @@ public class WHighChartPlotOptions implements Serializable
 		return this;
 	}
 
-	public AbstractWHighChartPlotChartOptions getLine()
+	public WHighChartPlotLineOptions getLine()
 	{
 		if (line == null)
-			line = new AbstractWHighChartPlotChartOptions();
+			line = new WHighChartPlotLineOptions();
 
 		return line;
 	}
 
-	public WHighChartPlotOptions setLine(AbstractWHighChartPlotChartOptions line)
+	public WHighChartPlotOptions setLine(WHighChartPlotLineOptions line)
 	{
 		this.line = line;
 		return this;
@@ -130,29 +129,29 @@ public class WHighChartPlotOptions implements Serializable
 		return this;
 	}
 
-	public AbstractWHighChartPlotChartOptions getScatter()
+	public WHighChartPlotScatterOptions getScatter()
 	{
 		if (scatter == null)
-			scatter = new AbstractWHighChartPlotChartOptions();
+			scatter = new WHighChartPlotScatterOptions();
 
 		return scatter;
 	}
 
-	public WHighChartPlotOptions setScatter(AbstractWHighChartPlotChartOptions scatter)
+	public WHighChartPlotOptions setScatter(WHighChartPlotScatterOptions scatter)
 	{
 		this.scatter = scatter;
 		return this;
 	}
 
-	public AbstractWHighChartPlotChartOptions getSpline()
+	public WHighChartPlotSplineOptions getSpline()
 	{
 		if (spline == null)
-			spline = new AbstractWHighChartPlotChartOptions();
+			spline = new WHighChartPlotSplineOptions();
 
 		return spline;
 	}
 
-	public WHighChartPlotOptions setSpline(AbstractWHighChartPlotChartOptions spline)
+	public WHighChartPlotOptions setSpline(WHighChartPlotSplineOptions spline)
 	{
 		this.spline = spline;
 		return this;

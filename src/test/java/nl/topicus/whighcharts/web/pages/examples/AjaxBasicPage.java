@@ -2,8 +2,9 @@ package nl.topicus.whighcharts.web.pages.examples;
 
 import nl.topicus.whighcharts.components.WHighChart;
 import nl.topicus.whighcharts.options.WHighChartFunctionCallback;
+import nl.topicus.whighcharts.options.axis.WHighChartAxisOptions;
 import nl.topicus.whighcharts.options.chart.WHighChartChartOptionsType;
-import nl.topicus.whighcharts.options.plotoptions.WHighChartPlotAreaMarkerSymbolType;
+import nl.topicus.whighcharts.options.plotoptions.marker.WHighChartMarkerSymbolType;
 import nl.topicus.whighcharts.options.series.ValueSeries;
 import nl.topicus.whighcharts.options.series.ValueSeriesEntry;
 import nl.topicus.whighcharts.web.pages.BasePage;
@@ -27,9 +28,14 @@ public class AjaxBasicPage extends BasePage
 				"Source: <a href='http://thebulletin.metapress.com/content/c4120650912x74k7/fulltext.pdf'>"
 					+ "thebulletin.metapress.com</a>");
 
-		chart.getOptions().getxAxis().getLabels().setFormatter("return this.value;");
-		chart.getOptions().getyAxis().getTitle().setText("Nuclear weapon states");
-		chart.getOptions().getyAxis().getLabels().setFormatter("return this.value / 1000 +'k';");
+		WHighChartAxisOptions xAxis = new WHighChartAxisOptions();
+		xAxis.getLabels().setFormatter("return this.value;");
+		chart.getOptions().addxAxis(xAxis);
+
+		WHighChartAxisOptions yAxis = new WHighChartAxisOptions();
+		yAxis.getTitle().setText("Nuclear weapon states");
+		yAxis.getLabels().setFormatter("return this.value / 1000 +'k';");
+		chart.getOptions().addyAxis(yAxis);
 
 		chart
 			.getOptions()
@@ -38,7 +44,7 @@ public class AjaxBasicPage extends BasePage
 				"return this.series.name +' produced <b>'+ Highcharts.numberFormat(this.y, 0) +'</b><br/>warheads in '+ this.x;");
 
 		chart.getOptions().getPlotOptions().getArea().setPointStart(1940).getMarker()
-			.setEnabled(false).setSymbol(WHighChartPlotAreaMarkerSymbolType.circle).setRadius(2)
+			.setEnabled(false).setSymbol(WHighChartMarkerSymbolType.circle).setRadius(2)
 			.getStates().getHover().setEnabled(true);
 
 		chart.getOptions().getChart().getEvents()

@@ -28,4 +28,5 @@ public class ToStringNoQuoteSerializer extends SerializerBase<Object>
 	{
 		return createSchemaNode("string", true);
 	}
+
 }

@@ -3,6 +3,7 @@ package nl.topicus.whighcharts.web.pages.examples;
 import nl.topicus.whighcharts.components.WHighChart;
 import nl.topicus.whighcharts.options.WHighChartHorizontalAlignmentType;
 import nl.topicus.whighcharts.options.WHighChartVerticalAlignmentType;
+import nl.topicus.whighcharts.options.axis.WHighChartAxisOptions;
 import nl.topicus.whighcharts.options.chart.WHighChartChartOptionsType;
 import nl.topicus.whighcharts.options.legend.WHighChartLegendLayoutType;
 import nl.topicus.whighcharts.options.series.ValueSeries;
@@ -22,22 +23,23 @@ public class AreaInvertedPage extends BasePage
 		chart.getOptions().getChart().setType(WHighChartChartOptionsType.area).setInverted(true);
 		chart.getOptions().getTitle().setText("Average fruit consumption during one week");
 		chart.getOptions().getSubtitle()
-			.setStyle("{ position: absolute; right: 0px; bottom: 10px; }");
+			.setStyle("position: 'absolute', right: '0px', bottom: '10px'");
 
 		chart.getOptions().getLegend().setLayout(WHighChartLegendLayoutType.vertical)
 			.setAlign(WHighChartHorizontalAlignmentType.right)
 			.setVerticalAlign(WHighChartVerticalAlignmentType.top).setX(-150).setY(100)
 			.setFloating(true).setBorderWidth(1).setBackgroundColor("#FFFFFF");
 
-		chart
-			.getOptions()
-			.getxAxis()
-			.setCategories("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday",
-				"Sunday");
+		WHighChartAxisOptions xAxis = new WHighChartAxisOptions();
+		xAxis.setCategories("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday",
+			"Sunday");
+		chart.getOptions().addyAxis(xAxis);
 
-		chart.getOptions().getyAxis().getTitle().setText("Number of units");
-		chart.getOptions().getyAxis().getLabels().setFormatter("return this.value;");
-		chart.getOptions().getyAxis().setMin(0);
+		WHighChartAxisOptions yAxis = new WHighChartAxisOptions();
+		yAxis.getTitle().setText("Number of units");
+		yAxis.getLabels().setFormatter("return this.value;");
+		yAxis.setMin(0);
+		chart.getOptions().addyAxis(yAxis);
 
 		chart.getOptions().getTooltip().setFormatter("return ''+ this.x +': '+ this.y;");
 
