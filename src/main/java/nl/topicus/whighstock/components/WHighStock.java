@@ -3,6 +3,7 @@ package nl.topicus.whighstock.components;
 import java.io.IOException;
 import java.util.Collection;
 
+import nl.topicus.whighcharts.components.WHighChartsExtraJavaScriptResourceReference;
 import nl.topicus.whighcharts.options.axis.IWHighChartAxisCategoriesProvider;
 import nl.topicus.whighcharts.options.axis.WHighChartAxisOptions;
 import nl.topicus.whighcharts.options.series.ISeries;
@@ -55,12 +56,11 @@ public class WHighStock extends WebMarkupContainer implements IWiQueryPlugin
 	public void renderHead(IHeaderResponse response)
 	{
 		response.renderJavaScriptReference(WHighStockJavaScriptResourceReference.get());
-		// response.renderJavaScriptReference(WHighStockExtraJavaScriptResourceReference.get());
+		response.renderJavaScriptReference(WHighChartsExtraJavaScriptResourceReference.get());
 
-		// if (getOptions().getExporting().getEnabled() != null
-		// && getOptions().getExporting().getEnabled().booleanValue())
-		// response
-		// .renderJavaScriptReference(WHighStockExportingJavaScriptResourceReference.get());
+		if (getOptions().getExporting().getEnabled() != null
+			&& getOptions().getExporting().getEnabled().booleanValue())
+			response.renderJavaScriptReference(WHighChartsExtraJavaScriptResourceReference.get());
 	}
 
 	@Override
