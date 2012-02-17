@@ -54,6 +54,13 @@ public class ObjectSeriesEntry implements ISeriesEntry<Number>
 	 */
 	private Number y;
 
+	public ObjectSeriesEntry(Number x, Number y, String name)
+	{
+		setX(x);
+		setY(y);
+		setName(name);
+	}
+
 	public ObjectSeriesEntry(String name, Number value)
 	{
 		setName(name);
