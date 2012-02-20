@@ -8,6 +8,7 @@ import nl.topicus.whighcharts.options.axis.IWHighChartAxisCategoriesProvider;
 import nl.topicus.whighcharts.options.axis.WHighChartAxisOptions;
 import nl.topicus.whighcharts.options.series.ISeries;
 import nl.topicus.whighcharts.options.series.ISeriesEntry;
+import nl.topicus.whighcharts.options.series.KeyValueSeries;
 import nl.topicus.whighstock.options.WHighStockOptions;
 
 import org.apache.wicket.Application;
@@ -104,6 +105,11 @@ public class WHighStock extends WebMarkupContainer implements IWiQueryPlugin
 						}
 					}
 				}
+			}
+
+			if (getOptions().getSeries().isEmpty())
+			{
+				getOptions().getSeries().add(new KeyValueSeries());
 			}
 
 			optionsStr = mapper.writeValueAsString(options);

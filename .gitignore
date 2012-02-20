@@ -4,3 +4,5 @@ target/*
 org.eclipse.jdt.core.prefs
 org.eclipse.m2e.core.prefs
 .settings/*
+/.classpath
+/.settings
