@@ -63,7 +63,7 @@ public class WHighChartMarkerOptions implements Serializable
 	 * "triangle" and "triangle-down". Additionally, the URL to a graphic can be given on
 	 * this form: "url(graphic.png)". Defaults to null.
 	 */
-	private WHighChartMarkerSymbolType symbol;
+	private String symbol;
 
 	public Boolean getEnabled()
 	{
@@ -133,12 +133,18 @@ public class WHighChartMarkerOptions implements Serializable
 		return this;
 	}
 
-	public WHighChartMarkerSymbolType getSymbol()
+	public String getSymbol()
 	{
 		return symbol;
 	}
 
 	public WHighChartMarkerOptions setSymbol(WHighChartMarkerSymbolType symbol)
+	{
+		this.symbol = symbol.name();
+		return this;
+	}
+
+	public WHighChartMarkerOptions setSymbol(String symbol)
 	{
 		this.symbol = symbol;
 		return this;
