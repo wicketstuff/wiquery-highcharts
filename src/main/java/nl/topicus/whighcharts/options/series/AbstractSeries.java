@@ -592,6 +592,10 @@ public class AbstractSeries<V, E extends ISeriesEntry<V>> implements ISeries<V, 
 
 	public WHighChartMarkerStatesOptions getStates()
 	{
+		if (states == null)
+		{
+			states = new WHighChartMarkerStatesOptions();
+		}
 		return states;
 	}
 

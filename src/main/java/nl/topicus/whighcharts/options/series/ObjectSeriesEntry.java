@@ -47,11 +47,13 @@ public class ObjectSeriesEntry implements ISeriesEntry<Number>
 	/**
 	 * The x value of the point Defaults to null.
 	 */
+	@JsonSerialize(include = Inclusion.ALWAYS)
 	private Number x;
 
 	/**
 	 * The y value of the point Defaults to null.
 	 */
+	@JsonSerialize(include = Inclusion.ALWAYS)
 	private Number y;
 
 	public ObjectSeriesEntry(Number x, Number y, String name)
