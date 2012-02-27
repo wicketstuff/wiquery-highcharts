@@ -9,7 +9,6 @@ import java.util.List;
 
 import nl.topicus.whighcharts.options.credits.WHighChartCreditsOptions;
 import nl.topicus.whighcharts.options.exporting.WHighChartExportingOptions;
-import nl.topicus.whighcharts.options.global.WHighChartGlobalOptions;
 import nl.topicus.whighcharts.options.labels.WHighChartLabelsOptions;
 import nl.topicus.whighcharts.options.loading.WHighChartLoadingOptions;
 import nl.topicus.whighcharts.options.navigation.WHighChartNavigationOptions;
@@ -46,8 +45,6 @@ public class WHighStockOptions implements Serializable
 	private List<String> colors;
 
 	private WHighChartCreditsOptions credits;
-
-	private WHighChartGlobalOptions global;
 
 	private WHighChartLabelsOptions labels;
 
@@ -134,19 +131,6 @@ public class WHighStockOptions implements Serializable
 	public WHighStockOptions setColors(List<String> colors)
 	{
 		this.colors = colors;
-		return this;
-	}
-
-	public WHighChartGlobalOptions getGlobal()
-	{
-		if (global == null)
-			global = new WHighChartGlobalOptions();
-		return global;
-	}
-
-	public WHighStockOptions setGlobal(WHighChartGlobalOptions global)
-	{
-		this.global = global;
 		return this;
 	}
 

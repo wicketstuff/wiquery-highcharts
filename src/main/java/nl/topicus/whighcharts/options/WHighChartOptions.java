@@ -10,7 +10,6 @@ import nl.topicus.whighcharts.options.axis.WHighChartAxisOptions;
 import nl.topicus.whighcharts.options.chart.WHighChartChartOptions;
 import nl.topicus.whighcharts.options.credits.WHighChartCreditsOptions;
 import nl.topicus.whighcharts.options.exporting.WHighChartExportingOptions;
-import nl.topicus.whighcharts.options.global.WHighChartGlobalOptions;
 import nl.topicus.whighcharts.options.labels.WHighChartLabelsOptions;
 import nl.topicus.whighcharts.options.lang.WHighChartLangOptions;
 import nl.topicus.whighcharts.options.legend.WHighChartLegendOptions;
@@ -40,8 +39,6 @@ public class WHighChartOptions<V, E extends ISeriesEntry<V>> implements Serializ
 	private List<String> colors;
 
 	private WHighChartCreditsOptions credits;
-
-	private WHighChartGlobalOptions global;
 
 	private WHighChartLabelsOptions labels;
 
@@ -111,14 +108,6 @@ public class WHighChartOptions<V, E extends ISeriesEntry<V>> implements Serializ
 			exporting = new WHighChartExportingOptions();
 
 		return exporting;
-	}
-
-	public WHighChartGlobalOptions getGlobal()
-	{
-		if (global == null)
-			global = new WHighChartGlobalOptions();
-
-		return global;
 	}
 
 	public WHighChartLabelsOptions getLabels()
@@ -269,12 +258,6 @@ public class WHighChartOptions<V, E extends ISeriesEntry<V>> implements Serializ
 	public WHighChartOptions<V, E> setExporting(WHighChartExportingOptions exporting)
 	{
 		this.exporting = exporting;
-		return this;
-	}
-
-	public WHighChartOptions<V, E> setGlobal(WHighChartGlobalOptions global)
-	{
-		this.global = global;
 		return this;
 	}
 
