@@ -16,8 +16,6 @@ public class HighStockDynamicUpdateSeriesPage extends BasePage
 	{
 		WHighStock chart = new WHighStock("container");
 
-		chart.getOptions().getGlobal().setUseUTC(false);
-
 		StringBuilder onLoad = new StringBuilder("var series = this.series[0];\n");
 		onLoad.append("setInterval(function() {\n");
 		onLoad.append("    var x = (new Date()).getTime(), // current time\n");
