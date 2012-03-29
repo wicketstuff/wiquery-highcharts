@@ -91,6 +91,11 @@
 			<artifactId>wiquery-jquery-ui</artifactId>
 			<version>${wiquery.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.odlabs.wiquery</groupId>
+			<artifactId>wiquery-compressor</artifactId>
+			<version>${wiquery.version}</version>
+		</dependency>
 
 		<!-- LOGGING DEPENDENCIES - LOG4J -->
 		<dependency>
