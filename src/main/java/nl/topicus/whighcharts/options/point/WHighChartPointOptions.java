@@ -2,6 +2,9 @@ package nl.topicus.whighcharts.options.point;
 
 import java.io.Serializable;
 
+import nl.topicus.whighcharts.options.WHighChartMarkerStateOptions;
+import nl.topicus.whighcharts.options.labels.WHighChartDataLabels;
+
 import org.codehaus.jackson.annotate.JsonAutoDetect;
 import org.codehaus.jackson.annotate.JsonAutoDetect.Visibility;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
@@ -32,7 +35,7 @@ public class WHighChartPointOptions implements Serializable
 	/**
 	 * An individual point marker for the point. Defaults to null.
 	 */
-	private String marker;
+	private WHighChartMarkerStateOptions marker;
 
 	/**
 	 * The name of the point as shown in the legend, tooltip, dataLabel etc. Defaults to
@@ -55,6 +58,8 @@ public class WHighChartPointOptions implements Serializable
 	 * The y value of the point Defaults to null.
 	 */
 	private Number y;
+
+	private WHighChartDataLabels dataLabels;
 
 	public String getColor()
 	{
@@ -92,12 +97,12 @@ public class WHighChartPointOptions implements Serializable
 		return this;
 	}
 
-	public String getMarker()
+	public WHighChartMarkerStateOptions getMarker()
 	{
 		return marker;
 	}
 
-	public WHighChartPointOptions setMarker(String marker)
+	public WHighChartPointOptions setMarker(WHighChartMarkerStateOptions marker)
 	{
 		this.marker = marker;
 		return this;
@@ -144,6 +149,17 @@ public class WHighChartPointOptions implements Serializable
 	public WHighChartPointOptions setY(Number y)
 	{
 		this.y = y;
+		return this;
+	}
+
+	public WHighChartDataLabels getDataLabels()
+	{
+		return dataLabels;
+	}
+
+	public WHighChartPointOptions setDataLabels(WHighChartDataLabels dataLabels)
+	{
+		this.dataLabels = dataLabels;
 		return this;
 	}
 }

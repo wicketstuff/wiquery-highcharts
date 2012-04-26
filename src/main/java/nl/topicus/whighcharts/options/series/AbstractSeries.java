@@ -3,7 +3,10 @@ package nl.topicus.whighcharts.options.series;
 import java.util.ArrayList;
 import java.util.List;
 
+import nl.topicus.whighcharts.options.WHighChartMarkerStateOptions;
+import nl.topicus.whighcharts.options.WhighChartAnimationOptions;
 import nl.topicus.whighcharts.options.chart.WHighChartChartOptionsType;
+import nl.topicus.whighcharts.options.labels.WHighChartDataLabels;
 
 import org.codehaus.jackson.annotate.JsonAutoDetect;
 import org.codehaus.jackson.annotate.JsonAutoDetect.Visibility;
@@ -62,12 +65,43 @@ public class AbstractSeries<V, E extends ISeriesEntry<V>> implements ISeries<V, 
 	 * series is connected to. It refers to the index of the axis in the yAxis array, with
 	 * 0 being the first. Defaults to 0.
 	 */
+
 	private Number yAxis;
 
 	/**
-	 * An (aparently) undocumenten area of highcharts.
+	 * De size in procenten, setten als x + "%" dus bv. 45%
 	 */
-	private WHighChartSeriesDataLabelsOptions dataLabels;
+	private String size;
+
+	/**
+	 * De size in procenten, setten als x + "%" dus bv. 45%
+	 */
+	private String innerSize;
+
+	/**
+	 * undocumenten area of highcharts.
+	 */
+	private String color;
+
+	private WHighChartDataLabels dataLabels;
+
+	private WHighChartMarkerStateOptions marker;
+
+	private Number lineWidth;
+
+	private Boolean shadow;
+
+	private String fillColor;
+
+	private String stacking;
+
+	private Boolean showInLegend;
+
+	private Boolean enableMouseTracking;
+
+	private Number zIndex;
+
+	private WhighChartAnimationOptions animation;
 
 	@Override
 	public List<E> getData()
@@ -149,19 +183,159 @@ public class AbstractSeries<V, E extends ISeriesEntry<V>> implements ISeries<V, 
 		return (T) this;
 	}
 
-	public WHighChartSeriesDataLabelsOptions getDataLabels()
+	public WHighChartDataLabels getDataLabels()
 	{
-		if (dataLabels == null)
-			dataLabels = new WHighChartSeriesDataLabelsOptions();
-
 		return dataLabels;
 	}
 
+	public String getSize()
+	{
+		return size;
+	}
+
 	@SuppressWarnings("unchecked")
-	public <T extends AbstractSeries<V, E>> T setDataLabels(
-			WHighChartSeriesDataLabelsOptions dataLabels)
+	public <T extends AbstractSeries<V, E>> T setSize(String size)
+	{
+		this.size = size;
+		return (T) this;
+	}
+
+	public String getInnerSize()
+	{
+		return innerSize;
+	}
+
+	@SuppressWarnings("unchecked")
+	public <T extends AbstractSeries<V, E>> T setInnerSize(String innerSize)
+	{
+		this.innerSize = innerSize;
+		return (T) this;
+	}
+
+	@SuppressWarnings("unchecked")
+	public <T extends AbstractSeries<V, E>> T setDataLabels(WHighChartDataLabels dataLabels)
 	{
 		this.dataLabels = dataLabels;
+		return (T) this;
+	}
+
+	public String getColor()
+	{
+		return color;
+	}
+
+	@SuppressWarnings("unchecked")
+	public <T extends AbstractSeries<V, E>> T setColor(String color)
+	{
+		this.color = color;
+		return (T) this;
+	}
+
+	public WHighChartMarkerStateOptions getMarker()
+	{
+		return marker;
+	}
+
+	@SuppressWarnings("unchecked")
+	public <T extends AbstractSeries<V, E>> T setMarker(WHighChartMarkerStateOptions marker)
+	{
+		this.marker = marker;
+		return (T) this;
+	}
+
+	public Number getLineWidth()
+	{
+		return lineWidth;
+	}
+
+	@SuppressWarnings("unchecked")
+	public <T extends AbstractSeries<V, E>> T setLineWidth(Number lineWidth)
+	{
+		this.lineWidth = lineWidth;
+		return (T) this;
+	}
+
+	public Boolean getShadow()
+	{
+		return shadow;
+	}
+
+	@SuppressWarnings("unchecked")
+	public <T extends AbstractSeries<V, E>> T setShadow(Boolean shadow)
+	{
+		this.shadow = shadow;
+		return (T) this;
+	}
+
+	public String getFillColor()
+	{
+		return fillColor;
+	}
+
+	@SuppressWarnings("unchecked")
+	public <T extends AbstractSeries<V, E>> T setFillColor(String fillColor)
+	{
+		this.fillColor = fillColor;
+		return (T) this;
+	}
+
+	public String getStacking()
+	{
+		return stacking;
+	}
+
+	@SuppressWarnings("unchecked")
+	public <T extends AbstractSeries<V, E>> T setStacking(String stacking)
+	{
+		this.stacking = stacking;
+		return (T) this;
+	}
+
+	public Boolean getShowInLegend()
+	{
+		return showInLegend;
+	}
+
+	@SuppressWarnings("unchecked")
+	public <T extends AbstractSeries<V, E>> T setShowInLegend(Boolean showInLegend)
+	{
+		this.showInLegend = showInLegend;
+		return (T) this;
+	}
+
+	public Boolean getEnableMouseTracking()
+	{
+		return enableMouseTracking;
+	}
+
+	@SuppressWarnings("unchecked")
+	public <T extends AbstractSeries<V, E>> T setEnableMouseTracking(Boolean enableMouseTracking)
+	{
+		this.enableMouseTracking = enableMouseTracking;
+		return (T) this;
+	}
+
+	public WhighChartAnimationOptions getAnimation()
+	{
+		return animation;
+	}
+
+	@SuppressWarnings("unchecked")
+	public <T extends AbstractSeries<V, E>> T setAnimation(WhighChartAnimationOptions animation)
+	{
+		this.animation = animation;
+		return (T) this;
+	}
+
+	public Number getZIndex()
+	{
+		return zIndex;
+	}
+
+	@SuppressWarnings("unchecked")
+	public <T extends AbstractSeries<V, E>> T setZIndex(Number zIndex)
+	{
+		this.zIndex = zIndex;
 		return (T) this;
 	}
 

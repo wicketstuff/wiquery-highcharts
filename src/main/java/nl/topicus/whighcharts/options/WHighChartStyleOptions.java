@@ -14,8 +14,10 @@ public class WHighChartStyleOptions implements Serializable
 	private static final long serialVersionUID = 1L;
 
 	private String color;
-	
+
 	private String fontSize;
+
+	private String fontWeight;
 
 	public WHighChartStyleOptions setColor(String color)
 	{
@@ -37,5 +39,16 @@ public class WHighChartStyleOptions implements Serializable
 	public String getFontSize()
 	{
 		return fontSize;
+	}
+
+	public String getFontWeight()
+	{
+		return fontWeight;
+	}
+
+	public WHighChartStyleOptions setFontWeight(String fontWeight)
+	{
+		this.fontWeight = fontWeight;
+		return this;
 	}
 }

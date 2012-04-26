@@ -41,6 +41,10 @@ public class WHighChartMarkerStateOptions implements Serializable
 	 */
 	private Number radius;
 
+	private WHighChartMarkerStatesOptions states;
+
+	private String symbol;
+
 	public Boolean getEnabled()
 	{
 		return enabled;
@@ -96,4 +100,25 @@ public class WHighChartMarkerStateOptions implements Serializable
 		return this;
 	}
 
+	public WHighChartMarkerStatesOptions getStates()
+	{
+		return states;
+	}
+
+	public WHighChartMarkerStateOptions setStates(WHighChartMarkerStatesOptions states)
+	{
+		this.states = states;
+		return this;
+	}
+
+	public String getSymbol()
+	{
+		return symbol;
+	}
+
+	public WHighChartMarkerStateOptions setSymbol(String symbol)
+	{
+		this.symbol = symbol;
+		return this;
+	}
 }
