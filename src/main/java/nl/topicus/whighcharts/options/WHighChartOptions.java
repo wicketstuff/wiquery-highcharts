@@ -10,14 +10,13 @@ import nl.topicus.whighcharts.options.axis.WHighChartAxisOptions;
 import nl.topicus.whighcharts.options.chart.WHighChartChartOptions;
 import nl.topicus.whighcharts.options.credits.WHighChartCreditsOptions;
 import nl.topicus.whighcharts.options.exporting.WHighChartExportingOptions;
-import nl.topicus.whighcharts.options.global.WHighChartGlobalOptions;
 import nl.topicus.whighcharts.options.labels.WHighChartLabelsOptions;
 import nl.topicus.whighcharts.options.lang.WHighChartLangOptions;
 import nl.topicus.whighcharts.options.legend.WHighChartLegendOptions;
 import nl.topicus.whighcharts.options.loading.WHighChartLoadingOptions;
 import nl.topicus.whighcharts.options.navigation.WHighChartNavigationOptions;
 import nl.topicus.whighcharts.options.plotoptions.WHighChartPlotOptions;
-import nl.topicus.whighcharts.options.point.WHighChartPointOptions;
+import nl.topicus.whighcharts.options.plotoptions.point.WHighChartPointOptions;
 import nl.topicus.whighcharts.options.series.ISeries;
 import nl.topicus.whighcharts.options.series.ISeriesEntry;
 import nl.topicus.whighcharts.options.symbols.WHighChartSymbolsOptionsType;
@@ -41,8 +40,6 @@ public class WHighChartOptions<V, E extends ISeriesEntry<V>> implements Serializ
 
 	private WHighChartCreditsOptions credits;
 
-	private WHighChartGlobalOptions global;
-
 	private WHighChartLabelsOptions labels;
 
 	private WHighChartLangOptions lang;
@@ -65,9 +62,9 @@ public class WHighChartOptions<V, E extends ISeriesEntry<V>> implements Serializ
 
 	private List<WHighChartSymbolsOptionsType> symbols;
 
-	private WHighChartAxisOptions xAxis;
+	private List<WHighChartAxisOptions> xAxis;
 
-	private WHighChartAxisOptions yAxis;
+	private List<WHighChartAxisOptions> yAxis;
 
 	/**
 	 * Exporting module
@@ -111,14 +108,6 @@ public class WHighChartOptions<V, E extends ISeriesEntry<V>> implements Serializ
 			exporting = new WHighChartExportingOptions();
 
 		return exporting;
-	}
-
-	public WHighChartGlobalOptions getGlobal()
-	{
-		if (global == null)
-			global = new WHighChartGlobalOptions();
-
-		return global;
 	}
 
 	public WHighChartLabelsOptions getLabels()
@@ -228,17 +217,17 @@ public class WHighChartOptions<V, E extends ISeriesEntry<V>> implements Serializ
 		return symbols;
 	}
 
-	public WHighChartAxisOptions getxAxis()
+	public List<WHighChartAxisOptions> getxAxis()
 	{
 		if (xAxis == null)
-			xAxis = new WHighChartAxisOptions();
+			xAxis = new ArrayList<WHighChartAxisOptions>();
 		return xAxis;
 	}
 
-	public WHighChartAxisOptions getyAxis()
+	public List<WHighChartAxisOptions> getyAxis()
 	{
 		if (yAxis == null)
-			yAxis = new WHighChartAxisOptions();
+			yAxis = new ArrayList<WHighChartAxisOptions>();
 		return yAxis;
 	}
 
@@ -269,12 +258,6 @@ public class WHighChartOptions<V, E extends ISeriesEntry<V>> implements Serializ
 	public WHighChartOptions<V, E> setExporting(WHighChartExportingOptions exporting)
 	{
 		this.exporting = exporting;
-		return this;
-	}
-
-	public WHighChartOptions<V, E> setGlobal(WHighChartGlobalOptions global)
-	{
-		this.global = global;
 		return this;
 	}
 
@@ -350,15 +333,27 @@ public class WHighChartOptions<V, E extends ISeriesEntry<V>> implements Serializ
 		return this;
 	}
 
-	public WHighChartOptions<V, E> setxAxis(WHighChartAxisOptions xAxis)
+	public WHighChartOptions<V, E> setxAxis(List<WHighChartAxisOptions> xAxis)
 	{
 		this.xAxis = xAxis;
 		return this;
 	}
 
-	public WHighChartOptions<V, E> setyAxis(WHighChartAxisOptions yAxis)
+	public WHighChartOptions<V, E> setyAxis(List<WHighChartAxisOptions> yAxis)
 	{
 		this.yAxis = yAxis;
+		return this;
+	}
+
+	public WHighChartOptions<V, E> addyAxis(WHighChartAxisOptions addyAxis)
+	{
+		getyAxis().add(addyAxis);
+		return this;
+	}
+
+	public WHighChartOptions<V, E> addxAxis(WHighChartAxisOptions addxAxis)
+	{
+		getxAxis().add(addxAxis);
 		return this;
 	}
 }

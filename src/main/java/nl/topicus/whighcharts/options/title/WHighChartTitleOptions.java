@@ -4,12 +4,16 @@ import java.io.Serializable;
 
 import nl.topicus.whighcharts.options.WHighChartHorizontalAlignmentType;
 import nl.topicus.whighcharts.options.WHighChartVerticalAlignmentType;
+import nl.topicus.whighcharts.options.jackson.StyleSerializer;
 
 import org.codehaus.jackson.annotate.JsonAutoDetect;
 import org.codehaus.jackson.annotate.JsonAutoDetect.Visibility;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
 import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
 
+/**
+ * The chart's main title.
+ */
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 @JsonSerialize(include = Inclusion.NON_NULL)
 public class WHighChartTitleOptions implements Serializable
@@ -18,49 +22,69 @@ public class WHighChartTitleOptions implements Serializable
 
 	/**
 	 * The horizontal alignment of the title. Can be one of "left", "center" and "right".
+	 * 
 	 * Defaults to "center".
 	 */
 	private WHighChartHorizontalAlignmentType align;
 
 	/**
 	 * When the title is floating, the plot area will not move to make space for it.
+	 * 
 	 * Defaults to false.
 	 */
 	private Boolean floating;
 
 	/**
 	 * The margin between the title and the plot area, or if a subtitle is present, the
-	 * margin between the subtitle and the plot area. Defaults to 15.
+	 * margin between the subtitle and the plot area.
+	 * 
+	 * Defaults to 15.
 	 */
 	private Number margin;
 
 	/**
-	 * The title of the chart. To disable the title, set the text to null. Defaults to
-	 * "Chart title".
+	 * The title of the chart. To disable the title, set the text to null.
+	 * 
+	 * Defaults HighCharts to "Chart title". Defaults HighStock to null.
 	 */
 	private String text;
 
 	/**
 	 * CSS styles for the title. Use this for font styling, but use align, x and yfor text
-	 * alignment. Defaults to: { color: '#3E576F', fontSize: '16px' }
+	 * alignment.
+	 * 
+	 * Defaults to:
+	 * 
+	 * <pre>
+	 * 	{
+	 * 		color: '#3E576F',
+	 * 		fontSize: '16px'
+	 * }
+	 * </pre>
 	 */
+	@JsonSerialize(using = StyleSerializer.class, include = Inclusion.NON_NULL)
 	private String style;
 
 	/**
 	 * The vertical alignment of the title. Can be one of "top", "middle" and "bottom".
+	 * 
 	 * Defaults to "top".
 	 */
 	private WHighChartVerticalAlignmentType verticalAlign;
 
 	/**
 	 * The x position of the title relative to the alignment within chart.spacingLeft and
-	 * chart.spacingRight. Defaults to 0.
+	 * chart.spacingRight.
+	 * 
+	 * Defaults to 0.
 	 */
 	private Number x;
 
 	/**
 	 * The y position of the title relative to the alignment within chart.spacingTop and
-	 * chart.spacingBottom. Defaults to 25.
+	 * chart.spacingBottom.
+	 * 
+	 * Defaults HighCharts to 25. Defaults HighStock to 15
 	 */
 	private Number y;
 

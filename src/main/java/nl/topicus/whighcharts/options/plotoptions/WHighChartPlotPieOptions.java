@@ -1,6 +1,6 @@
 package nl.topicus.whighcharts.options.plotoptions;
 
-import nl.topicus.whighcharts.options.WHighChartPointerType;
+import java.util.List;
 
 import org.codehaus.jackson.annotate.JsonAutoDetect;
 import org.codehaus.jackson.annotate.JsonAutoDetect.Visibility;
@@ -15,95 +15,115 @@ public class WHighChartPlotPieOptions extends
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * Allow this series' points to be selected by clicking on the markers, bars or pie
-	 * slices. Defaults to false.
+	 * The color of the border surronding each slice.
+	 * 
+	 * Defaults to "#FFFFFF".
 	 */
-	private Boolean allowPointSelect;
+	private String borderColor;
 
 	/**
-	 * Enable or disable the initial animation when a series is displayed. Since version
-	 * 2.1, the animation can be set as a configuration object. Please note that this
-	 * option only applies to the initial animation of the series itself. For other
-	 * animations, see #chart => animation and the animation parameter under the API
-	 * methods. The following properties are supported: duration The duration of the
-	 * animation in milliseconds. easing When using jQuery as the general framework, the
-	 * easing can be set to linear or swing. More easing functions are available with the
-	 * use of jQuery plug-ins, most notably the jQuery UI suite. See the jQuery docs. When
-	 * using MooToos as the general framework, use the property name transition instead of
-	 * easing. Defaults to true.
+	 * The width of the border surronding each slice.
+	 * 
+	 * Defaults to 1.
 	 */
-	private Boolean animation;
+	private Number borderWidth;
 
 	/**
-	 * The main color or the series. In line type series it applies to the line and the
-	 * point markers unless otherwise specified. In bar type series it applies to the bars
-	 * unless a color is specified per point. The default value is pulled from the
-	 * options.colors array.
+	 * The center of the pie chart relative to the plot area. Can be percentages or pixel
+	 * values.
+	 * 
+	 * Defaults to ['50%', '50%'].
 	 */
-	private String color;
+	private List<String> center;
 
 	/**
-	 * You can set the cursor to "pointer" if you have click events attached to the
-	 * series, to signal to the user that the points and lines can be clicked. Defaults to
-	 * ''.
+	 * The size of the inner diameter for the pie. A size greater than 0 renders a donut
+	 * chart. Can be a percentage or pixel value. Percentages are relative to the size of
+	 * the plot area. Pixel values are given as integers.
+	 * 
+	 * Defaults to 0.
 	 */
-	private WHighChartPointerType cursor;
+	private String innerSize;
 
 	/**
-	 * Defines the appearance of the data labels, static labels for each point.
+	 * The diameter of the pie relative to the plot area. Can be a percentage or pixel
+	 * value. Pixel values are given as integers.
+	 * 
+	 * Defaults to "75%".
 	 */
-	private WHighChartPlotPieLabelsOptions dataLabels;
+	private String size;
 
 	/**
-	 * Whether to display this particular series or series type in the legend. Since 2.1,
-	 * pies are not shown in the legend by default. Defaults to false.
+	 * If a point is sliced, moved out from the center, how many pixels should it be
+	 * moved?
+	 * 
+	 * Defaults to 10.
 	 */
-	private Boolean showInLegend;
+	private Number slicedOffset;
 
-	public Boolean getAnimation()
+	public String getBorderColor()
 	{
-		return animation;
+		return borderColor;
 	}
 
-	public WHighChartPlotPieOptions setAnimation(Boolean animation)
+	public WHighChartPlotPieOptions setBorderColor(String borderColor)
 	{
-		this.animation = animation;
+		this.borderColor = borderColor;
 		return this;
 	}
 
-	public String getColor()
+	public Number getBorderWidth()
 	{
-		return color;
+		return borderWidth;
 	}
 
-	public WHighChartPlotPieOptions setColor(String color)
+	public WHighChartPlotPieOptions setBorderWidth(Number borderWidth)
 	{
-		this.color = color;
+		this.borderWidth = borderWidth;
 		return this;
 	}
 
-	public WHighChartPlotPieLabelsOptions getDataLabels()
+	public List<String> getCenter()
 	{
-		if (dataLabels == null)
-			dataLabels = new WHighChartPlotPieLabelsOptions();
-
-		return dataLabels;
+		return center;
 	}
 
-	public WHighChartPlotPieOptions setDataLabels(WHighChartPlotPieLabelsOptions dataLabels)
+	public WHighChartPlotPieOptions setCenter(List<String> center)
 	{
-		this.dataLabels = dataLabels;
+		this.center = center;
 		return this;
 	}
 
-	public Boolean getShowInLegend()
+	public String getInnerSize()
 	{
-		return showInLegend;
+		return innerSize;
 	}
 
-	public WHighChartPlotPieOptions setShowInLegend(Boolean showInLegend)
+	public WHighChartPlotPieOptions setInnerSize(String innerSize)
 	{
-		this.showInLegend = showInLegend;
+		this.innerSize = innerSize;
+		return this;
+	}
+
+	public String getSize()
+	{
+		return size;
+	}
+
+	public WHighChartPlotPieOptions setSize(String size)
+	{
+		this.size = size;
+		return this;
+	}
+
+	public Number getSlicedOffset()
+	{
+		return slicedOffset;
+	}
+
+	public WHighChartPlotPieOptions setSlicedOffset(Number slicedOffset)
+	{
+		this.slicedOffset = slicedOffset;
 		return this;
 	}
 

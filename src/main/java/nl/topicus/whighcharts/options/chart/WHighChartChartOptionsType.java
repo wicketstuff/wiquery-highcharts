@@ -1,6 +1,6 @@
 package nl.topicus.whighcharts.options.chart;
 
-public enum WHighChartChartOptionsType
+public enum WHighChartChartOptionsType implements IChartOptionsType
 {
 	line,
 	spline,

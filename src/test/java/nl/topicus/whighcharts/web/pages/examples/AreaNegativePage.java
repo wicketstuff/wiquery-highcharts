@@ -1,6 +1,7 @@
 package nl.topicus.whighcharts.web.pages.examples;
 
 import nl.topicus.whighcharts.components.WHighChart;
+import nl.topicus.whighcharts.options.axis.WHighChartAxisOptions;
 import nl.topicus.whighcharts.options.chart.WHighChartChartOptionsType;
 import nl.topicus.whighcharts.options.series.ValueSeries;
 import nl.topicus.whighcharts.options.series.ValueSeriesEntry;
@@ -18,8 +19,9 @@ public class AreaNegativePage extends BasePage
 		chart.getOptions().getChart().setType(WHighChartChartOptionsType.area);
 		chart.getOptions().getTitle().setText("Area chart with negative values");
 
-		chart.getOptions().getxAxis()
-			.setCategories("Apples", "Oranges", "Pears", "Grapes", "Bananas");
+		WHighChartAxisOptions xAxis = new WHighChartAxisOptions();
+		xAxis.setCategories("Apples", "Oranges", "Pears", "Grapes", "Bananas");
+		chart.getOptions().addxAxis(xAxis);
 
 		chart.getOptions().getTooltip()
 			.setFormatter("return ''+ this.series.name +': '+ this.y +'';");

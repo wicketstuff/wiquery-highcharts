@@ -13,11 +13,56 @@ public class WHighChartAxisPlotBandsOptions implements Serializable
 {
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * The color of the plot band.
+	 * 
+	 * Defaults to null.
+	 */
 	private String color;
 
+	/**
+	 * The start position of the plot band in axis units.
+	 * 
+	 * Defaults to null.
+	 */
 	private Number from;
 
+	/**
+	 * An id used for identifying the plot band in Axis.removePlotBand.
+	 * 
+	 * Defaults to null.
+	 */
+	private String id;
+
+	/**
+	 * Text labels for the plot bands.
+	 */
+	private WHighChartAxisPlotBandsLabelOptions label;
+
+	/**
+	 * The end position of the plot band in axis units.
+	 * 
+	 * Defaults to null.
+	 */
 	private Number to;
+
+	/**
+	 * The z index of the plot band within the chart.
+	 * 
+	 * Defaults to null.
+	 */
+	private Number zIndex;
+
+	public String getColor()
+	{
+		return color;
+	}
+
+	public WHighChartAxisPlotBandsOptions setColor(String color)
+	{
+		this.color = color;
+		return this;
+	}
 
 	public Number getFrom()
 	{
@@ -27,6 +72,30 @@ public class WHighChartAxisPlotBandsOptions implements Serializable
 	public WHighChartAxisPlotBandsOptions setFrom(Number from)
 	{
 		this.from = from;
+		return this;
+	}
+
+	public String getId()
+	{
+		return id;
+	}
+
+	public WHighChartAxisPlotBandsOptions setId(String id)
+	{
+		this.id = id;
+		return this;
+	}
+
+	public WHighChartAxisPlotBandsLabelOptions getLabel()
+	{
+		if (label == null)
+			label = new WHighChartAxisPlotBandsLabelOptions();
+		return label;
+	}
+
+	public WHighChartAxisPlotBandsOptions setLabel(WHighChartAxisPlotBandsLabelOptions label)
+	{
+		this.label = label;
 		return this;
 	}
 
@@ -41,14 +110,15 @@ public class WHighChartAxisPlotBandsOptions implements Serializable
 		return this;
 	}
 
-	public String getColor()
+	public Number getzIndex()
 	{
-		return color;
+		return zIndex;
 	}
 
-	public WHighChartAxisPlotBandsOptions setColor(String color)
+	public WHighChartAxisPlotBandsOptions setzIndex(Number zIndex)
 	{
-		this.color = color;
+		this.zIndex = zIndex;
 		return this;
 	}
+
 }

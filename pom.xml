@@ -2,16 +2,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>org.sonatype.oss</groupId>
-		<artifactId>oss-parent</artifactId>
-		<version>7</version>
-	</parent>
 
 	<groupId>nl.topicus</groupId>
 	<artifactId>whighcharts</artifactId>
 	<packaging>jar</packaging>
-	<version>1.5-SNAPSHOT</version>
+	<version>1.5.1-SNAPSHOT</version>
 	<name>WHighCharts</name>
 	<description>WiQuery-HighCharts bindings</description>
 
@@ -31,12 +26,27 @@
 		<maven-javadoc-plugin.version>2.8</maven-javadoc-plugin.version>
 		<maven-source-plugin.version>2.1.2</maven-source-plugin.version>
 	</properties>
+	
+	<distributionManagement>
+		<repository>
+			<id>deployment.external</id>
+			<name>external Release Repository</name>
+			<url>http://vaatwasser:8081/nexus/content/repositories/external-releases/</url>
+			<uniqueVersion>false</uniqueVersion>
+		</repository>
+		<snapshotRepository>
+			<id>deployment.external</id>
+			<name>external snapshot Repository</name>
+			<url>http://vaatwasser:8081/nexus/content/repositories/external-snapshot//</url>
+			<uniqueVersion>false</uniqueVersion>
+		</snapshotRepository>
+	</distributionManagement>
 
 	<url>https://github.com/hielkehoeve/wiquery-highcharts/wiki</url>
 	<scm>
-		<url>git@github.com:hielkehoeve/wiquery-highcharts.git</url>
-		<connection>scm:git:git@github.com:hielkehoeve/wiquery-highcharts.git</connection>
-		<developerConnection>scm:git:git@github.com:hielkehoeve/wiquery-highcharts.git</developerConnection>
+		<url>git://github.com/zigterman/wiquery-highcharts.git</url>
+		<connection>scm:git:git://github.com/zigterman/wiquery-highcharts.git</connection>
+		<developerConnection>scm:git:git://github.com/zigterman/wiquery-highcharts.git</developerConnection>
 	</scm>
 
 	<developers>
@@ -124,6 +134,11 @@
 			<artifactId>slf4j-log4j12</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.1</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<resources>
@@ -152,6 +167,12 @@
 				<excludes>
 					<exclude>**/*.java</exclude>
 				</excludes>
+			</testResource>
+			<testResource>
+				<directory>${basedir}/src/test/resources</directory>
+				<includes>
+					<include>**/*.*</include>
+				</includes>
 			</testResource>
 		</testResources>
 		<plugins>
@@ -211,20 +232,6 @@
 				<groupId>org.mortbay.jetty</groupId>
 				<artifactId>maven-jetty-plugin</artifactId>
 				<version>${jetty.version}</version>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-gpg-plugin</artifactId>
-				<version>${maven-gpg-plugin.version}</version>
-				<executions>
-					<execution>
-						<id>sign-artifacts</id>
-						<phase>verify</phase>
-						<goals>
-							<goal>sign</goal>
-						</goals>
-					</execution>
-				</executions>
 			</plugin>
 		</plugins>
 	</build>

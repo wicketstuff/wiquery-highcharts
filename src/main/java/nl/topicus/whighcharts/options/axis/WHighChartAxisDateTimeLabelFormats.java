@@ -19,6 +19,8 @@ public class WHighChartAxisDateTimeLabelFormats implements Serializable
 
 	private String year;
 
+	private String hour;
+
 	public String getDay()
 	{
 		return day;
@@ -49,6 +51,17 @@ public class WHighChartAxisDateTimeLabelFormats implements Serializable
 	public WHighChartAxisDateTimeLabelFormats setYear(String year)
 	{
 		this.year = year;
+		return this;
+	}
+
+	public String getHour()
+	{
+		return hour;
+	}
+
+	public WHighChartAxisDateTimeLabelFormats setHour(String hour)
+	{
+		this.hour = hour;
 		return this;
 	}
 }

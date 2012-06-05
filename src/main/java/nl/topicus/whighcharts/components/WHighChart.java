@@ -6,6 +6,7 @@ import java.util.Collection;
 import nl.topicus.whighcharts.components.modules.WHighChartsExportingJavaScriptResourceReference;
 import nl.topicus.whighcharts.options.WHighChartOptions;
 import nl.topicus.whighcharts.options.axis.IWHighChartAxisCategoriesProvider;
+import nl.topicus.whighcharts.options.axis.WHighChartAxisOptions;
 import nl.topicus.whighcharts.options.series.ISeries;
 import nl.topicus.whighcharts.options.series.ISeriesEntry;
 
@@ -83,18 +84,20 @@ public class WHighChart<V, E extends ISeriesEntry<V>> extends WebMarkupContainer
 					IWHighChartAxisCategoriesProvider categoriesProvider =
 						(IWHighChartAxisCategoriesProvider) getModel();
 
-					if (getOptions().getxAxis().getCategories() == null
-						|| getOptions().getxAxis().getCategories().isEmpty())
+					for (WHighChartAxisOptions xAxis : getOptions().getxAxis())
 					{
-						getOptions().getxAxis().setCategories(
-							categoriesProvider.getxAxisCategories());
+						if (xAxis.getCategories() == null || xAxis.getCategories().isEmpty())
+						{
+							xAxis.setCategories(categoriesProvider.getxAxisCategories());
+						}
 					}
 
-					if (getOptions().getyAxis().getCategories() == null
-						|| getOptions().getyAxis().getCategories().isEmpty())
+					for (WHighChartAxisOptions yAxis : getOptions().getyAxis())
 					{
-						getOptions().getyAxis().setCategories(
-							categoriesProvider.getyAxisCategories());
+						if (yAxis.getCategories() == null || yAxis.getCategories().isEmpty())
+						{
+							yAxis.setCategories(categoriesProvider.getyAxisCategories());
+						}
 					}
 				}
 			}

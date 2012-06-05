@@ -3,6 +3,7 @@ package nl.topicus.whighcharts.web.pages.examples;
 import nl.topicus.whighcharts.components.WHighChart;
 import nl.topicus.whighcharts.options.WHighChartHorizontalAlignmentType;
 import nl.topicus.whighcharts.options.WHighChartVerticalAlignmentType;
+import nl.topicus.whighcharts.options.axis.WHighChartAxisOptions;
 import nl.topicus.whighcharts.options.axis.WHighChartAxisPlotBandsOptions;
 import nl.topicus.whighcharts.options.chart.WHighChartChartOptionsType;
 import nl.topicus.whighcharts.options.legend.WHighChartLegendLayoutType;
@@ -27,19 +28,16 @@ public class AreasplinePage extends BasePage
 			.setVerticalAlign(WHighChartVerticalAlignmentType.top).setX(150).setY(100)
 			.setFloating(true).setBorderWidth(1).setBackgroundColor("#FFFFFF");
 
-		chart
-			.getOptions()
-			.getxAxis()
-			.setCategories("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday",
-				"Sunday");
-		chart
-			.getOptions()
-			.getxAxis()
-			.addPlotBand(
-				new WHighChartAxisPlotBandsOptions().setFrom(4.5d).setTo(6.5d)
-					.setColor("rgba(68, 170, 213, .2)"));
+		WHighChartAxisOptions xAxis = new WHighChartAxisOptions();
+		xAxis.setCategories("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday",
+			"Sunday");
+		xAxis.addPlotBand(new WHighChartAxisPlotBandsOptions().setFrom(4.5d).setTo(6.5d)
+			.setColor("rgba(68, 170, 213, .2)"));
+		chart.getOptions().addxAxis(xAxis);
 
-		chart.getOptions().getyAxis().getTitle().setText("Fruit units");
+		WHighChartAxisOptions yAxis = new WHighChartAxisOptions();
+		yAxis.getTitle().setText("Fruit units");
+		chart.getOptions().addyAxis(yAxis);
 
 		chart.getOptions().getTooltip().setFormatter("return ''+ this.x +': '+ this.y +' units';");
 

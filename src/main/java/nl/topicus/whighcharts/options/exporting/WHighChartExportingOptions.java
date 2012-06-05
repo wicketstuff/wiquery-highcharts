@@ -2,6 +2,8 @@ package nl.topicus.whighcharts.options.exporting;
 
 import java.io.Serializable;
 
+import nl.topicus.whighcharts.options.exporting.buttons.WHighChartButtonsOptions;
+
 import org.codehaus.jackson.annotate.JsonAutoDetect;
 import org.codehaus.jackson.annotate.JsonAutoDetect.Visibility;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
@@ -14,34 +16,60 @@ public class WHighChartExportingOptions implements Serializable
 	private static final long serialVersionUID = 1L;
 
 	/**
+	 * Configuration options for the buttons associated with the exporting module.
+	 */
+	private WHighChartButtonsOptions buttons;
+
+	/**
 	 * Whether to enable the exporting module. Defaults to true.
 	 */
 	private Boolean enabled;
 
 	/**
-	 * The filename, without extension, to use for the exported chart. Defaults to
-	 * "chart".
+	 * The filename, without extension, to use for the exported chart.
+	 * 
+	 * Defaults to "chart".
 	 */
 	private String filename;
 
 	/**
 	 * Default MIME type for exporting if chart.exportChart() is called without specifying
 	 * a type option. Possible values are image/png, image/jpeg, application/pdf and
-	 * image/svg+xml. Defaults to "image/png".
+	 * image/svg+xml.
+	 * 
+	 * Defaults to "image/png".
 	 */
 	private String type;
 
 	/**
 	 * The URL for the server module converting the SVG string to an image format. By
-	 * default this points to Highslide Software's free web service. Defaults to
-	 * http://export.highcharts.com.
+	 * default this points to Highslide Software's free web service.
+	 * 
+	 * Defaults to http://export.highcharts.com.
 	 */
 	private String url;
 
 	/**
-	 * The pixel width of charts exported to PNG or JPG. Defaults to 800.
+	 * The pixel width of charts exported to PNG or JPG.
+	 * 
+	 * Defaults to 800.
 	 */
 	private Number width;
+
+	public WHighChartButtonsOptions getButtons()
+	{
+		if (buttons == null)
+		{
+			buttons = new WHighChartButtonsOptions();
+		}
+		return buttons;
+	}
+
+	public WHighChartExportingOptions setButtons(WHighChartButtonsOptions buttons)
+	{
+		this.buttons = buttons;
+		return this;
+	}
 
 	public Boolean getEnabled()
 	{

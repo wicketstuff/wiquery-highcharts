@@ -2,6 +2,8 @@ package nl.topicus.whighcharts.options.credits;
 
 import java.io.Serializable;
 
+import nl.topicus.whighcharts.options.jackson.StyleSerializer;
+
 import org.codehaus.jackson.annotate.JsonAutoDetect;
 import org.codehaus.jackson.annotate.JsonAutoDetect.Visibility;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
@@ -18,28 +20,56 @@ public class WHighChartCreditsOptions implements Serializable
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * Whether to show the credits text. Defaults to true.
+	 * Whether to show the credits text.
+	 * 
+	 * Defaults to true.
 	 */
 	private Boolean enabled;
 
 	/**
-	 * position: { align: 'right', x: -10, verticalAlign: 'bottom', y: -5 }
+	 * Position configuration for the credtis label. Supported properties are align,
+	 * verticalAlign, x and y.
+	 * 
+	 * Defaults to
+	 * 
+	 * <pre>
+	 * 	position: {
+	 * 		align: 'right',
+	 * 		x: -10,
+	 * 		verticalAlign: 'bottom',
+	 * 		y: -5
+	 * 	}
+	 * </pre>
 	 */
-	private WHighChartCreditsOptionsOptions position;
+	private WHighChartCreditsPositionOptions position;
 
 	/**
-	 * The URL for the credits label. Defaults to "http://www.highcharts.com".
+	 * The URL for the credits label.
+	 * 
+	 * Defaults to "http://www.highcharts.com".
 	 */
 	private String href;
 
 	/**
-	 * CSS styles for the credits label. Defaults to: itemStyle: { cursor: 'pointer',
-	 * color: '#909090', fontSize: '10px' }
+	 * CSS styles for the credits label.
+	 * 
+	 * Defaults to:
+	 * 
+	 * <pre>
+	 * 	itemStyle: {
+	 * 		cursor: 'pointer',
+	 * 		color: '#909090',
+	 * 		fontSize: '10px'
+	 * }
+	 * </pre>
 	 */
+	@JsonSerialize(using = StyleSerializer.class, include = Inclusion.NON_NULL)
 	private String style;
 
 	/**
-	 * The text for the credits label. Defaults to "Highcharts.com".
+	 * The text for the credits label.
+	 * 
+	 * Defaults to "Highcharts.com".
 	 */
 	private String text;
 
@@ -54,15 +84,15 @@ public class WHighChartCreditsOptions implements Serializable
 		return this;
 	}
 
-	public WHighChartCreditsOptionsOptions getPosition()
+	public WHighChartCreditsPositionOptions getPosition()
 	{
 		if (position == null)
-			position = new WHighChartCreditsOptionsOptions();
+			position = new WHighChartCreditsPositionOptions();
 
 		return position;
 	}
 
-	public WHighChartCreditsOptions setPosition(WHighChartCreditsOptionsOptions position)
+	public WHighChartCreditsOptions setPosition(WHighChartCreditsPositionOptions position)
 	{
 		this.position = position;
 		return this;
