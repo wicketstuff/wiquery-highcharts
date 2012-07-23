@@ -26,12 +26,10 @@ public class WHighChartFunctionCallback extends AbstractDefaultAjaxBehavior impl
 	{
 		AjaxRequestAttributes attributes = getAttributes();
 		StringBuilder builder = new StringBuilder();
-		builder.append("function(event){\n ");
-		builder.append("var attrs = ");
+		builder.append("function(event){ var attrs = ");
 		builder.append(renderAjaxAttributes(getComponent(), attributes));
-		builder.append("wHighChartsSerializeEvent(attrs, event);");
-		builder.append("Wicket.Ajax.ajax(attrs);");
-		builder.append("\n}");
+		builder.append("; wHighChartsSerializeEvent(attrs, event); Wicket.Ajax.ajax(attrs); }");
+
 		return builder.toString();
 	}
 

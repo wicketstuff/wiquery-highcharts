@@ -27,6 +27,6 @@
 			attrs.ep["event.yAxis0.max"] = event.yAxis[0].max;
 		}
 
- 		return queryString;
+ 		return attrs;
  	};
 })();

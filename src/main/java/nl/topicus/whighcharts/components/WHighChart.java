@@ -64,7 +64,7 @@ public class WHighChart<V, E extends ISeriesEntry<V>> extends WebMarkupContainer
 	public JsStatement statement()
 	{
 		ObjectMapper mapper = new ObjectMapper();
-		mapper.getSerializationConfig().setSerializationInclusion(Inclusion.NON_NULL);
+		mapper.getSerializationConfig().withSerializationInclusion(Inclusion.NON_NULL);
 		mapper.configure(JsonGenerator.Feature.QUOTE_FIELD_NAMES, false);
 
 		if (Application.exists()
