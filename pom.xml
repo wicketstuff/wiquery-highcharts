@@ -7,6 +7,10 @@
 		<version>7</version>
 	</parent>
 
+        <prerequisites>
+                <maven>2.2.1</maven>
+        </prerequisites>
+
 	<groupId>nl.topicus</groupId>
 	<artifactId>whighcharts</artifactId>
 	<packaging>jar</packaging>
@@ -16,18 +20,18 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<wicket.version>6.0-SNAPSHOT</wicket.version>
-		<wiquery.version>6.0-SNAPSHOT</wiquery.version>
+		<wicket.version>6.0.0</wicket.version>
+		<wiquery.version>6.0.0</wiquery.version>
 		<slf4j.version>[1.6,1.6.10]</slf4j.version>
 		<junit.version>4.10</junit.version>
 		<jetty.version>6.1.26</jetty.version>
 
 		<maven-buildnumber-plugin.version>1.0</maven-buildnumber-plugin.version>
 		<maven-bundle-plugin.version>2.3.7</maven-bundle-plugin.version>
-		<maven-compiler-plugin.version>2.4</maven-compiler-plugin.version>
+		<maven-compiler-plugin.version>2.5.1</maven-compiler-plugin.version>
 		<maven-eclipse-plugin.version>2.9</maven-eclipse-plugin.version>
 		<maven-gpg-plugin.version>1.4</maven-gpg-plugin.version>
-		<maven-source-plugin.version>2.1.2</maven-source-plugin.version>
+		<maven-source-plugin.version>2.2</maven-source-plugin.version>
 	</properties>
 
 	<url>https://github.com/hielkehoeve/wiquery-highcharts/wiki</url>
