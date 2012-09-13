@@ -10,9 +10,7 @@ import nl.topicus.whighcharts.options.axis.WHighChartAxisOptions;
 import nl.topicus.whighcharts.options.chart.WHighChartChartOptions;
 import nl.topicus.whighcharts.options.credits.WHighChartCreditsOptions;
 import nl.topicus.whighcharts.options.exporting.WHighChartExportingOptions;
-import nl.topicus.whighcharts.options.global.WHighChartGlobalOptions;
 import nl.topicus.whighcharts.options.labels.WHighChartLabelsOptions;
-import nl.topicus.whighcharts.options.lang.WHighChartLangOptions;
 import nl.topicus.whighcharts.options.legend.WHighChartLegendOptions;
 import nl.topicus.whighcharts.options.loading.WHighChartLoadingOptions;
 import nl.topicus.whighcharts.options.navigation.WHighChartNavigationOptions;
@@ -41,11 +39,7 @@ public class WHighChartOptions<V, E extends ISeriesEntry<V>> implements Serializ
 
 	private WHighChartCreditsOptions credits;
 
-	private WHighChartGlobalOptions global;
-
 	private WHighChartLabelsOptions labels;
-
-	private WHighChartLangOptions lang;
 
 	private WHighChartLegendOptions legend;
 
@@ -113,28 +107,12 @@ public class WHighChartOptions<V, E extends ISeriesEntry<V>> implements Serializ
 		return exporting;
 	}
 
-	public WHighChartGlobalOptions getGlobal()
-	{
-		if (global == null)
-			global = new WHighChartGlobalOptions();
-
-		return global;
-	}
-
 	public WHighChartLabelsOptions getLabels()
 	{
 		if (labels == null)
 			labels = new WHighChartLabelsOptions();
 
 		return labels;
-	}
-
-	public WHighChartLangOptions getLang()
-	{
-		if (lang == null)
-			lang = new WHighChartLangOptions();
-
-		return lang;
 	}
 
 	public WHighChartLegendOptions getLegend()
@@ -272,21 +250,9 @@ public class WHighChartOptions<V, E extends ISeriesEntry<V>> implements Serializ
 		return this;
 	}
 
-	public WHighChartOptions<V, E> setGlobal(WHighChartGlobalOptions global)
-	{
-		this.global = global;
-		return this;
-	}
-
 	public WHighChartOptions<V, E> setLabels(WHighChartLabelsOptions labels)
 	{
 		this.labels = labels;
-		return this;
-	}
-
-	public WHighChartOptions<V, E> setLang(WHighChartLangOptions lang)
-	{
-		this.lang = lang;
 		return this;
 	}
 

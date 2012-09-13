@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.Collection;
 
 import nl.topicus.whighcharts.components.modules.WHighChartsExportingJavaScriptResourceReference;
+import nl.topicus.whighcharts.options.WHighChartGlobalSettings;
 import nl.topicus.whighcharts.options.WHighChartOptions;
 import nl.topicus.whighcharts.options.axis.IWHighChartAxisCategoriesProvider;
 import nl.topicus.whighcharts.options.series.ISeries;
@@ -30,6 +31,8 @@ public class WHighChart<V, E extends ISeriesEntry<V>> extends WebMarkupContainer
 
 	private WHighChartOptions<V, E> options = new WHighChartOptions<V, E>(this);
 
+	private WHighChartGlobalSettings globalSettings = new WHighChartGlobalSettings();
+
 	public WHighChart(String id)
 	{
 		this(id, null);
@@ -46,6 +49,11 @@ public class WHighChart<V, E extends ISeriesEntry<V>> extends WebMarkupContainer
 		return options;
 	}
 
+	public WHighChartGlobalSettings getGlobalSettings()
+	{
+		return globalSettings;
+	}
+
 	@Override
 	public void renderHead(IHeaderResponse response)
 	{
@@ -58,6 +66,8 @@ public class WHighChart<V, E extends ISeriesEntry<V>> extends WebMarkupContainer
 			&& getOptions().getExporting().getEnabled().booleanValue())
 			response.render(JavaScriptHeaderItem
 				.forReference(WHighChartsExportingJavaScriptResourceReference.get()));
+		response.render(JavaScriptHeaderItem.forScript("var " + getMarkupId() + ";", "highchart_"
+			+ getMarkupId()));
 		response.render(OnDomReadyHeaderItem.forScript(statement().render().toString()));
 	}
 
@@ -73,6 +83,8 @@ public class WHighChart<V, E extends ISeriesEntry<V>> extends WebMarkupContainer
 			mapper.configure(SerializationConfig.Feature.INDENT_OUTPUT, true);
 
 		String optionsStr = "{}";
+		String globalOptions = "{}";
+
 		try
 		{
 			if (getModel() != null)
@@ -102,6 +114,8 @@ public class WHighChart<V, E extends ISeriesEntry<V>> extends WebMarkupContainer
 			}
 
 			optionsStr = mapper.writeValueAsString(options);
+			globalOptions =
+				"Highcharts.setOptions(" + mapper.writeValueAsString(getGlobalSettings()) + ");\n";
 		}
 		catch (JsonGenerationException e)
 		{
@@ -117,7 +131,7 @@ public class WHighChart<V, E extends ISeriesEntry<V>> extends WebMarkupContainer
 		}
 
 		JsStatement jsStatement =
-			new JsStatement().append("var " + getMarkupId() + " = new Highcharts.Chart( "
+			new JsStatement().append(globalOptions + getMarkupId() + " = new Highcharts.Chart( "
 				+ optionsStr + " );\n");
 
 		return jsStatement;
