@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import nl.topicus.whighcharts.options.WHighChartFunction;
 import nl.topicus.whighcharts.options.WHighChartFunctionString;
+import nl.topicus.whighcharts.options.jackson.ToStringNoQuoteWithCurlyBracketsSerializer;
 
 import org.codehaus.jackson.annotate.JsonAutoDetect;
 import org.codehaus.jackson.annotate.JsonAutoDetect.Visibility;
@@ -36,6 +37,7 @@ public class WHighChartTooltipOptions implements Serializable
 
 	private Number snap;
 
+	@JsonSerialize(include = Inclusion.NON_NULL, using = ToStringNoQuoteWithCurlyBracketsSerializer.class)
 	private String style;
 
 	public String getBackgroundColor()

@@ -5,6 +5,7 @@ import java.util.Arrays;
 
 import nl.topicus.whighcharts.components.WHighChart;
 import nl.topicus.whighcharts.options.jackson.ComponentMarkupIdSerializer;
+import nl.topicus.whighcharts.options.jackson.ToStringNoQuoteWithCurlyBracketsSerializer;
 
 import org.apache.wicket.Component;
 import org.codehaus.jackson.annotate.JsonAutoDetect;
@@ -234,6 +235,7 @@ public class WHighChartChartOptions implements Serializable
 	 * }
 	 * </pre>
 	 */
+	@JsonSerialize(include = Inclusion.NON_NULL, using = ToStringNoQuoteWithCurlyBracketsSerializer.class)
 	private String style;
 
 	/**

@@ -5,6 +5,7 @@ import java.io.Serializable;
 import nl.topicus.whighcharts.options.WHighChartFunction;
 import nl.topicus.whighcharts.options.WHighChartFunctionString;
 import nl.topicus.whighcharts.options.WHighChartHorizontalAlignmentType;
+import nl.topicus.whighcharts.options.jackson.ToStringNoQuoteWithCurlyBracketsSerializer;
 
 import org.codehaus.jackson.annotate.JsonAutoDetect;
 import org.codehaus.jackson.annotate.JsonAutoDetect.Visibility;
@@ -56,6 +57,7 @@ public class WHighChartAxisLabelsOptions implements Serializable
 	 * CSS styles for the label. Defaults to: style: { color: '#6D869F', fontWeight:
 	 * 'bold' }
 	 */
+	@JsonSerialize(include = Inclusion.NON_NULL, using = ToStringNoQuoteWithCurlyBracketsSerializer.class)
 	private String style;
 
 	/**

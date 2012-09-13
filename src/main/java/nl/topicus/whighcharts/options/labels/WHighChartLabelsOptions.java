@@ -3,6 +3,8 @@ package nl.topicus.whighcharts.options.labels;
 import java.io.Serializable;
 import java.util.List;
 
+import nl.topicus.whighcharts.options.jackson.ToStringNoQuoteWithCurlyBracketsSerializer;
+
 import org.codehaus.jackson.annotate.JsonAutoDetect;
 import org.codehaus.jackson.annotate.JsonAutoDetect.Visibility;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
@@ -22,6 +24,7 @@ public class WHighChartLabelsOptions implements Serializable
 	/**
 	 * Shared CSS styles for all labels. Defaults to: style: { color: '#3E576F' }
 	 */
+	@JsonSerialize(include = Inclusion.NON_NULL, using = ToStringNoQuoteWithCurlyBracketsSerializer.class)
 	private String style;
 
 	public List<String> getItems()

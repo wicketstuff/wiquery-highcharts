@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import nl.topicus.whighcharts.options.WHighChartHorizontalAlignmentType;
 import nl.topicus.whighcharts.options.WHighChartVerticalAlignmentType;
+import nl.topicus.whighcharts.options.jackson.ToStringNoQuoteWithCurlyBracketsSerializer;
 
 import org.codehaus.jackson.annotate.JsonAutoDetect;
 import org.codehaus.jackson.annotate.JsonAutoDetect.Visibility;
@@ -44,6 +45,7 @@ public class WHighChartTitleOptions implements Serializable
 	 * CSS styles for the title. Use this for font styling, but use align, x and yfor text
 	 * alignment. Defaults to: { color: '#3E576F', fontSize: '16px' }
 	 */
+	@JsonSerialize(include = Inclusion.NON_NULL, using = ToStringNoQuoteWithCurlyBracketsSerializer.class)
 	private String style;
 
 	/**

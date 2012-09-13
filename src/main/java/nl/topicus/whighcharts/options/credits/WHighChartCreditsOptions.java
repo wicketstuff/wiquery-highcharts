@@ -2,6 +2,8 @@ package nl.topicus.whighcharts.options.credits;
 
 import java.io.Serializable;
 
+import nl.topicus.whighcharts.options.jackson.ToStringNoQuoteWithCurlyBracketsSerializer;
+
 import org.codehaus.jackson.annotate.JsonAutoDetect;
 import org.codehaus.jackson.annotate.JsonAutoDetect.Visibility;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
@@ -36,6 +38,7 @@ public class WHighChartCreditsOptions implements Serializable
 	 * CSS styles for the credits label. Defaults to: itemStyle: { cursor: 'pointer',
 	 * color: '#909090', fontSize: '10px' }
 	 */
+	@JsonSerialize(include = Inclusion.NON_NULL, using = ToStringNoQuoteWithCurlyBracketsSerializer.class)
 	private String style;
 
 	/**
