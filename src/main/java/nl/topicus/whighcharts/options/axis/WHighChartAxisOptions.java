@@ -43,6 +43,8 @@ public class WHighChartAxisOptions implements Serializable
 
 	private String gridLineColor;
 
+	private String alternateGridColor;
+
 	/**
 	 * An array of configuration objects for plot bands colouring parts of the plot area
 	 * background. Defaults to null.
@@ -236,6 +238,17 @@ public class WHighChartAxisOptions implements Serializable
 	public WHighChartAxisOptions setGridLineColor(String gridLineColor)
 	{
 		this.gridLineColor = gridLineColor;
+		return this;
+	}
+
+	public String getAlternateGridColor()
+	{
+		return alternateGridColor;
+	}
+
+	public WHighChartAxisOptions setAlternateGridColor(String alternateGridColor)
+	{
+		this.alternateGridColor = alternateGridColor;
 		return this;
 	}
 

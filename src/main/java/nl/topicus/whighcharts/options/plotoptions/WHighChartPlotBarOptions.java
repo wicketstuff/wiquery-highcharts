@@ -7,10 +7,16 @@ import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
 
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 @JsonSerialize(include = Inclusion.NON_NULL)
-public class WHighChartPlotPieOptions extends
-		AbstractWHighChartPlotChartOptions<WHighChartPlotPieOptions>
+public class WHighChartPlotBarOptions extends
+		AbstractWHighChartPlotChartOptions<WHighChartPlotBarOptions>
 {
 	private static final long serialVersionUID = 1L;
+
+	/**
+	 * Allow this series' points to be selected by clicking on the markers, bars or pie
+	 * slices. Defaults to false.
+	 */
+	// private Boolean allowPointSelect;
 
 	/**
 	 * Enable or disable the initial animation when a series is displayed. Since version
@@ -35,9 +41,16 @@ public class WHighChartPlotPieOptions extends
 	private String color;
 
 	/**
+	 * You can set the cursor to "pointer" if you have click events attached to the
+	 * series, to signal to the user that the points and lines can be clicked. Defaults to
+	 * ''.
+	 */
+	// private WHighChartPointerType cursor;
+
+	/**
 	 * Defines the appearance of the data labels, static labels for each point.
 	 */
-	private WHighChartPlotPieLabelsOptions dataLabels;
+	private WHighChartPlotBarLabelsOptions dataLabels;
 
 	/**
 	 * Whether to display this particular series or series type in the legend. Since 2.1,
@@ -45,14 +58,14 @@ public class WHighChartPlotPieOptions extends
 	 */
 	private Boolean showInLegend;
 
-	private String size;
+	private Number minPointLength;
 
 	public Boolean getAnimation()
 	{
 		return animation;
 	}
 
-	public WHighChartPlotPieOptions setAnimation(Boolean animation)
+	public WHighChartPlotBarOptions setAnimation(Boolean animation)
 	{
 		this.animation = animation;
 		return this;
@@ -63,21 +76,21 @@ public class WHighChartPlotPieOptions extends
 		return color;
 	}
 
-	public WHighChartPlotPieOptions setColor(String color)
+	public WHighChartPlotBarOptions setColor(String color)
 	{
 		this.color = color;
 		return this;
 	}
 
-	public WHighChartPlotPieLabelsOptions getDataLabels()
+	public WHighChartPlotBarLabelsOptions getDataLabels()
 	{
 		if (dataLabels == null)
-			dataLabels = new WHighChartPlotPieLabelsOptions();
+			dataLabels = new WHighChartPlotBarLabelsOptions();
 
 		return dataLabels;
 	}
 
-	public WHighChartPlotPieOptions setDataLabels(WHighChartPlotPieLabelsOptions dataLabels)
+	public WHighChartPlotBarOptions setDataLabels(WHighChartPlotBarLabelsOptions dataLabels)
 	{
 		this.dataLabels = dataLabels;
 		return this;
@@ -88,20 +101,20 @@ public class WHighChartPlotPieOptions extends
 		return showInLegend;
 	}
 
-	public WHighChartPlotPieOptions setShowInLegend(Boolean showInLegend)
+	public WHighChartPlotBarOptions setShowInLegend(Boolean showInLegend)
 	{
 		this.showInLegend = showInLegend;
 		return this;
 	}
 
-	public String getSize()
+	public Number getMinPointLength()
 	{
-		return size;
+		return minPointLength;
 	}
 
-	public WHighChartPlotPieOptions setSize(String size)
+	public WHighChartPlotBarOptions setMinPointLength(Number minPointLength)
 	{
-		this.size = size;
+		this.minPointLength = minPointLength;
 		return this;
 	}
 

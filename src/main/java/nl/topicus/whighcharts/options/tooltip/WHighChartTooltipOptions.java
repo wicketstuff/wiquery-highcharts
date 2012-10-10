@@ -25,7 +25,7 @@ public class WHighChartTooltipOptions implements Serializable
 
 	private Number borderWidth;
 
-	// crosshairs: null,
+	private Boolean crosshairs;
 
 	private Boolean enabled;
 
@@ -81,6 +81,17 @@ public class WHighChartTooltipOptions implements Serializable
 	public WHighChartTooltipOptions setBorderWidth(Number borderWidth)
 	{
 		this.borderWidth = borderWidth;
+		return this;
+	}
+
+	public Boolean getCrosshairs()
+	{
+		return crosshairs;
+	}
+
+	public WHighChartTooltipOptions setCrosshairs(Boolean crosshairs)
+	{
+		this.crosshairs = crosshairs;
 		return this;
 	}
 
