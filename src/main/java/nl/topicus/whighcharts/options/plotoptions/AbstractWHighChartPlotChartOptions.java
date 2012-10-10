@@ -54,6 +54,8 @@ public class AbstractWHighChartPlotChartOptions<T extends AbstractWHighChartPlot
 
 	private Number pointStart;
 
+	protected String borderColor;
+
 	public Boolean getAllowPointSelect()
 	{
 		return allowPointSelect;
@@ -158,4 +160,17 @@ public class AbstractWHighChartPlotChartOptions<T extends AbstractWHighChartPlot
 		this.pointStart = pointStart;
 		return (T) this;
 	}
+
+	public String getBorderColor()
+	{
+		return borderColor;
+	}
+
+	@SuppressWarnings("unchecked")
+	public T setBorderColor(String borderColor)
+	{
+		this.borderColor = borderColor;
+		return (T) this;
+	}
+
 }

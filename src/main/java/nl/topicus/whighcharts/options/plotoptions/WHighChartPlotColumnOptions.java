@@ -12,4 +12,33 @@ public class WHighChartPlotColumnOptions extends
 {
 	private static final long serialVersionUID = 1L;
 
+	private WHighChartPlotColumnLabelsOptions dataLabels;
+
+	// private WHighChartPlotStackingType stacking;
+	//
+	// public WHighChartPlotColumnOptions setStacking(WHighChartPlotStackingType stacking)
+	// {
+	// this.stacking = stacking;
+	// return this;
+	// }
+	//
+	// public WHighChartPlotStackingType getStacking()
+	// {
+	// return stacking;
+	// }
+
+	public WHighChartPlotColumnLabelsOptions getDataLabels()
+	{
+		if (dataLabels == null)
+			dataLabels = new WHighChartPlotColumnLabelsOptions();
+
+		return dataLabels;
+	}
+
+	public WHighChartPlotColumnOptions setDataLabels(WHighChartPlotColumnLabelsOptions dataLabels)
+	{
+		this.dataLabels = dataLabels;
+		return this;
+	}
+
 }
