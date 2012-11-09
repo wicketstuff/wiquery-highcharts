@@ -1,9 +1,9 @@
 package nl.topicus.whighcharts;
 
-import org.mortbay.jetty.Connector;
-import org.mortbay.jetty.Server;
-import org.mortbay.jetty.bio.SocketConnector;
-import org.mortbay.jetty.webapp.WebAppContext;
+import org.eclipse.jetty.server.Connector;
+import org.eclipse.jetty.server.Server;
+import org.eclipse.jetty.server.bio.SocketConnector;
+import org.eclipse.jetty.webapp.WebAppContext;
 
 public class Start
 {
@@ -15,7 +15,7 @@ public class Start
 		// Set some timeout options to make debugging easier.
 		connector.setMaxIdleTime(1000 * 60 * 60);
 		connector.setSoLingerTime(-1);
-		connector.setPort(8082);
+		connector.setPort(8080);
 		server.setConnectors(new Connector[] {connector});
 
 		WebAppContext bb = new WebAppContext();
@@ -23,7 +23,7 @@ public class Start
 		bb.setContextPath("/");
 		bb.setWar("src/test/webapp");
 
-		server.addHandler(bb);
+		server.setHandler(bb);
 
 		try
 		{

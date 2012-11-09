@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.sonatype.oss</groupId>
@@ -7,32 +8,15 @@
 		<version>7</version>
 	</parent>
 
-        <prerequisites>
-                <maven>2.2.1</maven>
-        </prerequisites>
+	<prerequisites>
+		<maven>3.0.4</maven>
+	</prerequisites>
 
 	<groupId>nl.topicus</groupId>
 	<artifactId>whighcharts</artifactId>
 	<packaging>jar</packaging>
-	<version>6.0-SNAPSHOT</version>
+	<version>6.2-SNAPSHOT</version>
 	<name>WHighCharts</name>
-	<description>WiQuery-HighCharts bindings</description>
-
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<wicket.version>6.0-SNAPSHOT</wicket.version>
-		<wiquery.version>6.0-SNAPSHOT</wiquery.version>
-		<slf4j.version>[1.6,1.6.10]</slf4j.version>
-		<junit.version>4.10</junit.version>
-		<jetty.version>6.1.26</jetty.version>
-
-		<maven-buildnumber-plugin.version>1.0</maven-buildnumber-plugin.version>
-		<maven-bundle-plugin.version>2.3.7</maven-bundle-plugin.version>
-		<maven-compiler-plugin.version>2.5.1</maven-compiler-plugin.version>
-		<maven-eclipse-plugin.version>2.9</maven-eclipse-plugin.version>
-		<maven-gpg-plugin.version>1.4</maven-gpg-plugin.version>
-		<maven-source-plugin.version>2.2</maven-source-plugin.version>
-	</properties>
 
 	<url>https://github.com/hielkehoeve/wiquery-highcharts/wiki</url>
 	<scm>
@@ -40,6 +24,44 @@
 		<connection>scm:git:git@github.com:hielkehoeve/wiquery-highcharts.git</connection>
 		<developerConnection>scm:git:git@github.com:hielkehoeve/wiquery-highcharts.git</developerConnection>
 	</scm>
+
+	<profiles>
+		<profile>
+			<id>release</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-gpg-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>sign-artifacts</id>
+								<phase>verify</phase>
+								<goals>
+									<goal>sign</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<wicket.version>6.2.0</wicket.version>
+		<wiquery.version>6.2-SNAPSHOT</wiquery.version>
+		<slf4j.version>[1.7,1.7.2]</slf4j.version>
+		<jetty.version>8.1.8.v20121106</jetty.version>
+
+		<maven-buildnumber-plugin.version>1.0</maven-buildnumber-plugin.version>
+		<maven-bundle-plugin.version>2.3.7</maven-bundle-plugin.version>
+		<maven-compiler-plugin.version>2.5.1</maven-compiler-plugin.version>
+		<maven-eclipse-plugin.version>2.9</maven-eclipse-plugin.version>
+		<maven-gpg-plugin.version>1.4</maven-gpg-plugin.version>
+		<maven-source-plugin.version>2.2.1</maven-source-plugin.version>
+	</properties>
 
 	<developers>
 		<developer>
@@ -51,87 +73,79 @@
 		</developer>
 	</developers>
 
-	<licenses>
-		<license>
-			<name>The Apache Software License, Version 2.0</name>
-			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-			<distribution>repo</distribution>
-		</license>
-	</licenses>
 	<dependencyManagement>
 		<dependencies>
+			<!-- WiQuery dependencies -->
+			<dependency>
+				<groupId>org.odlabs.wiquery</groupId>
+				<artifactId>wiquery-core</artifactId>
+				<version>${wiquery.version}</version>
+			</dependency>
+			<!-- add wiquery-core also as test project so wiquery-jquery-ui can use 
+				the abstract testcase class -->
+			<dependency>
+				<groupId>org.odlabs.wiquery</groupId>
+				<artifactId>wiquery-core</artifactId>
+				<version>${wiquery.version}</version>
+				<classifier>tests</classifier>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.odlabs.wiquery</groupId>
+				<artifactId>wiquery-jquery-ui</artifactId>
+				<version>${wiquery.version}</version>
+			</dependency>
+			<!-- WICKET DEPENDENCIES -->
+			<dependency>
+				<groupId>org.apache.wicket</groupId>
+				<artifactId>wicket-core</artifactId>
+				<version>${wicket.version}</version>
+			</dependency>
+
+			<!-- External dependencies -->
 			<dependency>
 				<groupId>org.slf4j</groupId>
 				<artifactId>slf4j-api</artifactId>
 				<version>${slf4j.version}</version>
 			</dependency>
+
+			<!-- Test dependencies -->
 			<dependency>
 				<groupId>org.slf4j</groupId>
 				<artifactId>slf4j-log4j12</artifactId>
 				<version>${slf4j.version}</version>
-				<scope>test</scope>
 			</dependency>
 			<dependency>
-				<groupId>junit</groupId>
-				<artifactId>junit</artifactId>
-				<version>${junit.version}</version>
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-plus</artifactId>
+				<version>${jetty.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
+
 	<dependencies>
-		<!-- WICKET DEPENDENCIES -->
 		<dependency>
 			<groupId>org.apache.wicket</groupId>
 			<artifactId>wicket-core</artifactId>
-			<version>${wicket.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.odlabs.wiquery</groupId>
 			<artifactId>wiquery-jquery-ui</artifactId>
-			<version>${wiquery.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.odlabs.wiquery</groupId>
-			<artifactId>wiquery-compressor</artifactId>
-			<version>${wiquery.version}</version>
 		</dependency>
 
-		<!-- LOGGING DEPENDENCIES - LOG4J -->
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-		</dependency>
-
-		<!-- DEPENDENCIES FOR TESTING -->
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.mortbay.jetty</groupId>
-			<artifactId>jetty</artifactId>
-			<version>${jetty.version}</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.mortbay.jetty</groupId>
-			<artifactId>jetty-util</artifactId>
-			<version>${jetty.version}</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.mortbay.jetty</groupId>
-			<artifactId>jetty-management</artifactId>
-			<version>${jetty.version}</version>
-			<scope>test</scope>
-		</dependency>
+		<!-- Test dependencies -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-plus</artifactId>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
+	
 	<build>
 		<resources>
 			<resource>
@@ -198,7 +212,7 @@
 				</configuration>
 			</plugin>
 			<plugin>
-				<groupId>org.mortbay.jetty</groupId>
+				<groupId>org.eclipse.jetty</groupId>
 				<artifactId>maven-jetty-plugin</artifactId>
 				<version>${jetty.version}</version>
 			</plugin>
