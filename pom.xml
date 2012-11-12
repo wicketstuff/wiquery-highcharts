@@ -14,7 +14,7 @@
 	<groupId>nl.topicus</groupId>
 	<artifactId>whighcharts</artifactId>
 	<packaging>jar</packaging>
-	<version>6.2.0</version>
+	<version>6.2.1-SNAPSHOT</version>
 	<name>WHighCharts</name>
 
 	<url>https://github.com/hielkehoeve/wiquery-highcharts/wiki</url>
