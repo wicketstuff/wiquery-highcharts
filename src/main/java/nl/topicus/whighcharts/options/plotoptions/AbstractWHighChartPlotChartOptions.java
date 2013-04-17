@@ -3,6 +3,7 @@ package nl.topicus.whighcharts.options.plotoptions;
 import java.io.Serializable;
 
 import nl.topicus.whighcharts.options.WHighChartPointerType;
+import nl.topicus.whighcharts.options.WHighChartStackingType;
 import nl.topicus.whighcharts.options.chart.WHighChartChartEventsOptions;
 
 import org.codehaus.jackson.annotate.JsonAutoDetect;
@@ -56,6 +57,8 @@ public class AbstractWHighChartPlotChartOptions<T extends AbstractWHighChartPlot
 
 	protected String borderColor;
 
+	protected WHighChartStackingType stacking;
+
 	public Boolean getAllowPointSelect()
 	{
 		return allowPointSelect;
@@ -89,6 +92,18 @@ public class AbstractWHighChartPlotChartOptions<T extends AbstractWHighChartPlot
 	public T setDashStyle(WHighChartPlotDashStyleType dashStyle)
 	{
 		this.dashStyle = dashStyle;
+		return (T) this;
+	}
+
+	public WHighChartStackingType getStacking()
+	{
+		return stacking;
+	}
+
+	@SuppressWarnings("unchecked")
+	public T setStacking(WHighChartStackingType stacking)
+	{
+		this.stacking = stacking;
 		return (T) this;
 	}
 
