@@ -14,7 +14,7 @@
 	<groupId>nl.topicus</groupId>
 	<artifactId>whighcharts</artifactId>
 	<packaging>jar</packaging>
-	<version>6.2.1-SNAPSHOT</version>
+	<version>6.9.1-SNAPSHOT</version>
 	<name>WHighCharts</name>
 
 	<url>https://github.com/hielkehoeve/wiquery-highcharts/wiki</url>
@@ -49,14 +49,14 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<wicket.version>6.2.0</wicket.version>
-		<wiquery.version>6.2.0</wiquery.version>
-		<slf4j.version>[1.7,1.7.2]</slf4j.version>
-		<jetty.version>8.1.8.v20121106</jetty.version>
+		<wicket.version>6.9.1</wicket.version>
+		<wiquery.version>6.9.1</wiquery.version>
+		<slf4j.version>[1.7,1.7.5]</slf4j.version>
+		<jetty.version>9.0.4.v20130625</jetty.version>
 
 		<maven-buildnumber-plugin.version>1.0</maven-buildnumber-plugin.version>
-		<maven-bundle-plugin.version>2.3.7</maven-bundle-plugin.version>
-		<maven-compiler-plugin.version>2.5.1</maven-compiler-plugin.version>
+		<maven-bundle-plugin.version>2.4.0</maven-bundle-plugin.version>
+		<maven-compiler-plugin.version>3.1</maven-compiler-plugin.version>
 		<maven-eclipse-plugin.version>2.9</maven-eclipse-plugin.version>
 		<maven-gpg-plugin.version>1.4</maven-gpg-plugin.version>
 		<maven-source-plugin.version>2.2.1</maven-source-plugin.version>
@@ -212,7 +212,7 @@
 			</plugin>
 			<plugin>
 				<groupId>org.eclipse.jetty</groupId>
-				<artifactId>maven-jetty-plugin</artifactId>
+				<artifactId>jetty-maven-plugin</artifactId>
 				<version>${jetty.version}</version>
 			</plugin>
 		</plugins>

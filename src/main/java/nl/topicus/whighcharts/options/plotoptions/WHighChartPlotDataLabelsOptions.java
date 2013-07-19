@@ -12,7 +12,7 @@ import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
 
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 @JsonSerialize(include = Inclusion.NON_NULL)
-public class WHighChartPlotPieLabelsOptions implements Serializable
+public class WHighChartPlotDataLabelsOptions implements Serializable
 {
 	private static final long serialVersionUID = 1L;
 
@@ -28,7 +28,7 @@ public class WHighChartPlotPieLabelsOptions implements Serializable
 		return enabled;
 	}
 
-	public WHighChartPlotPieLabelsOptions setEnabled(Boolean enabled)
+	public WHighChartPlotDataLabelsOptions setEnabled(Boolean enabled)
 	{
 		this.enabled = enabled;
 		return this;
@@ -39,18 +39,18 @@ public class WHighChartPlotPieLabelsOptions implements Serializable
 		return formatter;
 	}
 
-	public WHighChartPlotPieLabelsOptions setFormatter(WHighChartFunction formatter)
+	public WHighChartPlotDataLabelsOptions setFormatter(WHighChartFunction formatter)
 	{
 		this.formatter = formatter;
 		return this;
 	}
 
-	public WHighChartPlotPieLabelsOptions setFormatter(String formatter)
+	public WHighChartPlotDataLabelsOptions setFormatter(String formatter)
 	{
 		return setFormatter(new WHighChartFunctionString(formatter));
 	}
 
-	public WHighChartPlotPieLabelsOptions setSelection(String formatter)
+	public WHighChartPlotDataLabelsOptions setSelection(String formatter)
 	{
 		return setFormatter(new WHighChartFunctionString(formatter));
 	}

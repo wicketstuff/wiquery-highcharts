@@ -22,7 +22,7 @@ public class AreaInvertedPage extends BasePage
 		chart.getOptions().getChart().setType(WHighChartChartOptionsType.area).setInverted(true);
 		chart.getOptions().getTitle().setText("Average fruit consumption during one week");
 		chart.getOptions().getSubtitle()
-			.setStyle("{ position: absolute; right: 0px; bottom: 10px; }");
+			.setStyle("position: 'absolute', right: '0px', bottom: '10px'");
 
 		chart.getOptions().getLegend().setLayout(WHighChartLegendLayoutType.vertical)
 			.setAlign(WHighChartHorizontalAlignmentType.right)

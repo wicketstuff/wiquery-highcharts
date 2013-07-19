@@ -18,7 +18,7 @@ public class WHighChartPlotOptions implements Serializable
 
 	private AbstractWHighChartPlotChartOptions areaspline;
 
-	private AbstractWHighChartPlotChartOptions bar;
+	private WHighChartPlotBarOptions bar;
 
 	private WHighChartPlotColumnOptions column;
 
@@ -60,15 +60,15 @@ public class WHighChartPlotOptions implements Serializable
 		return this;
 	}
 
-	public AbstractWHighChartPlotChartOptions getBar()
+	public WHighChartPlotBarOptions getBar()
 	{
 		if (bar == null)
-			bar = new AbstractWHighChartPlotChartOptions();
+			bar = new WHighChartPlotBarOptions();
 
 		return bar;
 	}
 
-	public WHighChartPlotOptions setBar(AbstractWHighChartPlotChartOptions bar)
+	public WHighChartPlotOptions setBar(WHighChartPlotBarOptions bar)
 	{
 		this.bar = bar;
 		return this;

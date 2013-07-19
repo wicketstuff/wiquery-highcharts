@@ -31,6 +31,34 @@ public class WHighChartTooltipOptions implements Serializable
 
 	private WHighChartFunction formatter;
 
+	/**
+	 * The HTML of the tooltip header line. Variables are enclosed by curly brackets.
+	 * Available variables are point.key, series.name, series.color and other members from
+	 * the point and series objects. The point.key variable contains the category name, x
+	 * value or datetime string depending on the type of axis. For datetime axes, the
+	 * point.key date format can be set using tooltip.xDateFormat.
+	 * 
+	 * Defaults to <span style="font-size: 10px">{point.key}</span><br/>
+	 */
+	private String headerFormat;
+
+	/**
+	 * The HTML of the point's line in the tooltip. Variables are enclosed by curly
+	 * brackets. Available variables are point.x, point.y, series.name and series.color
+	 * and other properties on the same form. Furthermore, point.y can be extended by the
+	 * tooltip.yPrefix and tooltip.ySuffix variables. This can also be overridden for each
+	 * series, which makes it a good hook for displaying units.
+	 * 
+	 * Defaults to <span style="color:{series.color}">{series.name}</span>:
+	 * <b>{point.y}</b><br/>
+	 */
+	private String pointFormat;
+
+	/**
+	 * A string to append to the tooltip format. Defaults to false.
+	 */
+	private String footerFormat;
+
 	private Boolean shadow;
 
 	private Boolean shared;
@@ -39,6 +67,13 @@ public class WHighChartTooltipOptions implements Serializable
 
 	@JsonSerialize(include = Inclusion.NON_NULL, using = ToStringNoQuoteWithCurlyBracketsSerializer.class)
 	private String style;
+
+	/**
+	 * Use HTML to render the contents of the tooltip instead of SVG. Using HTML allows
+	 * advanced formatting like tables and images in the tooltip. It is also recommended
+	 * for rtl languages as it works around rtl bugs in early Firefox. Defaults to false.
+	 */
+	private Boolean useHTML;
 
 	public String getBackgroundColor()
 	{
@@ -116,6 +151,39 @@ public class WHighChartTooltipOptions implements Serializable
 		return setFormatter(new WHighChartFunctionString(formatter));
 	}
 
+	public String getHeaderFormat()
+	{
+		return headerFormat;
+	}
+
+	public WHighChartTooltipOptions setHeaderFormat(String headerFormat)
+	{
+		this.headerFormat = headerFormat;
+		return this;
+	}
+
+	public String getPointFormat()
+	{
+		return pointFormat;
+	}
+
+	public WHighChartTooltipOptions setPointFormat(String pointFormat)
+	{
+		this.pointFormat = pointFormat;
+		return this;
+	}
+
+	public String getFooterFormat()
+	{
+		return footerFormat;
+	}
+
+	public WHighChartTooltipOptions setFooterFormat(String footerFormat)
+	{
+		this.footerFormat = footerFormat;
+		return this;
+	}
+
 	public Boolean getShadow()
 	{
 		return shadow;
@@ -157,6 +225,17 @@ public class WHighChartTooltipOptions implements Serializable
 	public WHighChartTooltipOptions setStyle(String style)
 	{
 		this.style = style;
+		return this;
+	}
+
+	public Boolean getUseHTML()
+	{
+		return useHTML;
+	}
+
+	public WHighChartTooltipOptions setUseHTML(Boolean useHTML)
+	{
+		this.useHTML = useHTML;
 		return this;
 	}
 }

@@ -7,8 +7,8 @@ import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
 
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 @JsonSerialize(include = Inclusion.NON_NULL)
-public class WHighChartPlotPieOptions extends
-		AbstractWHighChartPlotChartOptions<WHighChartPlotPieOptions>
+public class WHighChartPlotBarOptions extends
+		AbstractWHighChartPlotChartOptions<WHighChartPlotBarOptions>
 {
 	private static final long serialVersionUID = 1L;
 
