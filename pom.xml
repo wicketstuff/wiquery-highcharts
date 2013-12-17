@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.sonatype.oss</groupId>
@@ -14,7 +15,7 @@
 	<groupId>nl.topicus</groupId>
 	<artifactId>whighcharts</artifactId>
 	<packaging>jar</packaging>
-	<version>6.9.2-SNAPSHOT</version>
+	<version>6.12-SNAPSHOT</version>
 	<name>WHighCharts</name>
 
 	<url>https://github.com/hielkehoeve/wiquery-highcharts/wiki</url>
@@ -49,10 +50,10 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<wicket.version>6.9.1</wicket.version>
-		<wiquery.version>6.9.1</wiquery.version>
+		<wicket.version>6.12.0</wicket.version>
+		<wiquery.version>6.12.0</wiquery.version>
 		<slf4j.version>[1.7,1.7.5]</slf4j.version>
-		<jetty.version>9.0.4.v20130625</jetty.version>
+		<jetty.version>9.0.7.v20131107</jetty.version>
 
 		<maven-buildnumber-plugin.version>1.0</maven-buildnumber-plugin.version>
 		<maven-bundle-plugin.version>2.4.0</maven-bundle-plugin.version>
@@ -144,7 +145,7 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-	
+
 	<build>
 		<resources>
 			<resource>
@@ -181,8 +182,8 @@
 				<version>${maven-compiler-plugin.version}</version>
 				<inherited>true</inherited>
 				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
+					<source>1.7</source>
+					<target>1.7</target>
 					<encoding>UTF-8</encoding>
 					<showWarnings>true</showWarnings>
 					<showDeprecation>true</showDeprecation>

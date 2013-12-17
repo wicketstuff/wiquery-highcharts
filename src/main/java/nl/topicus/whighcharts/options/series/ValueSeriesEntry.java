@@ -1,6 +1,6 @@
 package nl.topicus.whighcharts.options.series;
 
-import org.codehaus.jackson.annotate.JsonValue;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 public class ValueSeriesEntry<V> implements ISeriesEntry<V>
 {

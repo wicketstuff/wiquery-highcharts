@@ -2,7 +2,7 @@ package nl.topicus.whighcharts.options;
 
 import nl.topicus.whighcharts.options.jackson.ToStringNoQuoteSerializer;
 
-import org.codehaus.jackson.map.annotate.JsonSerialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 @JsonSerialize(using = ToStringNoQuoteSerializer.class)
 public class WHighChartFunctionString implements WHighChartFunction

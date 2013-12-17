@@ -5,13 +5,13 @@ import java.util.List;
 
 import nl.topicus.whighcharts.options.chart.WHighChartChartOptionsType;
 
-import org.codehaus.jackson.annotate.JsonAutoDetect;
-import org.codehaus.jackson.annotate.JsonAutoDetect.Visibility;
-import org.codehaus.jackson.map.annotate.JsonSerialize;
-import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
-@JsonSerialize(include = Inclusion.NON_NULL)
+@JsonInclude(Include.NON_NULL)
 public class AbstractSeries<V, E extends ISeriesEntry<V>> implements ISeries<V, E>
 {
 	private static final long serialVersionUID = 1L;

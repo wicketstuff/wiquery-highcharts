@@ -8,7 +8,8 @@ import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.attributes.AjaxRequestAttributes;
 import org.apache.wicket.request.IRequestParameters;
 import org.apache.wicket.request.cycle.RequestCycle;
-import org.codehaus.jackson.map.annotate.JsonSerialize;
+
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 @JsonSerialize(using = ToStringNoQuoteSerializer.class)
 public class WHighChartFunctionCallback extends AbstractDefaultAjaxBehavior implements
