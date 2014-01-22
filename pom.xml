@@ -49,8 +49,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<wicket.version>6.12.0</wicket.version>
-		<wiquery.version>6.12.0</wiquery.version>
+		<wiquery.version>6.13.0</wiquery.version>
 		<slf4j.version>[1.7,1.7.5]</slf4j.version>
 		<jetty.version>9.0.7.v20131107</jetty.version>
 
@@ -94,12 +93,6 @@
 				<artifactId>wiquery-jquery-ui</artifactId>
 				<version>${wiquery.version}</version>
 			</dependency>
-			<!-- WICKET DEPENDENCIES -->
-			<dependency>
-				<groupId>org.apache.wicket</groupId>
-				<artifactId>wicket-core</artifactId>
-				<version>${wicket.version}</version>
-			</dependency>
 
 			<!-- External dependencies -->
 			<dependency>
@@ -123,10 +116,6 @@
 	</dependencyManagement>
 
 	<dependencies>
-		<dependency>
-			<groupId>org.apache.wicket</groupId>
-			<artifactId>wicket-core</artifactId>
-		</dependency>
 		<dependency>
 			<groupId>org.odlabs.wiquery</groupId>
 			<artifactId>wiquery-jquery-ui</artifactId>
