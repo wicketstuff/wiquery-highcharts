@@ -36,11 +36,11 @@ public class WHighChartChartEventsOptions implements Serializable
 	 * which are arrays containing the axes of each dimension and each axis' value at the
 	 * clicked spot. The primary axes are event.xAxis[0] and event.yAxis[0]. Remember the
 	 * unit of a datetime axis is milliseconds since 1970-01-01 00:00:00.
-	 * 
+	 *
 	 * <pre>
 	 * click: function(e) {
 	 * 	console.log(
-	 * 		Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', e.xAxis[0].value), 
+	 * 		Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', e.xAxis[0].value),
 	 * 		e.yAxis[0].value
 	 * 	)
 	 * }
@@ -80,7 +80,7 @@ public class WHighChartChartEventsOptions implements Serializable
 	 * which are arrays containing the axes of each dimension and each axis' min and max
 	 * values. The primary axes are event.xAxis[0] and event.yAxis[0]. Remember the unit
 	 * of a datetime axis is milliseconds since 1970-01-01 00:00:00.
-	 * 
+	 *
 	 * <pre>
 	 * selection: function(event) {
 	 * 	// log the min and max of the primary, datetime x-axis
@@ -94,6 +94,16 @@ public class WHighChartChartEventsOptions implements Serializable
 	 * </pre>
 	 */
 	private WHighChartFunction selection;
+
+	/**
+	 * Fires when the legend item belonging to the series is clicked. The this keyword
+	 * refers to the series object itself. One parameter, event, is passed to the
+	 * function. This contains common event information based on jQuery or MooTools
+	 * depending on which library is used as the base for Highcharts. The default action
+	 * is to toggle the visibility of the series. This can be prevented by returning false
+	 * or calling event.preventDefault().
+	 */
+	private WHighChartFunction legendItemClick;
 
 	public WHighChartFunction getAddSeries()
 	{
@@ -173,5 +183,16 @@ public class WHighChartChartEventsOptions implements Serializable
 	public WHighChartChartEventsOptions setSelection(String formatter)
 	{
 		return setSelection(new WHighChartFunctionString(formatter));
+	}
+
+	public WHighChartFunction getLegendItemClick()
+	{
+		return legendItemClick;
+	}
+
+	public WHighChartChartEventsOptions setLegendItemClick(WHighChartFunction legendItemClick)
+	{
+		this.legendItemClick = legendItemClick;
+		return this;
 	}
 }
