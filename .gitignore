@@ -1,3 +1,6 @@
-target
 .classpath
 .project
+target/
+bin/
+*.log
+.DS_Store
