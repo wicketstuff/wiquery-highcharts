@@ -53,8 +53,10 @@ public class WHighChartTooltipOptions implements Serializable
 	 * tooltip.yPrefix and tooltip.ySuffix variables. This can also be overridden for each
 	 * series, which makes it a good hook for displaying units.
 	 *
+	 * <p>
 	 * Defaults to <span style="color:{series.color}">{series.name}</span>:
-	 * <b>{point.y}</b><br/>
+	 * <b>{point.y}</b>
+	 * </p>
 	 */
 	private String pointFormat;
 
@@ -145,13 +147,6 @@ public class WHighChartTooltipOptions implements Serializable
 		return this;
 	}
 
-	/**
-	 * Sets the string as content of a function() {}.
-	 *
-	 * @param formatter
-	 * @see WHighChartFunctionString
-	 * @return WHighChartTooltipOptions
-	 */
 	public WHighChartTooltipOptions setFormatter(String formatter)
 	{
 		return setFormatter(new WHighChartFunctionString(formatter));

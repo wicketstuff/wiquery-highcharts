@@ -39,7 +39,7 @@ public class WHighChartChartOptions implements Serializable
 	 * Set the overall animation for all chart updating. Animation can be disabled
 	 * throughout the chart by setting it to false here. It can be overridden for each
 	 * individual API method as a function parameter. The only animation not affected by
-	 * this option is the initial series animation, see plotOptions.series => animation.
+	 * this option is the initial series animation, see plotOptions.series - animation.
 	 * </p>
 	 *
 	 * <p>
@@ -661,20 +661,12 @@ public class WHighChartChartOptions implements Serializable
 		return this;
 	}
 
-	/**
-	 * @deprecated use {@link #getType()}.
-	 * @return WHighChartChartOptionsType
-	 */
 	@Deprecated
 	public WHighChartChartOptionsType getDefaultSeriesType()
 	{
 		return getType();
 	}
 
-	/**
-	 * @deprecated use {@link #setType(WHighChartChartOptionsType)}.
-	 * @param type
-	 */
 	@Deprecated
 	public WHighChartChartOptions setDefaultSeriesType(WHighChartChartOptionsType type)
 	{
