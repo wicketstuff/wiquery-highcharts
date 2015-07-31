@@ -11,8 +11,6 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 
 public class ToStringNoQuoteSerializer extends StdSerializer<Object>
 {
-	private static final long serialVersionUID = 1L;
-
 	public ToStringNoQuoteSerializer()
 	{
 		super(Object.class);

@@ -13,8 +13,6 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 
 public class ComponentMarkupIdSerializer extends StdSerializer<Component>
 {
-	private static final long serialVersionUID = 1L;
-
 	public ComponentMarkupIdSerializer()
 	{
 		super(Component.class);

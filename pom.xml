@@ -51,7 +51,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<wiquery.version>7.0.0-SNAPSHOT</wiquery.version>
-		<wicket.version>7.0.0-SNAPSHOT</wicket.version>
+		<wicket.version>7.0.0</wicket.version>
 		<slf4j.version>[1.7,1.7.12]</slf4j.version>
 		<jetty.version>9.0.7.v20131107</jetty.version>
 
