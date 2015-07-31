@@ -90,7 +90,7 @@
 			<dependency>
 				<groupId>org.odlabs.wiquery</groupId>
 				<artifactId>wiquery-core</artifactId>
-				<version>7.0.0-SNAPSHOT</version>
+				<version>${wiquery.version}</version>
 			</dependency>
 			<!-- add wiquery-core also as test project so wiquery-jquery-ui can use 
 				the abstract testcase class -->
@@ -103,7 +103,7 @@
 			<dependency>
 				<groupId>org.odlabs.wiquery</groupId>
 				<artifactId>wiquery-jquery-ui</artifactId>
-				<version>7.0.0-SNAPSHOT</version>
+				<version>${wiquery.version}</version>
 			</dependency>
 
 			<!-- External dependencies -->
