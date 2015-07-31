@@ -39,8 +39,10 @@ public class WHighChartTooltipOptions implements Serializable
 	 * the point and series objects. The point.key variable contains the category name, x
 	 * value or datetime string depending on the type of axis. For datetime axes, the
 	 * point.key date format can be set using tooltip.xDateFormat.
-	 * 
-	 * Defaults to <span style="font-size: 10px">{point.key}</span><br/>
+	 *
+	 * <p>
+	 * Defaults to <span style="font-size: 10px">{point.key}</span>
+	 * </p>
 	 */
 	private String headerFormat;
 
@@ -50,7 +52,7 @@ public class WHighChartTooltipOptions implements Serializable
 	 * and other properties on the same form. Furthermore, point.y can be extended by the
 	 * tooltip.yPrefix and tooltip.ySuffix variables. This can also be overridden for each
 	 * series, which makes it a good hook for displaying units.
-	 * 
+	 *
 	 * Defaults to <span style="color:{series.color}">{series.name}</span>:
 	 * <b>{point.y}</b><br/>
 	 */
@@ -145,8 +147,10 @@ public class WHighChartTooltipOptions implements Serializable
 
 	/**
 	 * Sets the string as content of a function() {}.
-	 * 
+	 *
+	 * @param formatter
 	 * @see WHighChartFunctionString
+	 * @return WHighChartTooltipOptions
 	 */
 	public WHighChartTooltipOptions setFormatter(String formatter)
 	{

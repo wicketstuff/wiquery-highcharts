@@ -27,20 +27,24 @@ public class WHighChartChartEventsOptions implements Serializable
 	private WHighChartFunction addSeries;
 
 	/**
+	 * <p>
 	 * Fires when clicking on the plot background. The this keyword refers to the chart
 	 * object itself. One parameter, event, is passed to the function. This contains
 	 * common event information based on jQuery or MooTools depending on which library is
-	 * used as the base for Highcharts. <br/>
-	 * <br/>
+	 * used as the base for Highcharts.
+	 * </p>
+	 *
+	 * <p>
 	 * Information on the clicked spot can be found through event.xAxis and event.yAxis,
 	 * which are arrays containing the axes of each dimension and each axis' value at the
 	 * clicked spot. The primary axes are event.xAxis[0] and event.yAxis[0]. Remember the
 	 * unit of a datetime axis is milliseconds since 1970-01-01 00:00:00.
-	 * 
+	 * </p>
+	 *
 	 * <pre>
 	 * click: function(e) {
 	 * 	console.log(
-	 * 		Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', e.xAxis[0].value), 
+	 * 		Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', e.xAxis[0].value),
 	 * 		e.yAxis[0].value
 	 * 	)
 	 * }
@@ -69,18 +73,22 @@ public class WHighChartChartEventsOptions implements Serializable
 	private WHighChartFunction redraw;
 
 	/**
+	 * <p>
 	 * Fires when an area of the chart has been selected. Selection is enabled by setting
 	 * the chart's zoomType. The this keyword refers to the chart object itself. One
 	 * parameter, event, is passed to the function. This contains common event information
 	 * based on jQuery or MooTools depending on which library is used as the base for
 	 * Highcharts. The default action for the selection event is to zoom the chart to the
-	 * selected area. It can be prevented by calling event.preventDefault(). <br/>
-	 * <br/>
+	 * selected area. It can be prevented by calling event.preventDefault().
+	 * </p>
+	 * 
+	 * <p>
 	 * Information on the selected area can be found through event.xAxis and event.yAxis,
 	 * which are arrays containing the axes of each dimension and each axis' min and max
 	 * values. The primary axes are event.xAxis[0] and event.yAxis[0]. Remember the unit
 	 * of a datetime axis is milliseconds since 1970-01-01 00:00:00.
-	 * 
+	 * </p>
+	 *
 	 * <pre>
 	 * selection: function(event) {
 	 * 	// log the min and max of the primary, datetime x-axis

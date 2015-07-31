@@ -87,9 +87,6 @@ public class WHighChartAxisOptions implements Serializable
 		return this;
 	}
 
-	/**
-	 *
-	 */
 	public List<String> getCategories()
 	{
 		return categories;

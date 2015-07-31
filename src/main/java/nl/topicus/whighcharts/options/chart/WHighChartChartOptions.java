@@ -35,21 +35,28 @@ public class WHighChartChartOptions implements Serializable
 	private Boolean alignTicks;
 
 	/**
+	 * <p>
 	 * Set the overall animation for all chart updating. Animation can be disabled
 	 * throughout the chart by setting it to false here. It can be overridden for each
 	 * individual API method as a function parameter. The only animation not affected by
-	 * this option is the initial series animation, see plotOptions.series => animation. <br/>
-	 * <br/>
+	 * this option is the initial series animation, see plotOptions.series => animation.
+	 * </p>
+	 *
+	 * <p>
 	 * The animation can either be set as a boolean or a configuration object. If true, it
 	 * will use the 'swing' jQuery easing and a duration of 500 ms. If used as a
-	 * configuration object, the following properties are supported: <br/>
-	 * <br/>
-	 * <b>duration</b> - The duration of the animation in milliseconds.<br/>
+	 * configuration object, the following properties are supported:
+	 * </p>
+	 * <p>
+	 * <b>duration</b> - The duration of the animation in milliseconds.
+	 * </p>
+	 * <p>
 	 * <b>easing</b> - When using jQuery as the general framework, the easing can be set
 	 * to linear or swing. More easing functions are available with the use of jQuery
 	 * plug-ins, most notably the jQuery UI suite. See the jQuery docs. When using
 	 * MooTools as the general framework, use the property name transition instead of
 	 * easing.
+	 * </p>
 	 */
 	private Boolean animation;
 
@@ -108,14 +115,17 @@ public class WHighChartChartOptions implements Serializable
 	private Boolean inverted;
 
 	/**
+	 * <p>
 	 * The margin between the outer edge of the chart and the plot area. The numbers in
 	 * the array designate top, right, bottom and left respectively. Use the options
 	 * marginTop, marginRight, marginBottom and marginLeft for shorthand setting of one
-	 * option. <br/>
-	 * <br/>
+	 * option.
+	 * </p>
+	 * <p>
 	 * Since version 2.1, the margin is 0 by default. The actual space is dynamically
 	 * calculated from the offset of axis labels, axis title, title, subtitle and legend
 	 * in addition to the spacingTop, spacingRight, spacingBottom and spacingLeft options.
+	 * </p>
 	 */
 	private Number[] margin;
 
@@ -230,7 +240,7 @@ public class WHighChartChartOptions implements Serializable
 	 * Additional CSS styles to apply inline to the container div. Note that since the
 	 * default font styles are applied in the renderer, it is ignorant of the individual
 	 * chart options and must be set globally. Defaults to:
-	 * 
+	 *
 	 * <pre>
 	 * style: {
 	 * 	fontFamily: '"Lucida Grande", "Lucida Sans Unicode", Verdana, Arial, Helvetica, sans-serif', // default font
@@ -552,8 +562,9 @@ public class WHighChartChartOptions implements Serializable
 	}
 
 	/**
-	 * @markupId the markup id of the {@link WHighChart}. This is automatically filled by
-	 *           wHighCharts.
+	 * @param component
+	 *            the component of the {@link WHighChart}. This is automatically filled by
+	 *            wHighCharts.
 	 * @return WHighChartChartOptions
 	 */
 	public WHighChartChartOptions setRenderTo(Component component)
@@ -652,6 +663,7 @@ public class WHighChartChartOptions implements Serializable
 
 	/**
 	 * @deprecated use {@link #getType()}.
+	 * @return WHighChartChartOptionsType
 	 */
 	@Deprecated
 	public WHighChartChartOptionsType getDefaultSeriesType()
@@ -661,6 +673,7 @@ public class WHighChartChartOptions implements Serializable
 
 	/**
 	 * @deprecated use {@link #setType(WHighChartChartOptionsType)}.
+	 * @param type
 	 */
 	@Deprecated
 	public WHighChartChartOptions setDefaultSeriesType(WHighChartChartOptionsType type)
