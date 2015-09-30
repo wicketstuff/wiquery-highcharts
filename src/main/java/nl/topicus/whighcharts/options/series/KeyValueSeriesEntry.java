@@ -2,7 +2,7 @@ package nl.topicus.whighcharts.options.series;
 
 import java.util.Arrays;
 
-import org.codehaus.jackson.annotate.JsonValue;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 public class KeyValueSeriesEntry<K, V> implements ISeriesEntry<V>
 {

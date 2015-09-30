@@ -17,13 +17,14 @@ import org.apache.wicket.markup.head.JavaScriptHeaderItem;
 import org.apache.wicket.markup.head.OnDomReadyHeaderItem;
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.model.IModel;
-import org.codehaus.jackson.JsonGenerationException;
-import org.codehaus.jackson.JsonGenerator;
-import org.codehaus.jackson.map.JsonMappingException;
-import org.codehaus.jackson.map.ObjectMapper;
-import org.codehaus.jackson.map.SerializationConfig;
-import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
 import org.odlabs.wiquery.core.javascript.JsStatement;
+
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.core.JsonGenerationException;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 
 public class WHighChart<V, E extends ISeriesEntry<V>> extends WebMarkupContainer
 {
@@ -74,13 +75,13 @@ public class WHighChart<V, E extends ISeriesEntry<V>> extends WebMarkupContainer
 	public JsStatement statement()
 	{
 		ObjectMapper mapper = new ObjectMapper();
-		mapper.getSerializationConfig().withSerializationInclusion(Inclusion.NON_NULL);
+		mapper.getSerializationConfig().withSerializationInclusion(Include.NON_NULL);
 		mapper.configure(JsonGenerator.Feature.QUOTE_FIELD_NAMES, false);
 
 		if (Application.exists()
 			&& RuntimeConfigurationType.DEVELOPMENT
 				.equals(Application.get().getConfigurationType()))
-			mapper.configure(SerializationConfig.Feature.INDENT_OUTPUT, true);
+			mapper.configure(SerializationFeature.INDENT_OUTPUT, true);
 
 		String optionsStr = "{}";
 		String globalOptions = "{}";

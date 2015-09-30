@@ -5,10 +5,10 @@ import java.io.Serializable;
 import nl.topicus.whighcharts.options.global.WHighChartGlobalOptions;
 import nl.topicus.whighcharts.options.lang.WHighChartLangOptions;
 
-import org.codehaus.jackson.annotate.JsonAutoDetect;
-import org.codehaus.jackson.annotate.JsonAutoDetect.Visibility;
-import org.codehaus.jackson.map.annotate.JsonSerialize;
-import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize.Inclusion;
 
 /**
  * Contains settings that must be set globally using Highcharts.setOptions, rather than
