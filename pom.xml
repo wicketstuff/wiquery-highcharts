@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.sonatype.oss</groupId>
@@ -7,9 +8,9 @@
 		<version>7</version>
 	</parent>
 
-        <prerequisites>
-                <maven>2.2.1</maven>
-        </prerequisites>
+	<prerequisites>
+		<maven>2.2.1</maven>
+	</prerequisites>
 
 	<groupId>nl.topicus</groupId>
 	<artifactId>whighcharts</artifactId>
@@ -20,7 +21,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<wicket.version>6.20.0</wicket.version>
+		<wicket.version>6.21.0</wicket.version>
 		<wiquery.version>6.13.0</wiquery.version>
 		<wiquery-compressor.version>6.9.2</wiquery-compressor.version>
 		<slf4j.version>1.6.1</slf4j.version>
