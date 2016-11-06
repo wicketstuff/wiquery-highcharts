@@ -3,13 +3,6 @@ package nl.topicus.whighcharts.components;
 import java.io.IOException;
 import java.util.Collection;
 
-import nl.topicus.whighcharts.components.modules.WHighChartsExportingJavaScriptResourceReference;
-import nl.topicus.whighcharts.options.WHighChartGlobalSettings;
-import nl.topicus.whighcharts.options.WHighChartOptions;
-import nl.topicus.whighcharts.options.axis.IWHighChartAxisCategoriesProvider;
-import nl.topicus.whighcharts.options.series.ISeries;
-import nl.topicus.whighcharts.options.series.ISeriesEntry;
-
 import org.apache.wicket.Application;
 import org.apache.wicket.RuntimeConfigurationType;
 import org.apache.wicket.markup.head.IHeaderResponse;
@@ -25,6 +18,13 @@ import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+
+import nl.topicus.whighcharts.components.modules.WHighChartsExportingJavaScriptResourceReference;
+import nl.topicus.whighcharts.options.WHighChartGlobalSettings;
+import nl.topicus.whighcharts.options.WHighChartOptions;
+import nl.topicus.whighcharts.options.axis.IWHighChartAxisCategoriesProvider;
+import nl.topicus.whighcharts.options.series.ISeries;
+import nl.topicus.whighcharts.options.series.ISeriesEntry;
 
 public class WHighChart<V, E extends ISeriesEntry<V>> extends WebMarkupContainer
 {
@@ -58,17 +58,19 @@ public class WHighChart<V, E extends ISeriesEntry<V>> extends WebMarkupContainer
 	@Override
 	public void renderHead(IHeaderResponse response)
 	{
-		response.render(JavaScriptHeaderItem.forReference(WHighChartsJavaScriptResourceReference
-			.get()));
+		response.render(
+			JavaScriptHeaderItem.forReference(WHighChartsJavaScriptResourceReference.get()));
+		response.render(
+			JavaScriptHeaderItem.forReference(WHighChartsExtraJavaScriptResourceReference.get()));
 		response.render(JavaScriptHeaderItem
-			.forReference(WHighChartsExtraJavaScriptResourceReference.get()));
+			.forReference(WHighChartsDefaultsJavaScriptResourceReference.get()));
 
 		if (getOptions().getExporting().getEnabled() != null
 			&& getOptions().getExporting().getEnabled().booleanValue())
 			response.render(JavaScriptHeaderItem
 				.forReference(WHighChartsExportingJavaScriptResourceReference.get()));
-		response.render(JavaScriptHeaderItem.forScript("var " + getMarkupId() + ";", "highchart_"
-			+ getMarkupId()));
+		response.render(JavaScriptHeaderItem.forScript("var " + getMarkupId() + ";",
+			"highchart_" + getMarkupId()));
 		response.render(OnDomReadyHeaderItem.forScript(statement().render().toString()));
 	}
 
@@ -78,9 +80,8 @@ public class WHighChart<V, E extends ISeriesEntry<V>> extends WebMarkupContainer
 		mapper.getSerializationConfig().withSerializationInclusion(Include.NON_NULL);
 		mapper.configure(JsonGenerator.Feature.QUOTE_FIELD_NAMES, false);
 
-		if (Application.exists()
-			&& RuntimeConfigurationType.DEVELOPMENT
-				.equals(Application.get().getConfigurationType()))
+		if (Application.exists() && RuntimeConfigurationType.DEVELOPMENT
+			.equals(Application.get().getConfigurationType()))
 			mapper.configure(SerializationFeature.INDENT_OUTPUT, true);
 
 		String optionsStr = "{}";
@@ -101,15 +102,15 @@ public class WHighChart<V, E extends ISeriesEntry<V>> extends WebMarkupContainer
 					if (getOptions().getxAxis().getCategories() == null
 						|| getOptions().getxAxis().getCategories().isEmpty())
 					{
-						getOptions().getxAxis().setCategories(
-							categoriesProvider.getxAxisCategories());
+						getOptions().getxAxis()
+							.setCategories(categoriesProvider.getxAxisCategories());
 					}
 
 					if (getOptions().getyAxis().getCategories() == null
 						|| getOptions().getyAxis().getCategories().isEmpty())
 					{
-						getOptions().getyAxis().setCategories(
-							categoriesProvider.getyAxisCategories());
+						getOptions().getyAxis()
+							.setCategories(categoriesProvider.getyAxisCategories());
 					}
 				}
 			}
@@ -131,9 +132,8 @@ public class WHighChart<V, E extends ISeriesEntry<V>> extends WebMarkupContainer
 			e.printStackTrace();
 		}
 
-		JsStatement jsStatement =
-			new JsStatement().append(globalOptions + getMarkupId() + " = new Highcharts.Chart( "
-				+ optionsStr + " );\n");
+		JsStatement jsStatement = new JsStatement().append(
+			globalOptions + getMarkupId() + " = new Highcharts.Chart( " + optionsStr + " );\n");
 
 		return jsStatement;
 	}

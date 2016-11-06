@@ -15,7 +15,7 @@
 	<groupId>nl.topicus</groupId>
 	<artifactId>whighcharts</artifactId>
 	<packaging>jar</packaging>
-	<version>6.13.0-aangenieux-SNAPSHOT</version>
+	<version>6.13.0-aangenieux-highcharts-4.2.5-SNAPSHOT</version>
 	<name>WHighCharts</name>
 	<description>WiQuery-HighCharts bindings</description>
 
