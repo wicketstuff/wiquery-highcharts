@@ -23,5 +23,8 @@ Highcharts.setOptions({
     },
     scrollbar: {
         enabled: false
-    }
+    },
+    global: {
+		useUTC: false
+	}
 });
