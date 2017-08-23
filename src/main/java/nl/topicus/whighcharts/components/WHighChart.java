@@ -19,7 +19,7 @@ import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.model.IModel;
 import org.odlabs.wiquery.core.javascript.JsStatement;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -75,7 +75,7 @@ public class WHighChart<V, E extends ISeriesEntry<V>> extends WebMarkupContainer
 	public JsStatement statement()
 	{
 		ObjectMapper mapper = new ObjectMapper();
-		mapper.getSerializationConfig().withSerializationInclusion(JsonInclude.Include.NON_NULL);
+		mapper.setSerializationInclusion(Include.NON_NULL);
 		mapper.configure(JsonGenerator.Feature.QUOTE_FIELD_NAMES, false);
 
 		if (Application.exists()
