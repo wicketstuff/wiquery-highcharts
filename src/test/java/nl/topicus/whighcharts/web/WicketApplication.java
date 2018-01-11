@@ -1,9 +1,9 @@
 package nl.topicus.whighcharts.web;
 
-import nl.topicus.whighcharts.web.pages.HomePage;
-
 import org.apache.wicket.protocol.http.WebApplication;
 import org.apache.wicket.util.time.Duration;
+
+import nl.topicus.whighcharts.web.pages.HomePage;
 
 /**
  * Application object for your web application. If you want to run this application

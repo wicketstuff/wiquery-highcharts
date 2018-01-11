@@ -2,16 +2,15 @@ package nl.topicus.whighcharts.options.legend;
 
 import java.io.Serializable;
 
-import nl.topicus.whighcharts.options.WHighChartHorizontalAlignmentType;
-import nl.topicus.whighcharts.options.WHighChartVerticalAlignmentType;
-import nl.topicus.whighcharts.options.jackson.ToStringNoQuoteWithCurlyBracketsSerializer;
-
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize.Inclusion;
+
+import nl.topicus.whighcharts.options.WHighChartHorizontalAlignmentType;
+import nl.topicus.whighcharts.options.WHighChartVerticalAlignmentType;
+import nl.topicus.whighcharts.options.jackson.ToStringNoQuoteWithCurlyBracketsSerializer;
 
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 @JsonInclude(Include.NON_NULL)
@@ -54,21 +53,24 @@ public class WHighChartLegendOptions implements Serializable
 	 * Properties are inherited from style unless overridden here. Defaults to:
 	 * itemHiddenStyle: { color: '#CCC' }
 	 */
-	@JsonSerialize(include = Inclusion.NON_NULL, using = ToStringNoQuoteWithCurlyBracketsSerializer.class)
+	@JsonSerialize(using = ToStringNoQuoteWithCurlyBracketsSerializer.class)
+	@JsonInclude(value = Include.NON_NULL)
 	private String itemHiddenStyle;
 
 	/**
 	 * CSS styles for each legend item in hover mode. Properties are inherited from style
 	 * unless overridden here. Defaults to: itemHoverStyle: { color: '#000' }
 	 */
-	@JsonSerialize(include = Inclusion.NON_NULL, using = ToStringNoQuoteWithCurlyBracketsSerializer.class)
+	@JsonSerialize(using = ToStringNoQuoteWithCurlyBracketsSerializer.class)
+	@JsonInclude(value = Include.NON_NULL)
 	private String itemHoverStyle;
 
 	/**
 	 * CSS styles for each legend item. Defaults to: itemStyle: { cursor: 'pointer',
 	 * color: '#3E576F' }
 	 */
-	@JsonSerialize(include = Inclusion.NON_NULL, using = ToStringNoQuoteWithCurlyBracketsSerializer.class)
+	@JsonSerialize(using = ToStringNoQuoteWithCurlyBracketsSerializer.class)
+	@JsonInclude(value = Include.NON_NULL)
 	private String itemStyle;
 
 	/**
@@ -121,7 +123,8 @@ public class WHighChartLegendOptions implements Serializable
 	 * compatibility. symbolPadding : Number The pixel padding between the legend item
 	 * symbol and the legend item text. Defaults to 5.
 	 */
-	@JsonSerialize(include = Inclusion.NON_NULL, using = ToStringNoQuoteWithCurlyBracketsSerializer.class)
+	@JsonSerialize(using = ToStringNoQuoteWithCurlyBracketsSerializer.class)
+	@JsonInclude(value = Include.NON_NULL)
 	private String style;
 
 	/**

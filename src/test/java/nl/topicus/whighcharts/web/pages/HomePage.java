@@ -3,19 +3,19 @@ package nl.topicus.whighcharts.web.pages;
 import java.util.ArrayList;
 import java.util.List;
 
-import nl.topicus.whighcharts.web.pages.examples.AjaxBasicPage;
-import nl.topicus.whighcharts.web.pages.examples.AreaBasicPage;
-import nl.topicus.whighcharts.web.pages.examples.AreaInvertedPage;
-import nl.topicus.whighcharts.web.pages.examples.AreaMissingPage;
-import nl.topicus.whighcharts.web.pages.examples.AreaNegativePage;
-import nl.topicus.whighcharts.web.pages.examples.AreasplinePage;
-
 import org.apache.wicket.Page;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.ListView;
 import org.apache.wicket.model.util.ListModel;
+
+import nl.topicus.whighcharts.web.pages.examples.AjaxBasicPage;
+import nl.topicus.whighcharts.web.pages.examples.AreaBasicPage;
+import nl.topicus.whighcharts.web.pages.examples.AreaInvertedPage;
+import nl.topicus.whighcharts.web.pages.examples.AreaMissingPage;
+import nl.topicus.whighcharts.web.pages.examples.AreaNegativePage;
+import nl.topicus.whighcharts.web.pages.examples.AreasplinePage;
 
 public class HomePage extends BasePage
 {

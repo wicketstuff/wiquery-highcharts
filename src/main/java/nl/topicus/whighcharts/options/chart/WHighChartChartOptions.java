@@ -3,10 +3,6 @@ package nl.topicus.whighcharts.options.chart;
 import java.io.Serializable;
 import java.util.Arrays;
 
-import nl.topicus.whighcharts.components.WHighChart;
-import nl.topicus.whighcharts.options.jackson.ComponentMarkupIdSerializer;
-import nl.topicus.whighcharts.options.jackson.ToStringNoQuoteWithCurlyBracketsSerializer;
-
 import org.apache.wicket.Component;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
@@ -14,7 +10,10 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize.Inclusion;
+
+import nl.topicus.whighcharts.components.WHighChart;
+import nl.topicus.whighcharts.options.jackson.ComponentMarkupIdSerializer;
+import nl.topicus.whighcharts.options.jackson.ToStringNoQuoteWithCurlyBracketsSerializer;
 
 /**
  * Options regarding the chart area and plot area as well as general chart options.
@@ -248,7 +247,8 @@ public class WHighChartChartOptions implements Serializable
 	 * }
 	 * </pre>
 	 */
-	@JsonSerialize(include = Inclusion.NON_NULL, using = ToStringNoQuoteWithCurlyBracketsSerializer.class)
+	@JsonSerialize(using = ToStringNoQuoteWithCurlyBracketsSerializer.class)
+	@JsonInclude(value = Include.NON_NULL)
 	private String style;
 
 	/**

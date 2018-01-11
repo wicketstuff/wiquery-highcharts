@@ -3,13 +3,6 @@ package nl.topicus.whighcharts.components;
 import java.io.IOException;
 import java.util.Collection;
 
-import nl.topicus.whighcharts.components.modules.WHighChartsExportingJavaScriptResourceReference;
-import nl.topicus.whighcharts.options.WHighChartGlobalSettings;
-import nl.topicus.whighcharts.options.WHighChartOptions;
-import nl.topicus.whighcharts.options.axis.IWHighChartAxisCategoriesProvider;
-import nl.topicus.whighcharts.options.series.ISeries;
-import nl.topicus.whighcharts.options.series.ISeriesEntry;
-
 import org.apache.wicket.Application;
 import org.apache.wicket.RuntimeConfigurationType;
 import org.apache.wicket.markup.head.IHeaderResponse;
@@ -25,6 +18,13 @@ import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+
+import nl.topicus.whighcharts.components.modules.WHighChartsExportingJavaScriptResourceReference;
+import nl.topicus.whighcharts.options.WHighChartGlobalSettings;
+import nl.topicus.whighcharts.options.WHighChartOptions;
+import nl.topicus.whighcharts.options.axis.IWHighChartAxisCategoriesProvider;
+import nl.topicus.whighcharts.options.series.ISeries;
+import nl.topicus.whighcharts.options.series.ISeriesEntry;
 
 public class WHighChart<V, E extends ISeriesEntry<V>> extends WebMarkupContainer
 {

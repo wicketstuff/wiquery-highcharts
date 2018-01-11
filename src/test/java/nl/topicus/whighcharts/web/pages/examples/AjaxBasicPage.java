@@ -4,8 +4,8 @@ import nl.topicus.whighcharts.components.WHighChart;
 import nl.topicus.whighcharts.options.WHighChartFunctionCallback;
 import nl.topicus.whighcharts.options.chart.WHighChartChartOptionsType;
 import nl.topicus.whighcharts.options.plotoptions.WHighChartPlotAreaMarkerSymbolType;
-import nl.topicus.whighcharts.options.series.ValueSeries;
-import nl.topicus.whighcharts.options.series.ValueSeriesEntry;
+import nl.topicus.whighcharts.options.series.IntegerSeries;
+import nl.topicus.whighcharts.options.series.IntegerSeriesEntry;
 import nl.topicus.whighcharts.web.pages.BasePage;
 
 public class AjaxBasicPage extends BasePage
@@ -14,8 +14,8 @@ public class AjaxBasicPage extends BasePage
 
 	public AjaxBasicPage()
 	{
-		WHighChart<Integer, ValueSeriesEntry<Integer>> chart =
-			new WHighChart<Integer, ValueSeriesEntry<Integer>>("container");
+		WHighChart<Integer, IntegerSeriesEntry> chart =
+			new WHighChart<Integer, IntegerSeriesEntry>("container");
 		chart.getOptions().getExporting().setEnabled(true);
 
 		chart.getOptions().getChart().setType(WHighChartChartOptionsType.area);
@@ -49,7 +49,7 @@ public class AjaxBasicPage extends BasePage
 			.setClick(new WHighChartFunctionCallback(getPage()));
 
 		chart.getOptions().addSeries(
-			new ValueSeries<Integer>(null, null, null, null, null, 6, 11, 32, 110, 235, 369, 640,
+			new IntegerSeries(null, null, null, null, null, 6, 11, 32, 110, 235, 369, 640,
 				1005, 1436, 2063, 3057, 4618, 6444, 9822, 15468, 20434, 24126, 27387, 29459, 31056,
 				31982, 32040, 31233, 29224, 27342, 26662, 26956, 27912, 28999, 28965, 27826, 25579,
 				25722, 24826, 24605, 24304, 23464, 23708, 24099, 24357, 24237, 24401, 24344, 23586,
@@ -57,7 +57,7 @@ public class AjaxBasicPage extends BasePage
 				10527, 10475, 10421, 10358, 10295, 10104).setName("USA"));
 
 		chart.getOptions().addSeries(
-			new ValueSeries<Integer>(null, null, null, null, null, null, null, null, null, null, 5,
+			new IntegerSeries(null, null, null, null, null, null, null, null, null, null, 5,
 				25, 50, 120, 150, 200, 426, 660, 869, 1060, 1605, 2471, 3322, 4238, 5221, 6129,
 				7089, 8339, 9399, 10538, 11643, 13092, 14478, 15915, 17385, 19055, 21205, 23044,
 				25393, 27935, 30062, 32049, 33952, 35804, 37431, 39197, 45000, 43000, 41000, 39000,

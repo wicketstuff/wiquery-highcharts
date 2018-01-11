@@ -2,13 +2,13 @@ package nl.topicus.whighcharts.options;
 
 import java.io.Serializable;
 
-import nl.topicus.whighcharts.options.global.WHighChartGlobalOptions;
-import nl.topicus.whighcharts.options.lang.WHighChartLangOptions;
-
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
+import nl.topicus.whighcharts.options.global.WHighChartGlobalOptions;
+import nl.topicus.whighcharts.options.lang.WHighChartLangOptions;
 
 /**
  * Contains settings that must be set globally using Highcharts.setOptions, rather than

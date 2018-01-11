@@ -1,7 +1,5 @@
 package nl.topicus.whighcharts.options;
 
-import nl.topicus.whighcharts.options.jackson.ToStringNoQuoteSerializer;
-
 import org.apache.wicket.Component;
 import org.apache.wicket.ajax.AbstractDefaultAjaxBehavior;
 import org.apache.wicket.ajax.AjaxRequestTarget;
@@ -10,6 +8,8 @@ import org.apache.wicket.request.IRequestParameters;
 import org.apache.wicket.request.cycle.RequestCycle;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
+import nl.topicus.whighcharts.options.jackson.ToStringNoQuoteSerializer;
 
 @JsonSerialize(using = ToStringNoQuoteSerializer.class)
 public class WHighChartFunctionCallback extends AbstractDefaultAjaxBehavior implements

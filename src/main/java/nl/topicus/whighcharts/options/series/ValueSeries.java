@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 @JsonInclude(Include.NON_NULL)
-public class ValueSeries<V> extends AbstractSeries<V, ValueSeriesEntry<V>>
+public abstract class ValueSeries<V, E extends ValueSeriesEntry<V>> extends AbstractSeries<V, E>
 {
 	private static final long serialVersionUID = 1L;
 
@@ -15,13 +15,8 @@ public class ValueSeries<V> extends AbstractSeries<V, ValueSeriesEntry<V>>
 	public ValueSeries(V... values)
 	{
 		for (V value : values)
-			addEntry(new ValueSeriesEntry<V>(value));
+			addEntry(value);
 	}
 
-	@SuppressWarnings("unchecked")
-	public <T extends ValueSeries<V>> T addEntry(V value)
-	{
-		addEntry(new ValueSeriesEntry<V>(value));
-		return (T) this;
-	}
+	public abstract <T extends ValueSeries<V, E>> T addEntry(V value);
 }
