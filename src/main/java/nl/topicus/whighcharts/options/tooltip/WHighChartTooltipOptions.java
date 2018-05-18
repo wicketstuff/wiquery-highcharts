@@ -2,16 +2,15 @@ package nl.topicus.whighcharts.options.tooltip;
 
 import java.io.Serializable;
 
-import nl.topicus.whighcharts.options.WHighChartFunction;
-import nl.topicus.whighcharts.options.WHighChartFunctionString;
-import nl.topicus.whighcharts.options.jackson.ToStringNoQuoteWithCurlyBracketsSerializer;
-
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize.Inclusion;
+
+import nl.topicus.whighcharts.options.WHighChartFunction;
+import nl.topicus.whighcharts.options.WHighChartFunctionString;
+import nl.topicus.whighcharts.options.jackson.ToStringNoQuoteWithCurlyBracketsSerializer;
 
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 @JsonInclude(Include.NON_NULL)
@@ -71,7 +70,8 @@ public class WHighChartTooltipOptions implements Serializable
 
 	private Number snap;
 
-	@JsonSerialize(include = Inclusion.NON_NULL, using = ToStringNoQuoteWithCurlyBracketsSerializer.class)
+	@JsonSerialize(using = ToStringNoQuoteWithCurlyBracketsSerializer.class)
+	@JsonInclude(value = Include.NON_NULL)
 	private String style;
 
 	/**

@@ -5,6 +5,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
 import nl.topicus.whighcharts.components.WHighChart;
 import nl.topicus.whighcharts.options.axis.WHighChartAxisOptions;
 import nl.topicus.whighcharts.options.chart.WHighChartChartOptions;
@@ -21,11 +26,6 @@ import nl.topicus.whighcharts.options.series.ISeriesEntry;
 import nl.topicus.whighcharts.options.symbols.WHighChartSymbolsOptionsType;
 import nl.topicus.whighcharts.options.title.WHighChartTitleOptions;
 import nl.topicus.whighcharts.options.tooltip.WHighChartTooltipOptions;
-
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 @JsonInclude(Include.NON_NULL)

@@ -22,8 +22,8 @@ public class ObjectSeriesEntry implements ISeriesEntry<Number>
 	private String events;
 
 	/**
-	 * An id for the point. This can be used after render time to get a pointer to the
-	 * point object through chart.get(). Defaults to null.
+	 * An id for the point. This can be used after render time to get a pointer to the point
+	 * object through chart.get(). Defaults to null.
 	 */
 	private String id;
 
@@ -33,14 +33,12 @@ public class ObjectSeriesEntry implements ISeriesEntry<Number>
 	private String marker;
 
 	/**
-	 * The name of the point as shown in the legend, tooltip, dataLabel etc. Defaults to
-	 * "".
+	 * The name of the point as shown in the legend, tooltip, dataLabel etc. Defaults to "".
 	 */
 	private String name;
 
 	/**
-	 * Pie series only. Whether to display a slice offset from the center. Defaults to
-	 * false.
+	 * Pie series only. Whether to display a slice offset from the center. Defaults to false.
 	 */
 	private Boolean sliced;
 

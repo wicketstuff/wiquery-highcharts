@@ -2,16 +2,15 @@ package nl.topicus.whighcharts.options.title;
 
 import java.io.Serializable;
 
-import nl.topicus.whighcharts.options.WHighChartHorizontalAlignmentType;
-import nl.topicus.whighcharts.options.WHighChartVerticalAlignmentType;
-import nl.topicus.whighcharts.options.jackson.ToStringNoQuoteWithCurlyBracketsSerializer;
-
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize.Inclusion;
+
+import nl.topicus.whighcharts.options.WHighChartHorizontalAlignmentType;
+import nl.topicus.whighcharts.options.WHighChartVerticalAlignmentType;
+import nl.topicus.whighcharts.options.jackson.ToStringNoQuoteWithCurlyBracketsSerializer;
 
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 @JsonInclude(Include.NON_NULL)
@@ -47,7 +46,8 @@ public class WHighChartTitleOptions implements Serializable
 	 * CSS styles for the title. Use this for font styling, but use align, x and yfor text
 	 * alignment. Defaults to: { color: '#3E576F', fontSize: '16px' }
 	 */
-	@JsonSerialize(include = Inclusion.NON_NULL, using = ToStringNoQuoteWithCurlyBracketsSerializer.class)
+	@JsonSerialize(using = ToStringNoQuoteWithCurlyBracketsSerializer.class)
+	@JsonInclude(value = Include.NON_NULL)
 	private String style;
 
 	/**

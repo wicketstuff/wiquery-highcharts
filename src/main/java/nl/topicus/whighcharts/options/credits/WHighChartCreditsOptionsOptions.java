@@ -2,13 +2,13 @@ package nl.topicus.whighcharts.options.credits;
 
 import java.io.Serializable;
 
-import nl.topicus.whighcharts.options.WHighChartHorizontalAlignmentType;
-import nl.topicus.whighcharts.options.WHighChartVerticalAlignmentType;
-
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
+import nl.topicus.whighcharts.options.WHighChartHorizontalAlignmentType;
+import nl.topicus.whighcharts.options.WHighChartVerticalAlignmentType;
 
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 @JsonInclude(Include.NON_NULL)

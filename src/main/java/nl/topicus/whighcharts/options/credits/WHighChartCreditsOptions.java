@@ -2,14 +2,13 @@ package nl.topicus.whighcharts.options.credits;
 
 import java.io.Serializable;
 
-import nl.topicus.whighcharts.options.jackson.ToStringNoQuoteWithCurlyBracketsSerializer;
-
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize.Inclusion;
+
+import nl.topicus.whighcharts.options.jackson.ToStringNoQuoteWithCurlyBracketsSerializer;
 
 /**
  * Highchart by default puts a credits label in the lower right corner of the chart. This
@@ -40,7 +39,8 @@ public class WHighChartCreditsOptions implements Serializable
 	 * CSS styles for the credits label. Defaults to: itemStyle: { cursor: 'pointer',
 	 * color: '#909090', fontSize: '10px' }
 	 */
-	@JsonSerialize(include = Inclusion.NON_NULL, using = ToStringNoQuoteWithCurlyBracketsSerializer.class)
+	@JsonSerialize(using = ToStringNoQuoteWithCurlyBracketsSerializer.class)
+	@JsonInclude(value = Include.NON_NULL)
 	private String style;
 
 	/**

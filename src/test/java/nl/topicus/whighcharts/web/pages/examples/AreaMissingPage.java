@@ -5,8 +5,8 @@ import nl.topicus.whighcharts.options.WHighChartHorizontalAlignmentType;
 import nl.topicus.whighcharts.options.WHighChartVerticalAlignmentType;
 import nl.topicus.whighcharts.options.chart.WHighChartChartOptionsType;
 import nl.topicus.whighcharts.options.legend.WHighChartLegendLayoutType;
-import nl.topicus.whighcharts.options.series.ValueSeries;
-import nl.topicus.whighcharts.options.series.ValueSeriesEntry;
+import nl.topicus.whighcharts.options.series.IntegerSeries;
+import nl.topicus.whighcharts.options.series.IntegerSeriesEntry;
 import nl.topicus.whighcharts.web.pages.BasePage;
 
 public class AreaMissingPage extends BasePage
@@ -15,8 +15,8 @@ public class AreaMissingPage extends BasePage
 
 	public AreaMissingPage()
 	{
-		WHighChart<Integer, ValueSeriesEntry<Integer>> chart =
-			new WHighChart<Integer, ValueSeriesEntry<Integer>>("container");
+		WHighChart<Integer, IntegerSeriesEntry> chart =
+			new WHighChart<Integer, IntegerSeriesEntry>("container");
 		chart.getOptions().getExporting().setEnabled(true);
 
 		chart.getOptions().getChart().setType(WHighChartChartOptionsType.area)
@@ -31,11 +31,8 @@ public class AreaMissingPage extends BasePage
 			.setVerticalAlign(WHighChartVerticalAlignmentType.top).setX(150).setY(100)
 			.setFloating(true).setBorderWidth(1).setBackgroundColor("#FFFFFF");
 
-		chart
-			.getOptions()
-			.getxAxis()
-			.setCategories("Apples", "Pears", "Oranges", "Bananas", "Grapes", "Plums",
-				"Strawberries", "Raspberries");
+		chart.getOptions().getxAxis().setCategories("Apples", "Pears", "Oranges", "Bananas",
+			"Grapes", "Plums", "Strawberries", "Raspberries");
 
 		chart.getOptions().getyAxis().getTitle().setText("Y-Axis");
 		chart.getOptions().getyAxis().getLabels().setFormatter("return this.value;");
@@ -47,10 +44,8 @@ public class AreaMissingPage extends BasePage
 
 		chart.getOptions().getCredits().setEnabled(false);
 
-		chart.getOptions().addSeries(
-			new ValueSeries<Integer>(0, 1, 4, 4, 5, 2, 3, 7).setName("John"));
-		chart.getOptions().addSeries(
-			new ValueSeries<Integer>(1, 0, 3, null, 3, 1, 2, 1).setName("Jane"));
+		chart.getOptions().addSeries(new IntegerSeries(0, 1, 4, 4, 5, 2, 3, 7).setName("John"));
+		chart.getOptions().addSeries(new IntegerSeries(1, 0, 3, null, 3, 1, 2, 1).setName("Jane"));
 
 		add(chart);
 	}
