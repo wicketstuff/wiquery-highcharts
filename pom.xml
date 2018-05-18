@@ -14,7 +14,7 @@
 	<groupId>nl.topicus</groupId>
 	<artifactId>whighcharts</artifactId>
 	<packaging>jar</packaging>
-	<version>7.9.0-SNAPSHOT</version>
+	<version>8.0-SNAPSHOT</version>
 	<name>WHighCharts</name>
 
 	<url>https://github.com/hielkehoeve/wiquery-highcharts/wiki</url>
@@ -49,8 +49,8 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<wiquery.version>7.0.0-SNAPSHOT</wiquery.version>
-		<wicket.version>7.9.0</wicket.version>
+		<wiquery.version>8.0-SNAPSHOT</wiquery.version>
+		<wicket.version>8.0.0-M9</wicket.version>
 		<slf4j.version>[1.7,1.7.12]</slf4j.version>
 		<jetty.version>9.0.7.v20131107</jetty.version>
 
@@ -88,20 +88,20 @@
 
 			<!-- WiQuery dependencies -->
 			<dependency>
-				<groupId>org.odlabs.wiquery</groupId>
+				<groupId>org.wicketstuff.wiquery</groupId>
 				<artifactId>wiquery-core</artifactId>
 				<version>${wiquery.version}</version>
 			</dependency>
 			<!-- add wiquery-core also as test project so wiquery-jquery-ui can use 
 				the abstract testcase class -->
 			<dependency>
-				<groupId>org.odlabs.wiquery</groupId>
+				<groupId>org.wicketstuff.wiquery</groupId>
 				<artifactId>wiquery-core</artifactId>
 				<version>${wiquery.version}</version>
 				<classifier>tests</classifier>
 			</dependency>
 			<dependency>
-				<groupId>org.odlabs.wiquery</groupId>
+				<groupId>org.wicketstuff.wiquery</groupId>
 				<artifactId>wiquery-jquery-ui</artifactId>
 				<version>${wiquery.version}</version>
 			</dependency>
@@ -129,11 +129,11 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>org.odlabs.wiquery</groupId>
+			<groupId>org.wicketstuff.wiquery</groupId>
 			<artifactId>wiquery-core</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.odlabs.wiquery</groupId>
+			<groupId>org.wicketstuff.wiquery</groupId>
 			<artifactId>wiquery-jquery-ui</artifactId>
 		</dependency>
 
@@ -186,8 +186,8 @@
 				<version>${maven-compiler-plugin.version}</version>
 				<inherited>true</inherited>
 				<configuration>
-					<source>1.7</source>
-					<target>1.7</target>
+					<source>1.8</source>
+					<target>1.8</target>
 					<encoding>UTF-8</encoding>
 					<showWarnings>true</showWarnings>
 					<showDeprecation>true</showDeprecation>

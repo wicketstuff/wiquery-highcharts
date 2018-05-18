@@ -4,3 +4,4 @@ target/
 bin/
 *.log
 .DS_Store
+rebel.xml
