@@ -50,7 +50,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<wiquery.version>8.0-SNAPSHOT</wiquery.version>
-		<wicket.version>8.0.0-M8</wicket.version>
+		<wicket.version>8.0.0-M9</wicket.version>
 		<slf4j.version>[1.7,1.7.12]</slf4j.version>
 		<jetty.version>9.0.7.v20131107</jetty.version>
 
@@ -186,8 +186,8 @@
 				<version>${maven-compiler-plugin.version}</version>
 				<inherited>true</inherited>
 				<configuration>
-					<source>1.7</source>
-					<target>1.7</target>
+					<source>1.8</source>
+					<target>1.8</target>
 					<encoding>UTF-8</encoding>
 					<showWarnings>true</showWarnings>
 					<showDeprecation>true</showDeprecation>
